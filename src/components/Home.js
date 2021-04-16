@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Header from "./Header";
 import AddEmployee from "./Employee/AddEmployee";
 import RemoveEmployee from "./Employee/removeEmployee";
@@ -7,19 +6,10 @@ import QRMarker from "./attendance/QRMarker";
 import AttendanceList from "./attendance/AttendanceList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import EmployeeList from "./Employee/employeeList";
+import addNewLeave from "./leave/addLeave";
 
 function Home() {
-  /*const [selectedRoute, setSelectedRoute] = useState("add-employee");*/
-
   return (
-    /*<dev>
-      <Header onClickHeader={setSelectedRoute} />
-      {selectedRoute === "add-employee" && <AddEmployee />}
-      {selectedRoute === "remove-employee" && <RemoveEmployee />}
-      {selectedRoute === "update-employee" && <UpdateEmployee />}
-      {selectedRoute === "attendance" && <QRMarker />}
-      {selectedRoute === "attendance-list" && <AttendanceList />}
-    </dev>*/
     <Router>
       <div>
         <Header />
@@ -29,6 +19,8 @@ function Home() {
         <Route path="/updateEmp/:userId" exact component={UpdateEmployee} />
         <Route path="/attendaceMark" exact component={QRMarker} />
         <Route path="/attendanceList" exact component={AttendanceList} />
+        <Route path="/addLeave" exact component={addNewLeave} />
+        <Route path="/leaveList" exact component={addNewLeave} />
       </div>
     </Router>
   );

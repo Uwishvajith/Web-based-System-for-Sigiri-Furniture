@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { addEmployee } from "../../services/employeeService";
-
-const HOST = "http://localhost:4000";
 
 export default function Addemployee() {
   const [fName, setfName] = useState("");

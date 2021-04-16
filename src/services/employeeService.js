@@ -3,7 +3,7 @@ import axios from "axios";
 const HOST = "http://localhost:4000";
 
 export const addEmployee = async (employeePayload) => {
-  console.log(employeePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");
+  //console.log(employeePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");
   try {
     await axios.post(`${HOST}/api/employee`, employeePayload);
     return {
@@ -33,7 +33,36 @@ export const getEmployee = async (employeeId) => {
 export const updateEmployee = async (userId, employeePayload) => {
   console.log(employeePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");
   try {
-    await axios.post(`${HOST}/api/employee/${userId}`, employeePayload);
+    await axios.put(`${HOST}/api/employee/${userId}`, employeePayload);
+    return {
+      ok: true,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+    };
+  }
+};
+
+export const getAllEmployees = async () => {
+  console.log("done;");
+  try {
+    const response = await axios.get(`${HOST}/api/employee`);
+    console.log(response, "res");
+    return {
+      ok: true,
+      data: response.data.data,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+    };
+  }
+};
+
+export const deleteEmployee = async (userId) => {
+  try {
+    await axios.delete(`${HOST}/api/employee/${userId}`);
     return {
       ok: true,
     };

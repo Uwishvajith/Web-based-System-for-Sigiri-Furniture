@@ -36,8 +36,8 @@ export default class AttendanceList extends Component {
     const { attendanceList, isFetching } = this.state;
     if (attendanceList) {
       return (
-        <div>
-          <table>
+        <div className="mt-5 pl-5">
+          <table border="1">
             <tr>
               <th>ID</th>
               <th>Time</th>
@@ -47,7 +47,15 @@ export default class AttendanceList extends Component {
         </div>
       );
     } else if (isFetching) {
-      return <div>Loading.....!!!</div>;
+      return (
+        <div class="d-flex justify-content-center mt-5">
+          <div class="spinner-grow text-danger mt-5" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        /*<div>Loading.....!!!</div>*/
+      );
     }
     return <div>No Data Found!</div>;
   }
