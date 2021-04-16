@@ -47,7 +47,7 @@ function Header(props) {
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/leaveList">
-              Attendance List
+              Leave List
             </a>
           </li>
         </ul>

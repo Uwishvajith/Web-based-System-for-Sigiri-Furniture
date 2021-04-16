@@ -7,6 +7,7 @@ import AttendanceList from "./attendance/AttendanceList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import EmployeeList from "./Employee/employeeList";
 import addNewLeave from "./leave/addLeave";
+import LeaveList from "./leave/leaveList";
 
 function Home() {
   return (
@@ -20,7 +21,7 @@ function Home() {
         <Route path="/attendaceMark" exact component={QRMarker} />
         <Route path="/attendanceList" exact component={AttendanceList} />
         <Route path="/addLeave" exact component={addNewLeave} />
-        <Route path="/leaveList" exact component={addNewLeave} />
+        <Route path="/leaveList" exact component={LeaveList} />
       </div>
     </Router>
   );

@@ -16,7 +16,7 @@ export const addLeave = async (leavePayload) => {
   }
 };
 
-/*export const getAllleaves = async () => {
+export const getAllleaves = async () => {
   console.log("done;");
   try {
     const response = await axios.get(`${HOST}/api/leave`);
@@ -30,4 +30,4 @@ export const addLeave = async (leavePayload) => {
       ok: false,
     };
   }
-};*/
+};

@@ -107,6 +107,7 @@ export default class EmployeeList extends Component {
     if (EmployeeList) {
       return (
         <div>
+          <h2 className="text-center">Employee List</h2>
           <table border="1">
             <tr>
               <th>Employee ID</th>
