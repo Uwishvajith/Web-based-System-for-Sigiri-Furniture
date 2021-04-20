@@ -91,57 +91,27 @@ function Home() {
         <Route path="/allCustomer" exact component={AllCustomers} />
         <Route path="/order/getOrder/:oID" exact component={ViewOrder} />
         <Route path="/order/update/:oID" exact component={UpdateOrder} />
-        <Route
-          path="/orderItem/update/:oID"
-          exact
-          component={UpdateOrderItems}
-        />
+<<<<<<< HEAD
+        <Route path="/orderItem/update/:oID" exact component={UpdateOrderItems}/>
         <Route path="/displayOrders" exact component={AllOrders} />
-        <Route
-          path="/order/GenerateOrderReport"
-          exact
-          component={GenerateOrderReport}
-        />
-        <Route
-          path="/order/GenerateCustomerReport"
-          exact
-          component={GenerateCustomerReport}
-        />
-        <Route
-          path="/order/GenerateOrderItemsReport"
-          exact
-          component={GenerateOrderItemsReport}
-        />
+        <Route path="/order/GenerateOrderReport" exact component={GenerateOrderReport}/>
+=======
+        <Route path="/orderItem/update/:oID" exactcomponent={UpdateOrderItems}/>
+        <Route path="/displayOrders" exact component={AllOrders} />
+        <Route path="/order/GenerateOrderReport" exactcomponent={GenerateOrderReport}/>
+>>>>>>> d115b3aaa602b921ac91745e558a5b2c5e77bb20
+        <Route path="/order/GenerateCustomerReport" exact component={GenerateCustomerReport}/>
+        <Route path="/order/GenerateOrderItemsReport" exact component={GenerateOrderItemsReport}/>
 
         {/*thisara*/}
         <Route path="/addpromotion" exact component={AddPromotionDetails} />
         <Route path="/addadd" exact component={AddProductPrice} />
         <Route path="/allview" exact component={AllPromotionDetails} />
-        <Route
-          path="/getproductprice"
-          exact
-          component={AllProductPriceDetails}
-        />
-        <Route
-          path="/get/:promotionid"
-          exact
-          component={ViewPromotionDetails}
-        />
-        <Route
-          path="/getget/:salesid"
-          exact
-          component={ViewProductPriceDetails}
-        />
-        <Route
-          path="/update/:promotionid"
-          exact
-          component={UpdatePromotionDetails}
-        />
-        <Route
-          path="/updateupdate/:salesid"
-          exact
-          component={UpdateProductPricesDetails}
-        />
+        <Route path="/getproductprice" exact component={AllProductPriceDetails}/>
+        <Route path="/get/viewpromotion/:promotionid" exact component={ViewPromotionDetails}/>
+        <Route path="/getget/:salesid" exact component={ViewProductPriceDetails}/>
+        <Route path="/update/promotion/:promotionid" exact component={UpdatePromotionDetails}/>
+        <Route path="/updateupdate/:salesid" exact component={UpdateProductPricesDetails}/>
         <Route path="/promotion/report" exact component={PromotionReport} />
         <Route path="/price/report" exact component={PriceReport} />
       </div>

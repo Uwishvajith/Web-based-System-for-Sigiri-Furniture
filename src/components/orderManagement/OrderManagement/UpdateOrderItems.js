@@ -81,7 +81,7 @@ function UpdateOrderItems() {
         <nav class="main-menu bg-primary">
           <ul>
             <li class="has-subnav">
-              <Link to="/">
+              <Link to="/allCustomer">
                 <i class="fa fa-home fa-2x"></i>
                 <span class="nav-text">Home</span>
                 <i class="fa fa-angle-right fa-2x"></i>
@@ -218,7 +218,7 @@ function UpdateOrderItems() {
 
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
               <button className="btn btn-outline-primary me-md-2" type="reset" value="RESET" onClick={refreshPage}>RESET</button>
-              <button className="btn btn-outline-primary me-md-2" type="submit" value="SUBMIT">UPDATE PRODUCT LIST</button>
+              <button className="btn btn-outline-primary me-md-2 ml-2" type="submit" value="SUBMIT">UPDATE PRODUCT LIST</button>
             </div>
           </div>
         </form>

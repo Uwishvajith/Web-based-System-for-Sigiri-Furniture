@@ -82,7 +82,7 @@ export default function AllProductPriceDetails() {
             <nav class="main-menu bg-primary">
               <ul>
                 <li>
-                  <a href="/">
+                  <a href="/allview">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">Home</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -192,6 +192,9 @@ export default function AllProductPriceDetails() {
         </table>
 
         <Link class="btn btn-info" role="button" to="/addadd"> + ADD NEW PRODUCT PRICES </Link>
+
+        <br></br>
+        <br></br>
 
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 function Dashboard(props) {
   return (
@@ -34,16 +35,17 @@ function Dashboard(props) {
             </div>
             <div class="row">
               <div class="col-sm">
-                <button type="button" class="btn btn-primary" id="btn-dash">
+                <Link to="/allCustomer"><button type="button" class="btn btn-primary" id="btn-dash">
                   <i class="fa fa-shopping-cart pr-5"></i>
                   <span class="lead align-top ">Order Management</span>
-                </button>
+                </button></Link>
               </div>
               <div class="col-sm">
+                <Link to="/allview" >
                 <button type="button" class="btn btn-primary" id="btn-dash">
                   <i class="fa fa-percent mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Promotion Management</span>
-                </button>
+                </button></Link>
               </div>
               <div class="col-sm">
                 <button type="button" class="btn btn-primary" id="btn-dash">

@@ -32,7 +32,7 @@ export default function AddPromotionDetails() {
     axios.post("http://localhost:8080/promotion/add", newPromotion).then(() => {
       alert("New Promotion Added");
       function refreshPage() {
-        window.location.replace("/");
+        window.location.replace("/allview");
       }
       refreshPage();
     }).catch((err) => {
@@ -54,7 +54,7 @@ export default function AddPromotionDetails() {
           <nav class="main-menu bg-primary">
             <ul>
               <li>
-                <a href="/">
+                <a href="/allview">
                   <i class="fa fa-home fa-2x"></i>
                   <span class="nav-text">Home</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -213,9 +213,9 @@ export default function AddPromotionDetails() {
             </div>
             <br></br>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button type="submit" className="btn btn-outline-info" >Add Promotion Details</button>
-              <Link className="btn btn-outline-info" role="button" to="/allview">View All Promotions </Link>
-              <button className="btn btn-outline-info" n ame="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+              <button type="submit" className="btn btn-outline-info ml-2" >Add Promotion Details</button>
+              <Link className="btn btn-outline-info ml-2" role="button" to="/allview">View All Promotions </Link>
+              <button className="btn btn-outline-info ml-2" n ame="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
             </div>
           </form><br></br><br></br><br></br>
         </div>

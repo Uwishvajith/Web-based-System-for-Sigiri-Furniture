@@ -111,7 +111,7 @@ export default function AllCustomers() {
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li class="has-subnav">
-                            <Link to="/">
+                            <Link to="/allCustomer">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Home</span>
                                 <i class="fa fa-angle-right fa-2x"></i>

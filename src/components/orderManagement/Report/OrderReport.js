@@ -27,7 +27,7 @@ export default function GenerateOrderReport() {
         <nav class="main-menu bg-primary">
           <ul>
             <li class="has-subnav">
-              <Link to="/">
+              <Link to="/allCustomer">
                 <i class="fa fa-home fa-2x"></i>
                 <span class="nav-text">Home</span>
                 <i class="fa fa-angle-right fa-2x"></i>
@@ -98,9 +98,9 @@ export default function GenerateOrderReport() {
         </nav>
       </div>
 
-      <div style={{ position: "absolute", top: "10%", width: "100%", height: "100%" }}>
-        <div className="container-fluid">
-          <MaterialTable
+      <div style={{ position: "absolute", top: "6%",  left:"-6%",width: "100%", height: "100%" }}>
+        <div className="container-fluid" style={{fontWeight:"bold",fontStyle:"italic"}}>
+          <MaterialTable style={{background:"#ace5ee"}}
             title="Order List"
             columns={[
               { title: "Order Id", field: "orderId", type: "string" },
