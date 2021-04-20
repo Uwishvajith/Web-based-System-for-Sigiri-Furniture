@@ -49,7 +49,7 @@ function Header(props) {
         </nav>
       </header>
 
-      <div class="area"></div>
+      {/*<div class="area"></div>
       <nav class="main-menu bg-primary fixed-top">
         <ul>
           <li>
@@ -114,7 +114,7 @@ function Header(props) {
             </a>
           </li>
         </ul>
-      </nav>
+  </nav>*/}
     </div>
 
     /*<nav className="navbar navbar-expand-lg navbar-light bg-light ">

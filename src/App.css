@@ -10,6 +10,18 @@
   vertical-align: middle;
   font-size: 20px;
 }
+#fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+#fa-2x {
+  font-size: 2em;
+}
 
 .main-menu:hover,
 nav.main-menu.expanded {
@@ -181,4 +193,10 @@ td {
 }
 .qr-txt {
   margin-top: 130px;
+}
+
+/*view ledger css*/
+
+#height {
+  margin-top: 120px;
 }
