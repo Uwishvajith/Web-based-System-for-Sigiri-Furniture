@@ -60,12 +60,12 @@ export default function Addemployee() {
 
   return (
     <div class="component-body">
-      <div>
+       <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
           <ul>
             <li>
-              <a href="/">
+              <a href="/empList">
                 <i class="fa fa-home fa-2x"></i>
                 <span class="nav-text">Home</span>
                 <i class="fa fa-angle-right fa-2x"></i>
@@ -119,7 +119,7 @@ export default function Addemployee() {
 
           <ul class="logout">
             <li>
-              <a href="#">
+              <a href="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
