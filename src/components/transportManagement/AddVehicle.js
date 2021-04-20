@@ -64,42 +64,51 @@ export default function AddVehicle() {
 
     return (
 
+        <div class ="component-body">
+        
         <div class="area">
-            <nav class="main-menu bg-primary">
-                <ul>
-                    <li>
-                        <a href="http://justinfarrow.com">
-                            <i class="fa fa-home fa-2x"></i>
-                            <span class="nav-text">Dashboard</span>
-                            <i class="fa fa-angle-right fa-2x"></i>
-                        </a>
-                    </li>
-                    <li class="has-subnav">
-                        <a href="#">
-                            <i class="fa fa fa-users fa-2x"></i>
-                            <span class="nav-text">Employee List</span>
-                            <i class="fa fa-angle-right fa-2x"></i>
-                        </a>
-                    </li>
-                    <li class="has-subnav">
-                        <a href="#">
-                            <i class="fa fa-user-plus fa-2x"></i>
-                            <span class="nav-text">Add Employee</span>
-                            <i class="fa fa-angle-right fa-2x"></i>
-                        </a>
-                    </li>
-                </ul>
+                <nav class="main-menu bg-primary">
+                    <ul>
+                        <li>
+                            <a href="/viewVehicle">
+                                <i class="fa fa-home fa-2x"></i>
+                                <span class="nav-text">Dashboard</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="has-subnav">
+                            <a href="/viewVehicle">
+                                <i class="fa fa-automobile fa-2x"></i>
+                                <span class="nav-text">Vehicle List</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="has-subnav">
+                            <a href="/addVehicle">
+                                <i class="fa fa-ambulance fa-2x"></i>
+                                <span class="nav-text">Add Vehicle</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="has-subnav">
+                            <a href="/addM">
+                                <i class="fa fa-wrench fa-2x"></i>
+                                <span class="nav-text">Maintenance</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
 
-                <ul class="logout">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-power-off fa-2x"></i>
-                            <span class="nav-text">Logout</span>
-                            <i class="fa fa-angle-right fa-2x"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    <ul class="logout">
+                        <li>
+                            <a href="/">
+                                <i class="fa fa-power-off fa-2x"></i>
+                                <span class="nav-text">Logout</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
 
             <div className="container mb-3" style={{ top: "500" }}>
@@ -175,6 +184,7 @@ export default function AddVehicle() {
                     <button type="submit" className="btn btn-primary" >Submit</button>
                 </form>
             </div>
+        </div>
         </div>
     )
 
