@@ -91,15 +91,9 @@ function Home() {
         <Route path="/allCustomer" exact component={AllCustomers} />
         <Route path="/order/getOrder/:oID" exact component={ViewOrder} />
         <Route path="/order/update/:oID" exact component={UpdateOrder} />
-<<<<<<< HEAD
         <Route path="/orderItem/update/:oID" exact component={UpdateOrderItems}/>
         <Route path="/displayOrders" exact component={AllOrders} />
         <Route path="/order/GenerateOrderReport" exact component={GenerateOrderReport}/>
-=======
-        <Route path="/orderItem/update/:oID" exactcomponent={UpdateOrderItems}/>
-        <Route path="/displayOrders" exact component={AllOrders} />
-        <Route path="/order/GenerateOrderReport" exactcomponent={GenerateOrderReport}/>
->>>>>>> d115b3aaa602b921ac91745e558a5b2c5e77bb20
         <Route path="/order/GenerateCustomerReport" exact component={GenerateCustomerReport}/>
         <Route path="/order/GenerateOrderItemsReport" exact component={GenerateOrderItemsReport}/>
 
