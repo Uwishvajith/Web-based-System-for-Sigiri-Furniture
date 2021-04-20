@@ -100,7 +100,7 @@ export default function PriceReport() {
         <div>
           <br></br>
           <br></br>
-          <MaterialTable
+          <MaterialTable style={{backgroundColor:"#c2d6d6"}}
             title={"Product Prices List"}
             columns={[
               { title: "Sales ID", field: "salesid", type: "text" },

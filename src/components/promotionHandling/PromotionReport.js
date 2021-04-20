@@ -99,8 +99,8 @@ export default function PromotionReport() {
         <br></br>
         <br></br>
 
-        <MaterialTable
-          title={"Promotion Details List"}
+        <MaterialTable style={{backgroundColor:"#c2d6d6"}}
+          title={"Promotion Details List" } 
           columns={[
             { title: "Promotion ID", field: "promotionid", type: "text" },
             { title: "Product ID", field: "productid", type: "text" },
