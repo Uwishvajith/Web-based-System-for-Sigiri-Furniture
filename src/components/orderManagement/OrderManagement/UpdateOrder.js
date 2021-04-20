@@ -78,7 +78,7 @@ function UpdateOrder() {
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li class="has-subnav">
-                            <Link to="/">
+                            <Link to="/allCustomer">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Home</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
@@ -152,7 +152,8 @@ function UpdateOrder() {
                 </nav>
             </div>
             <div className="container" class="border border-dark border-2" style={{ background: "#e7ebe8" }}>
-                <form class="row g-3" onSubmit={onSubmit} style={{ marginLeft: 30, marginRight: 30 }}>
+                <form class="row g-3" onSubmit={onSubmit} style={{ marginLeft: 30, marginRight: 30,font: "italic small-caps bold 16px/30px Georgia, serif" }}>
+                    
                     <center>
                         <h3>Update Order Details </h3></center>
                     <div className="form-group" style={{ font: "italic small-caps bold 16px/30px Georgia, serif" }} >
@@ -202,16 +203,16 @@ function UpdateOrder() {
 
                     </div>
                     <div className="form-group">
-
-                        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div style={{position:"absolute",bottom: "2%", left: "67%", width: "15%", height: "10%"}}>
+                        <div className="d-grid gap-2 d-md-flex justify-content">
                             <button className="btn btn-primary" type="reset" value="RESET" onClick={refreshPage}>RESET</button>
                             <button className="btn btn-primary" type="submit" value="SUBMIT">UPDATE ORDER</button>
                         </div>
-
+                        </div>
                         <div className="d-grid gap-2 d-md-flex justify-content">
 
                             <Link to={`/orderItem/update/${oID}`}> <button class="text-decoration-none" class="btn btn-danger ">Update Product List</button> </Link>
-                            <Link to={"/displayOrders"}> <button class="text-decoration-none" class="btn btn-success "> BACK</button> </Link>
+                            <Link to={"/displayOrders"}> <button class="text-decoration-none" class="btn btn-success ml-2 "> BACK</button> </Link>
 
                         </div>
                     </div>
