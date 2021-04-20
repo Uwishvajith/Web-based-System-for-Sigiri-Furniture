@@ -36,11 +36,12 @@ export default class AttendanceList extends Component {
     const { attendanceList, isFetching } = this.state;
     if (attendanceList) {
       return (
-        <div className="mt-5 pl-5">
-          <table border="1">
+        <div class="component-body">
+          <h2 className="text-center">List of Attendance</h2>
+          <table class="table table-striped table-dark">
             <tr>
               <th>ID</th>
-              <th>Time</th>
+              <th>In Time</th>
             </tr>
             {this.generateTableRows(attendanceList)}
           </table>

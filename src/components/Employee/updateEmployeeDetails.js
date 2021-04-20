@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getEmployee, updateEmployee } from "../../services/employeeService";
 
-const HOST = "http://localhost:4000";
-
 export default function UpdateEmployee(props) {
   useEffect(() => {
     const {
@@ -19,7 +17,7 @@ export default function UpdateEmployee(props) {
       setEmail(response.data.eMail);
       setNIC(response.data.NIC);
       //setDOB(response.data.DOB);
-      setAge(response.data.Age);
+      //setAge(response.data.Age);
       //setGender(response.data.Gender);
       setMaritalStat(response.data.MaritalStatus);
       setCurrAdd(response.data.CurrentAddress);
@@ -29,8 +27,8 @@ export default function UpdateEmployee(props) {
       setEmgContact(response.data.EmergencyContact);
       setDesignation(response.data.Designation);
       setDepartment(response.data.Department);
-      setJoinedDate(response.data.JoinedDate);
-      /*setWorkedCompany(response.data.PreviouslyWorkedCompany);
+      /*setJoinedDate(response.data.JoinedDate);
+      setWorkedCompany(response.data.PreviouslyWorkedCompany);
       setYearsOfEx(response.data.YearsOfExperiance);
       setEmpPic(response.data.EmployeePicture);
       setCV(response.data.CV);*/
@@ -42,7 +40,7 @@ export default function UpdateEmployee(props) {
   const [lName, setlName] = useState("");
   const [email, setEmail] = useState("");
   const [nic, setNIC] = useState("");
-  const [age, setAge] = useState("");
+  //const [age, setAge] = useState("");
   const [maritalStat, setMaritalStat] = useState("");
   const [currAdd, setCurrAdd] = useState("");
   const [permAdd, setPermAdd] = useState("");
@@ -51,7 +49,7 @@ export default function UpdateEmployee(props) {
   const [emgContact, setEmgContact] = useState("");
   const [designation, setDesignation] = useState("");
   const [department, setDepartment] = useState("");
-  const [joinedDate, setJoinedDate] = useState("");
+  //const [joinedDate, setJoinedDate] = useState("");
   /*const [empPic, setEmpPic] = useState("");
   const [cv, setCV] = useState("");*/
 
@@ -64,7 +62,7 @@ export default function UpdateEmployee(props) {
       email,
       nic,
       //DOB,
-      age,
+      //age,
       //gender,
       maritalStat,
       currAdd,
@@ -74,7 +72,7 @@ export default function UpdateEmployee(props) {
       emgContact,
       designation,
       department,
-      joinedDate,
+      //joinedDate,
       //workedCompany,
       //yearsOfEx,
       //empPic,
@@ -115,6 +113,7 @@ export default function UpdateEmployee(props) {
                 type="text"
                 className="form-control"
                 placeholder="Last name"
+                disabled
                 onChange={(e) => {
                   setlName(e.target.value);
                 }}
@@ -156,6 +155,7 @@ export default function UpdateEmployee(props) {
                 type="date"
                 className="form-control"
                 name="dob"
+                disabled
                 /*onChange={(e) => {
                   setDOB(e.target.value);
                 }}*/
@@ -166,20 +166,23 @@ export default function UpdateEmployee(props) {
             <div className="col">
               <label for="age">Age:</label>
               <input
-                value={age}
+                //value={age}
                 id="age"
                 type="number"
                 className="form-control"
                 placeholder="Age"
-                onChange={(e) => {
+                disabled
+                /* onChange={(e) => {
                   setAge(e.target.value);
-                }}
+                }} */
               />
             </div>
             <div className="form-group col-md-4">
               <label for="gender">Gender:</label>
               <select
                 //value={gender}
+
+                disabled
                 id="gender"
                 className="form-control"
                 //onChange={(e) => {
@@ -252,6 +255,7 @@ export default function UpdateEmployee(props) {
             <div className="col-md-4">
               <label for="LandLine">Land line number:</label>
               <input
+                disabled
                 value={landLine}
                 id="landLine"
                 type="number"
@@ -307,14 +311,14 @@ export default function UpdateEmployee(props) {
             <div className="col-md-4">
               <label for="joinedDate">Joined Date:</label>
               <input
-                value={joinedDate}
+                //value={joinedDate}
                 id="joinedDate"
                 type="date"
                 className="form-control"
                 name="joinedDate"
-                onChange={(e) => {
+                /* onChange={(e) => {
                   setJoinedDate(e.target.value);
-                }}
+                }} */
               />
             </div>
           </div>

@@ -19,12 +19,16 @@ export default function QRMarker() {
 
   return (
     <div>
-      <QrReader
-        delay={300}
-        onError={handleError}
-        onScan={handleScan}
-        style={{ width: "30%" }}
-      />
+      <h2 className="qr-txt text-center">Place Your QR Code Here</h2>
+      <div class="qrReader">
+        <QrReader
+          class="qrReader"
+          delay={300}
+          onError={handleError}
+          onScan={handleScan}
+          style={{ width: "50%" }}
+        />
+      </div>
     </div>
   );
 }

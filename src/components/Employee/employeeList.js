@@ -43,6 +43,11 @@ export default class EmployeeList extends Component {
     this.setState({ redirect: `/updateEmp/${userId}` });
   }
 
+  handleViewOnClick(userId) {
+    console.log(userId, "<<<<<<<<<<<<<<<<<");
+    this.setState({ redirect: `/viewEmp/${userId}` });
+  }
+
   handleDeleteOnClick(userId) {
     const isApproved = window.confirm(
       "Do you really want to delete this user?"
@@ -63,32 +68,40 @@ export default class EmployeeList extends Component {
       return (
         <tbody>
           <tr>
-            <td>{employee.userId}</td>
-            <td>{employee.FirstName}</td>
-            <td>{employee.LastName}</td>
+            {/*<td>{employee.userId}</td>*/}
+            <td onClick={() => this.handleViewOnClick(employee.userId)}>
+              {employee.FirstName + " " + employee.LastName}
+            </td>
+            {/*<td>{employee.LastName}</td>*/}
             <td>{employee.eMail}</td>
             <td>{employee.NIC}</td>
-            <td>{employee.DOB}</td>
+            {/*<td>{employee.DOB}</td>
             <td>{employee.Age}</td>
-            <td>{employee.Gender}</td>
+           <td>{employee.Gender}</td>
             <td>{employee.MaritalStatus}</td>
             <td>{employee.CurrentAddress}</td>
-            <td>{employee.PermanentAddress}</td>
+            <td>{employee.PermanentAddress}</td>*/}
             <td>{employee.MobileNumber}</td>
-            <td>{employee.LandLineNumber}</td>
-            <td>{employee.EmergencyContact}</td>
+            {/*<td>{employee.LandLineNumber}</td>
+            <td>{employee.EmergencyContact}</td>*/}
             <td>{employee.Designation}</td>
             <td>{employee.Department}</td>
-            <td>{employee.JoinedDate}</td>
+            {/*<td>{employee.JoinedDate}</td>
             <td>{employee.PreviouslyWorkedCompany}</td>
             <td>{employee.YearsOfExperiance}</td>
             <td>{employee.EmployeePicture}</td>
-            <td>{employee.CV}</td>
+      <td>{employee.CV}</td>*/}
             <td>
-              <button onClick={() => this.handleUpdateOnClick(employee.userId)}>
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                onClick={() => this.handleUpdateOnClick(employee.userId)}
+              >
                 update
               </button>
-              <button onClick={() => this.handleDeleteOnClick(employee.userId)}>
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                onClick={() => this.handleDeleteOnClick(employee.userId)}
+              >
                 delete
               </button>
             </td>
@@ -106,32 +119,32 @@ export default class EmployeeList extends Component {
 
     if (EmployeeList) {
       return (
-        <div>
-          <h2 className="text-center">Employee List</h2>
-          <table border="1">
+        <div class="component-body">
+          <h2 className="text-center">List of Employees</h2>
+          <table class="table table-striped table-dark">
             <tr>
-              <th>Employee ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              {/*<th>Employee ID</th>*/}
+              <th>Name</th>
+              {/*<th>Last Name</th>*/}
               <th>e-mail</th>
               <th>NIC</th>
-              <th>Date of Birth</th>
+              {/*<th>Date of Birth</th>
               <th>Age</th>
               <th>Gender</th>
               <th>Marital Status</th>
               <th>Current Address</th>
-              <th>Permanent Address</th>
+              <th>Permanent Address</th>*/}
               <th>Mobile Number</th>
-              <th>Land Line Number</th>
-              <th>Emergency Contact Number</th>
+              {/*<th>Land Line Number</th>
+              <th>Emergency Contact Number</th>*/}
               <th>Designation</th>
               <th>Department</th>
-              <th>Joined Date</th>
+              {/*<th>Joined Date</th>
               <th>Previosly Worked Company</th>
               <th>Years Of Experiance</th>
               <th>Employee Picture</th>
-              <th>CV</th>
-              <th>operation</th>
+              <th>CV</th>*/}
+              <th>Action</th>
             </tr>
             {this.generateTableRows(EmployeeList)}
           </table>

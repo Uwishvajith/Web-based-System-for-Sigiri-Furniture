@@ -2,6 +2,7 @@ import Header from "./Header";
 import AddEmployee from "./Employee/AddEmployee";
 import RemoveEmployee from "./Employee/removeEmployee";
 import UpdateEmployee from "./Employee/updateEmployeeDetails";
+import ViewEmpDetails from "./Employee/employeeDetails";
 import QRMarker from "./attendance/QRMarker";
 import AttendanceList from "./attendance/AttendanceList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -14,10 +15,12 @@ function Home() {
     <Router>
       <div>
         <Header />
+        <Route path="/" exact component={EmployeeList} />
         <Route path="/empList" exact component={EmployeeList} />
         <Route path="/addEmp" exact component={AddEmployee} />
         <Route path="/removeEmp" exact component={RemoveEmployee} />
         <Route path="/updateEmp/:userId" exact component={UpdateEmployee} />
+        <Route path="/viewEmp/:userId" exact component={ViewEmpDetails} />
         <Route path="/attendaceMark" exact component={QRMarker} />
         <Route path="/attendanceList" exact component={AttendanceList} />
         <Route path="/addLeave" exact component={addNewLeave} />

@@ -48,9 +48,9 @@ export default class LeaveList extends Component {
 
     if (LeaveList) {
       return (
-        <div>
-          <h2 className="text-center">Leave List</h2>
-          <table border="1">
+        <div class="component-body">
+          <h2 className="text-center">Leave Details List</h2>
+          <table class="table table-striped table-dark">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
