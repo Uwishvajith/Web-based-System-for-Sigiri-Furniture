@@ -91,9 +91,9 @@ function Home() {
         <Route path="/allCustomer" exact component={AllCustomers} />
         <Route path="/order/getOrder/:oID" exact component={ViewOrder} />
         <Route path="/order/update/:oID" exact component={UpdateOrder} />
-        <Route path="/orderItem/update/:oID" exact component={UpdateOrderItems}/>
+        <Route path="/orderItem/update/:oID" exactcomponent={UpdateOrderItems}/>
         <Route path="/displayOrders" exact component={AllOrders} />
-        <Route path="/order/GenerateOrderReport" exact component={GenerateOrderReport}/>
+        <Route path="/order/GenerateOrderReport" exactcomponent={GenerateOrderReport}/>
         <Route path="/order/GenerateCustomerReport" exact component={GenerateCustomerReport}/>
         <Route path="/order/GenerateOrderItemsReport" exact component={GenerateOrderItemsReport}/>
 
@@ -117,13 +117,13 @@ function Home() {
       {/*nalini*/}
 
       <Route path="/adds" exact component={AddSupplier} />
-      <Route path="/addTender" exact component={AddTenderRestock} />
+      <Route path="/add" exact component={AddTenderRestock} />
       <Route path="/s" exact component={AllSuppliers} />
       <Route path="/alltenders" exact component={AllTenderRestock} />
       <Route path="/updates/:supp_id" exact component={UpdateSupplier} />
-      <Route path="/updateTender/:tenderid" exact component={UpdateTenderRestock} />
+      <Route path="/update/:tenderid" exact component={UpdateTenderRestock} />
       <Route path="/gets/:supp_id" exact component={ViewSupplier} />
-      <Route path="/getTender/:tenderid" exact component={ViewTenderRestock} />
+      <Route path="/get/:tenderid" exact component={ViewTenderRestock} />
       <Route path="/report/tender" exact component={TenderReport} />
 
       {/*devin*/}
