@@ -55,7 +55,7 @@ export default function AddProductPrice(){
               <nav class="main-menu bg-primary">
                 <ul>
                 <li>
-                  <a href="/">
+                  <a href="/allview">
                     <i class="fa fa-home fa-2x"></i>
                       <span class="nav-text">Home</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -223,9 +223,9 @@ export default function AddProductPrice(){
             <br></br>
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" className="btn btn-outline-info" >Add Product Price</button>
-            <Link className="btn btn-outline-info" role="button" to="/getproductprice">View All Product Prices List </Link>
-            <button className="btn btn-outline-info"n ame="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+            <button type="submit" className="btn btn-outline-info mr-10" >Add Product Price</button>
+            <Link className="btn btn-outline-info  ml-2 " role="button" to="/getproductprice">View All Product Prices List </Link>
+            <button className="btn btn-outline-info ml-2 " name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
           </div>
         </form>
         

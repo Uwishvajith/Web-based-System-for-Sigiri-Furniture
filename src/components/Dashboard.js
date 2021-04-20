@@ -9,16 +9,22 @@ function Dashboard(props) {
           <div class="container">
             <div class="row">
               <div class="col-sm">
+                <a href="/empList">
                 <button type="button" class="btn btn-primary" id="btn-dash">
                   <i class="fa fa-group mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Employee Management</span>
                 </button>
+                </a>
               </div>
               <div class="col-sm">
+              <a href="/viewVehicle">
                 <button type="button" class="btn btn-primary" id="btn-dash">
+                  
                   <i class="fa fa-truck mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Transport Management</span>
+                  
                 </button>
+                </a>
               </div>
               <div class="col-sm">
                 <button type="button" class="btn btn-primary" id="btn-dash">
@@ -35,10 +41,11 @@ function Dashboard(props) {
                 </button></Link>
               </div>
               <div class="col-sm">
+                <Link to="/allview" >
                 <button type="button" class="btn btn-primary" id="btn-dash">
                   <i class="fa fa-percent mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Promotion Management</span>
-                </button>
+                </button></Link>
               </div>
               <div class="col-sm">
                 <button type="button" class="btn btn-primary" id="btn-dash">
@@ -61,10 +68,12 @@ function Dashboard(props) {
                 </button>
               </div>
               <div class="col-sm">
+                <a href="/">
                 <button type="button" class="btn btn-primary" id="btn-dash">
                   <i class="fa fa-sign-out pr-5"></i>
                   <span class="lead align-top">Exit</span>
                 </button>
+                </a>
               </div>
             </div>
           </div>
