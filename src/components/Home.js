@@ -153,13 +153,13 @@ function Home() {
       {/*nalini*/}
 
       <Route path="/adds" exact component={AddSupplier} />
-      <Route path="/add" exact component={AddTenderRestock} />
+      <Route path="/addTender" exact component={AddTenderRestock} />
       <Route path="/s" exact component={AllSuppliers} />
       <Route path="/alltenders" exact component={AllTenderRestock} />
       <Route path="/updates/:supp_id" exact component={UpdateSupplier} />
-      <Route path="/update/:tenderid" exact component={UpdateTenderRestock} />
+      <Route path="/updateTender/:tenderid" exact component={UpdateTenderRestock} />
       <Route path="/gets/:supp_id" exact component={ViewSupplier} />
-      <Route path="/get/:tenderid" exact component={ViewTenderRestock} />
+      <Route path="/getTender/:tenderid" exact component={ViewTenderRestock} />
       <Route path="/report/tender" exact component={TenderReport} />
 
       {/*devin*/}

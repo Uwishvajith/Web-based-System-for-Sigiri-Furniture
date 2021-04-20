@@ -25,6 +25,70 @@ export default function ViewTenderRestock() {
 
   return (
     <div>
+      <div>
+        <div>
+          <div class="area"></div>
+          <nav class="main-menu bg-primary">
+            <ul>
+              <li>
+                <a href="/alltenders">
+                  <i class="fa fa-home fa-2x"></i>
+                  <span class="nav-text">Home</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+              <li>
+                <a href="/adds">
+                  <i class="fa fa-user-plus fa-2x"></i>
+                  <span class="nav-text">Add Supplier</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+              <li class="has-subnav">
+                <a href="/s">
+                  <i class="fa fa fa-users fa-2x"></i>
+                  <span class="nav-text">View Supplier</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+              <hr></hr>
+              <li class="has-subnav">
+                <a href="/addTender">
+                  <i class="	fa fa-cubes fa-2x"></i>
+                  <span class="nav-text">Add TenderRestock</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+              <li class="has-subnav">
+                <a href="/alltenders">
+                  <i class="fa fa-cube fa-2x"></i>
+                  <span class="nav-text">View TenderRestock</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+              <hr></hr>
+              <li class="has-subnav">
+                <a href="/report/tender">
+                  <i class="	fa fa-book fa-2x"></i>
+                  <span class="nav-text">Tender Report</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="logout">
+              <li>
+                <a href="/">
+                  <i class="fa fa-power-off fa-2x"></i>
+                  <span class="nav-text">Logout</span>
+                  <i class="fa fa-angle-right fa-2x"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        </div>
+    <div>
       <div className="container ay-4">
         <br></br>
         <h1 className="display-4" style={{ fontSize: 30, top: 70 }}>
@@ -87,6 +151,7 @@ export default function ViewTenderRestock() {
           </table>
         </ul>
       </div>
+    </div>
     </div>
   );
 }

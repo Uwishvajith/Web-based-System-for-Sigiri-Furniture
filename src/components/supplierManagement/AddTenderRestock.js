@@ -65,7 +65,7 @@ export default function AddTenderRestock() {
               </li>
               <hr></hr>
               <li class="has-subnav">
-                <a href="/add">
+                <a href="/addTender">
                   <i class="	fa fa-cubes fa-2x"></i>
                   <span class="nav-text">Add TenderRestock</span>
                   <i class="fa fa-angle-right fa-2x"></i>
