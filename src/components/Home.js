@@ -127,9 +127,9 @@ function Home() {
       <Route path="/report/tender" exact component={TenderReport} />
 
       {/*devin*/}
-      <Route exact path="/add" component={AddVehicle} />
-      <Route exact path="/" component={AllVehicle} />
-      <Route exact path="/update" component={UpdateVehicle} />
+      <Route exact path="/addVehicle" component={AddVehicle} />
+      <Route exact path="/viewVehicle" component={AllVehicle} />
+      <Route exact path="/updateVehicle" component={UpdateVehicle} />
       <Route exact path="/addM" component={AddMaintaince} />
 
       {/*senal*/}
