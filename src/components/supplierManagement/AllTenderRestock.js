@@ -57,7 +57,7 @@ export default function AllTenderRestock() {
               </li>
               <hr></hr>
               <li class="has-subnav">
-                <a href="/add">
+                <a href="/addTender">
                   <i class="	fa fa-cubes fa-2x"></i>
                   <span class="nav-text">Add TenderRestock</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -82,7 +82,7 @@ export default function AllTenderRestock() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text">Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -120,14 +120,14 @@ export default function AllTenderRestock() {
                     <Link
                       class="btn btn-info mr-2"
                       role="button"
-                      to={`/get/${Tenders.tenderid}`}
+                      to={`/getTender/${Tenders.tenderid}`}
                     >
                       View
                     </Link>
                     <Link
                       class="btn btn-outline-primary mr-2"
                       role="button"
-                      to={`/update/${Tenders.tenderid}`}
+                      to={`/updateTender/${Tenders.tenderid}`}
                     >
                       Update
                     </Link>

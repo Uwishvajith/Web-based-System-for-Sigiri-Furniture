@@ -91,7 +91,7 @@ export default function UpdateSupplier() {
               </li>
               <hr></hr>
               <li class="has-subnav">
-                <a href="/add">
+                <a href="/addTender">
                   <i class="	fa fa-cubes fa-2x"></i>
                   <span class="nav-text">Add TenderRestock</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -116,7 +116,7 @@ export default function UpdateSupplier() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text">Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>

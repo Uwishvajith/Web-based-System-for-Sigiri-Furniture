@@ -155,7 +155,7 @@ export default function AddOrder() {
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li class="has-subnav">
-                            <Link to="/">
+                            <Link to="/allCustomer">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Home</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
@@ -234,7 +234,8 @@ export default function AddOrder() {
                 <div className="container" class="border border-dark border-2" style={{ background: "#e7ebe8" }}>
 
                     <form class="row g-3" onSubmit={sendData} style={{ marginLeft: 30, marginRight: 30 }}>
-                        <center><h3>Place An Order</h3></center>
+                        <br></br><br></br>
+                        <h3 style={{textAlign:"center"}}>Place An Order</h3>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md" id="main-hide1" >
                             <div class="col-sm" >
@@ -396,7 +397,7 @@ export default function AddOrder() {
 
 
                         <div class="col-md-6" style={{ display: "none" }} id="main-hide8">
-                            <button className="btn btn-primary" type="button" id="calPrice">GetFinalPrice</button>
+                            <button className="btn btn-primary" type="button" id="calPrice">GetFinalPrice</button><br></br>
                             <label for="finalPrice" class="form-label"></label>
                             <input type="text" class="form-control"
                                 name="finalPrice"
@@ -405,7 +406,8 @@ export default function AddOrder() {
                         </div>
 
                         <div class="col-sm" style={{ display: "none" }} id="main-hide9">
-                            <label for="oStatus" class="form-label">Order Status</label>
+                        <br></br>
+                            <label for="oStatus" class="form-label">Order Status</label><br></br>
                             <select class="form-select"
                                 name="oStatus" id="oStatus"
                                 onChange={(event) => { setOstatus(event.target.value); }} required >
@@ -419,12 +421,10 @@ export default function AddOrder() {
                         </div>
 
                         <div className="form-group" >
-                            <div class="d-grid gap-2 d-md-flex justify-content-md">
+                        <br></br><br></br><br></br><br></br><br></br><br></br>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                
                                 <button className="btn btn-primary me-md-2" type="button"
-                                    id="bckBtn"
-                                    style={{ display: "none" }}
-                                    onClick={refreshPage}> BACK</button>
-                                <button className="btn btn-primary" type="button"
                                     id="nxtBtn"
                                     onClick={nextPage}>NEXT</button>
                             </div>
@@ -434,7 +434,11 @@ export default function AddOrder() {
                         <div className="form-group" style={{ display: "none" }} id="main-hide10">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button className="btn btn-primary me-md-2" type="reset" value="RESET" id="rstBtn">RESET</button>
-                                <button className="btn btn-primary" type="submit" value="SUBMIT" id="sbtBtn">SUBMIT</button>
+                                <button className="btn btn-primary ml-2 " type="submit" value="SUBMIT" id="sbtBtn">SUBMIT</button>
+                                <button className="btn btn-primary ml-2" type="button"
+                                    id="bckBtn"
+                                    style={{ display:"none"}}
+                                    onClick={refreshPage}> BACK</button>
                             </div>
                         </div>
 
@@ -482,7 +486,6 @@ export default function AddOrder() {
                         <li class="list-group-item list-group-item-light">Selling price:</li>
                     </ul>
                 </div>
-                <br></br>
                 <Link to="/displayOrders"> <button class="text-decoration-none" class="btn btn-danger"> BACK</button> </Link>
             </div>
 

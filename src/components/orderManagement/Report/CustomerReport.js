@@ -42,7 +42,7 @@ export default function GenerateCustomerReport() {
         <nav class="main-menu bg-primary">
           <ul>
             <li class="has-subnav">
-              <Link to="/">
+              <Link to="/allCustomer">
                 <i class="fa fa-home fa-2x"></i>
                 <span class="nav-text">Home</span>
                 <i class="fa fa-angle-right fa-2x"></i>
@@ -114,13 +114,15 @@ export default function GenerateCustomerReport() {
       <div
         style={{
           position: "absolute",
-          top: "10%",
+          left:"-6%",
+          top: "6%",
           width: "100%",
           height: "100%",
+          
         }}
       >
-        <div className="container-fluid">
-          <MaterialTable
+        <div className="container-fluid" style={{fontWeight:"bold",fontStyle:"italic"}}>
+          <MaterialTable style={{background:"#ace5ee"}}
             title="Customer List"
             columns={[
               { title: "Customer NIC", field: "NIC", type: "string" },

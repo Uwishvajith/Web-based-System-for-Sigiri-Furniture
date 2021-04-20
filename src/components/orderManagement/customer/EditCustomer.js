@@ -40,7 +40,7 @@ function EditCustomer() {
             }).catch((err) => {
                 alert(err.response.data.error);
             })
-            history.push("/")
+            history.push("/allCustomer")
 
         } else {
 
@@ -76,7 +76,7 @@ function EditCustomer() {
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li class="has-subnav">
-                            <Link to="/">
+                            <Link to="/allCustomer">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Home</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
@@ -231,7 +231,7 @@ function EditCustomer() {
 
                         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button className="btn btn-outline-primary me-md-2" type="reset" value="RESET" onClick={refreshPage}>RESET</button>
-                            <button className="btn btn-outline-primary me-md-2" type="submit" value="SUBMIT">UPDATE CUSTOMER PROFILE</button>
+                            <button className="btn btn-outline-primary me-md-2 ml-2" type="submit" value="SUBMIT">UPDATE CUSTOMER PROFILE</button>
                         </div>
                         <br></br>
                     </div>
