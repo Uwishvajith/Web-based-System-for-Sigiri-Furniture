@@ -87,7 +87,7 @@ export default function AllPromotionDetails() {
             <nav class="main-menu bg-primary">
               <ul>
                 <li>
-                  <a href="/">
+                  <a href="/allview">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">Home</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -182,8 +182,8 @@ export default function AllPromotionDetails() {
                   <td class="text-center">{promotions.media}</td>
                   <td class="text-center">{promotions.budget}</td>
                   <td class="text-center">{promotions.status}</td>
-                  <td class="text-center"><Link class="btn btn-info mr-2" role="button" to={`/get/${promotions.promotionid}`}> View </Link>
-                    <Link class="btn btn-outline-primary mr-2" role="button" to={`/update/${promotions.promotionid}`}>Update</Link>
+                  <td class="text-center"><Link class="btn btn-info mr-2" role="button" to={`/get/viewpromotion/${promotions.promotionid}`}> View </Link>
+                    <Link class="btn btn-outline-primary mr-2" role="button" to={`/update/promotion/${promotions.promotionid}`}>Update</Link>
                     <Link class="btn btn-danger" role="button" onClick={() => deletePromotion(promotions.promotionid)} >Delete</Link></td>
 
 
@@ -198,7 +198,10 @@ export default function AllPromotionDetails() {
 
         <Link class="btn btn-info" role="button" to="/addpromotion"> + ADD NEW PROMOTION </Link>
 
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
       </div>
     </div>

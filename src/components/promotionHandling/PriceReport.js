@@ -27,7 +27,7 @@ export default function PriceReport() {
           <nav class="main-menu bg-primary">
             <ul>
               <li>
-                <a href="/">
+                <a href="/allview">
                   <i class="fa fa-home fa-2x"></i>
                   <span class="nav-text">Home</span>
                   <i class="fa fa-angle-right fa-2x"></i>
