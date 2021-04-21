@@ -8,7 +8,9 @@
   height: 36px;
   text-align: center;
   vertical-align: middle;
-  font-size: 20px;
+  font-size: 35px;
+  align-items: center;
+  padding-left: 110px;
 }
 #fa {
   position: relative;
@@ -18,6 +20,7 @@
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
+  padding-left: 110px;
 }
 #fa-2x {
   font-size: 2em;
@@ -126,7 +129,7 @@ nav.main-menu li.active > a,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
   color: #fff;
-  background-color: #5fa2db;
+  background-color: #3e82be;
 }
 .area {
   float: left;
@@ -199,4 +202,62 @@ td {
 
 #height {
   margin-top: 120px;
+}
+
+
+/* Production Css */
+
+.productiontable {
+  margin-top: 125px;
+  margin-left: 80px;
+  max-width: 93%;
+  table-layout: auto;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+
+.productform {
+  margin-top: 125px;
+  margin-left: 35%;
+  max-width: 93%;
+  table-layout: auto;
+  border-collapse: collapse;
+  padding: 10px;
+}
+ 
+.topic {
+  margin-left: 15%;
+}
+
+/* Dashboard CSS */
+
+.dbutton {
+  background-color: #0945e7;
+  margin-top: 80px;
+  padding-top: 20px;
+  margin-right: 25px;
+  width: 80%;
+  height: 100px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  transition-duration: 0.4s;
+  font-size: 100px;
+  font-weight:800;
+  vertical-align: middle;
+
+
+}
+
+.dbutton:hover {
+  background-color: #0c83f3;
+  color: white;
+}
+
+.dicon {
+  vertical-align: middle;
+  text-align:center
 }

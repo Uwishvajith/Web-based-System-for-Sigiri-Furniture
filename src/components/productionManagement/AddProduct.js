@@ -73,7 +73,7 @@ export default function AddProduct() {
             </nav>
        
 
-        <div className="form">
+        <div className="productform">
             <div class="topic"><h2>Add New Product</h2> <br></br>
             <br></br></div>
             <form onSubmit={addProduct}>

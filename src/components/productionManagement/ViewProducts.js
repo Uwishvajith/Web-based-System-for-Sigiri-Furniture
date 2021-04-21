@@ -79,7 +79,7 @@ export default function ViewProducts() {
         </nav>
       </div>
 
-      <div class="table">
+      <div class="productiontable">
         <MaterialTable
           title="Products Table"
           columns={[
