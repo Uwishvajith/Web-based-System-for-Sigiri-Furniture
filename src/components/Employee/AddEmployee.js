@@ -377,7 +377,7 @@ export default function Addemployee() {
               <div className="col-md-6">
                 <label for="yearsOfEx">Years of Experience:</label>
                 <input
-                  required
+            
                   id="yearsOfEx"
                   type="number"
                   className="form-control"
@@ -393,7 +393,7 @@ export default function Addemployee() {
                 <div className="form-group">
                   <label for="empPic">Photo of the employee:</label>
                   <input
-                    required
+            
                     id="empPic"
                     type="file"
                     className="form-control-file"

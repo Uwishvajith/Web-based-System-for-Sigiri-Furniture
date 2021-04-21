@@ -59,7 +59,7 @@ export default function ViewProducts() {
               </a>
             </li>
             <li class="has-subnav">
-              <a href="http://localhost:8070/products">
+              <a href="#">
                 <i class="fa fa-cogs fa-2x"></i>
                 <span class="nav-text">Raw Material</span>
                 <i class="fa fa-angle-right fa-2x"></i>
@@ -69,7 +69,7 @@ export default function ViewProducts() {
 
           <ul class="logout">
             <li>
-              <a href="#">
+              <a href="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
