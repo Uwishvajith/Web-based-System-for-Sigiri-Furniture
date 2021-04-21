@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { addEmployee } from "../../services/employeeService";
 
 export default function Addemployee() {
+  //get all employee details to validations
+  const [employee, setEmployee] = useState("");
+
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +25,17 @@ export default function Addemployee() {
   const [yearsOfEx, setYearsOfEx] = useState("");
   const [empPic, setEmpPic] = useState("");
   const [cv, setCV] = useState("");
+
+  //nic validation
+  function validation() {
+    axios.get(`${HOST}/api/getNic`).then((res) => {
+      setEmployee(res.data.data);
+    });
+  }
+
+  useEffect(() => {
+    validation();
+  }, []);
 
   function sendData(e) {
     e.preventDefault();
@@ -49,18 +63,22 @@ export default function Addemployee() {
       cv,
     };
 
-    addEmployee(newEmployee).then((response) => {
-      const message = response.ok
-        ? "Employee insertion successful"
-        : "Failed to insert employee";
-      alert(message);
-      window.location.replace("/empList");
-    });
+    if (nic === employee) {
+      alert("data exists!");
+    } else {
+      addEmployee(newEmployee).then((response) => {
+        const message = response.ok
+          ? "Employee insertion successful"
+          : "Failed to insert employee";
+        alert(message);
+        window.location.replace("/empList");
+      });
+    }
   }
 
   return (
     <div class="component-body">
-       <div>
+      <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
           <ul>
@@ -377,7 +395,6 @@ export default function Addemployee() {
               <div className="col-md-6">
                 <label for="yearsOfEx">Years of Experience:</label>
                 <input
-            
                   id="yearsOfEx"
                   type="number"
                   className="form-control"
@@ -393,7 +410,6 @@ export default function Addemployee() {
                 <div className="form-group">
                   <label for="empPic">Photo of the employee:</label>
                   <input
-            
                     id="empPic"
                     type="file"
                     className="form-control-file"
