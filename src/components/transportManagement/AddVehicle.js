@@ -4,14 +4,14 @@ import axios from "axios"
 
 
 export default function AddVehicle() {
-
+    //states
     const [VehicleID, setID] = useState("");
     const [VehicleRegNo, setRegNo] = useState("");
     const [Date, setDate] = useState("");
     const [VehicleType, setVehicleType] = useState("");
     const [VehicleBrand, setVehicleBrand] = useState("");
     const [Mileage, setMileage] = useState("");
-    // const [RegNoErr, setRegNoErr] = useState("");
+    const [RegNoErr, setRegNoErr] = useState("");
 
 
     function sendData(e) {//event
@@ -21,6 +21,9 @@ export default function AddVehicle() {
 
         e.preventDefault(); //prevent normal behaviour of submit button
 
+        const isValid =formValidation();
+
+        if(isValid){//send data after validate
 
         const newVehicle = {
             VehicleID,
@@ -33,8 +36,7 @@ export default function AddVehicle() {
         }
 
 
-        // const isValid =formValidation();
-
+        
         axios.post("http://localhost:8050/vehicle/add", newVehicle)
 
             .then(() => {
@@ -46,21 +48,22 @@ export default function AddVehicle() {
 
 
     }
+}
 
-    //     const formValidation =() => {
-    //     const RegNoErr ={};
-    //     let isValid =true;
+        const formValidation =() => {//validation function
+        const RegNoErr ={};//state
+        let isValid =true;//return boolean value, setting flag
 
 
-    //     if(RegNoErr.trim().length >8){
-    //         RegNoErr.InvalidRegNo="Invalid Vehicle registration number";
-    //         isValid=false;
-    //     }
+        if(VehicleRegNo.trim().length >8){
+            RegNoErr.InvalidRegNo="Invalid Vehicle registration number";//error
+            isValid=false;
+        }
 
-    //     setRegNoErr(RegNoErr); //update error 
-    //     return isValid;
+        setRegNoErr(RegNoErr); //update error objects
+        return isValid;
 
-    // }
+    }
 
     return (
 
@@ -137,9 +140,9 @@ export default function AddVehicle() {
 
                     </div>
 
-                    {/* {Object.keys(RegNoErr).map((key)=>{
+                    {Object.keys(RegNoErr).map((key)=>{
                         return<div style={{color :"red"}}>{RegNoErr[key]}</div>
-                    })} */}
+                    })}
 
 
                     <div className="mb-3">
