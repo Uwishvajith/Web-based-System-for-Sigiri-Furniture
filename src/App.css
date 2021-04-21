@@ -8,9 +8,9 @@
   height: 36px;
   text-align: center;
   vertical-align: middle;
-  font-size: 35px;
+  font-size: 20px;
   align-items: center;
-  padding-left: 110px;
+
 }
 #fa {
   position: relative;
@@ -20,7 +20,6 @@
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
-  padding-left: 110px;
 }
 #fa-2x {
   font-size: 2em;
@@ -262,4 +261,17 @@ IT 19965550*/
 .dicon {
   vertical-align: middle;
   text-align:center
+}
+
+.fb {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 35px;
+  align-items: center;
+  padding-left: 110px;
+
 }
