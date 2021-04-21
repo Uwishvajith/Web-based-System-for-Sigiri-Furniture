@@ -142,7 +142,7 @@ export default class CreateInventory extends Component {
       .post("http://localhost:5000/inventories/add", inventory)
       .then((res) => console.log(res.data));
 
-    window.location = "./";
+    window.location = "./inventory";
   }
 
   render() {
@@ -184,6 +184,15 @@ export default class CreateInventory extends Component {
                 </Link>
               </li>
             </ul>
+            <ul class="logout">
+            <li>
+              <a href="/">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text">Logout</span>
+                <i class="fa fa-angle-right fa-2x"></i>
+              </a>
+            </li>
+          </ul>
           </nav>
         </div>
         <h3>Create new Item Log</h3>
@@ -233,7 +242,7 @@ export default class CreateInventory extends Component {
               required
               className="form-control"
               value={this.state.suppliername}
-              onChange={this.onChangeItemcode}
+              onChange={this.onChangeSuppliername}
             >
               {this.state.suppliernames.map(function (suppliername) {
                 return (
@@ -323,7 +332,7 @@ export default class CreateInventory extends Component {
 
           <div className="form-group">
             <label>Last updated: </label>
-            <div>
+            <div>              
               <DatePicker
                 selected={this.state.lastupdated}
                 onChange={this.onChangeLastupdated}

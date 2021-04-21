@@ -105,6 +105,15 @@ export default class InventoryDetails extends Component {
                 </Link>
               </li>
             </ul>
+            <ul class="logout">
+            <li>
+              <a href="/">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text">Logout</span>
+                <i class="fa fa-angle-right fa-2x"></i>
+              </a>
+            </li>
+          </ul>
           </nav>
         </div>
         <h3>Inventory Details</h3>
