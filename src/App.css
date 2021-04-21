@@ -195,8 +195,13 @@ td {
   margin-top: 130px;
 }
 
-/*view ledger css*/
+/*view ledger css
+done by
+IT 19965550*/ 
 
 #height {
   margin-top: 120px;
+}
+#ledger{
+  text-align: center;
 }

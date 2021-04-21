@@ -73,14 +73,7 @@ export default class ViewLedger extends Component {
               <li>
                 <a href="/ViewFinancial">
                   <i class="fa fa-home fa-2x"></i>
-                  <span class="nav-text">Salary</span>
-                  <i class="fa fa-angle-right fa-2x"></i>
-                </a>
-              </li>
-              <li class="has-subnav">
-                <a href="/ViewMsg">
-                  <i class="fa fa fa-users fa-2x"></i>
-                  <span class="nav-text">Messages</span>
+                  <span class="nav-text">Daily Income</span>
                   <i class="fa fa-angle-right fa-2x"></i>
                 </a>
               </li>
@@ -125,8 +118,10 @@ export default class ViewLedger extends Component {
             </ul>
           </nav>
         </div>
+        <div id="ledger">
+          <h1>Ledger</h1>
+          </div>
         <div class="row">
-          <h2 align="center">Ledger</h2>
           <div class="col-sm">
             <table class="table">
               <thead>
