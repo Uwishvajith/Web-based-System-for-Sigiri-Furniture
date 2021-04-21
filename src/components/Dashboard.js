@@ -27,10 +27,12 @@ function Dashboard(props) {
                 </a>
               </div>
               <div class="col-sm">
+              <a href="/ViewFinancial">
                 <button type="button" class="dbutton" id="btn-dash">
                   <i class="fa fb fa-money mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Financial Management</span>
                 </button>
+                </a>
               </div>
             </div>
             <div class="row">
