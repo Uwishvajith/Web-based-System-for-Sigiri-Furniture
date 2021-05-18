@@ -52,7 +52,7 @@ export default class AddItem extends Component {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
 
-    window.location = "./";
+    window.location = "./addInventory";
 
     this.setState({
       itemname: "",
@@ -145,6 +145,16 @@ export default class AddItem extends Component {
                 </Link>
               </li>
             </ul>
+
+            <ul class="logout">
+            <li>
+              <a href="/">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text">Logout</span>
+                <i class="fa fa-angle-right fa-2x"></i>
+              </a>
+            </li>
+          </ul>
           </nav>
         </div>
         <h3>Create new Item</h3>
