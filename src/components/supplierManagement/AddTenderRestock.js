@@ -27,7 +27,7 @@ export default function AddTenderRestock() {
     };
 
     axios
-      .post("http://localhost:8070/Tender/add", newTender)
+      .post("http://localhost:8060/Tender/add", newTender)
       .then(() => {
         alert("New Tender added");
         function refreshPage() {

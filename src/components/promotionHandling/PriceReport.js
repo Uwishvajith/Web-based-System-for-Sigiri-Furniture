@@ -9,7 +9,7 @@ export default function PriceReport() {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8080/productprice/getproductprice").then((res) => {
+    axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {
       console.log(res.data);
       setProductPrices(res.data);
     }).catch((error) => {
@@ -83,7 +83,7 @@ export default function PriceReport() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -100,7 +100,7 @@ export default function PriceReport() {
         <div>
           <br></br>
           <br></br>
-          <MaterialTable style={{backgroundColor:"#c2d6d6"}}
+          <MaterialTable style={{backgroundColor:"#E3ECFF"}}
             title={"Product Prices List"}
             columns={[
               { title: "Sales ID", field: "salesid", type: "text" },

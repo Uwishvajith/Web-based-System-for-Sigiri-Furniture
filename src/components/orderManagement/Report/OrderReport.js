@@ -8,7 +8,7 @@ export default function GenerateOrderReport() {
 
   useEffect(() => {
     function getOrders() {
-      axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+      axios.get("http://localhost:8060/order/displayOrders").then((res) => {
         setOrders(res.data.reverse());
       }).catch((error) => {
         alert(error.message);
@@ -88,11 +88,11 @@ export default function GenerateOrderReport() {
           </ul>
           <ul class="logout">
             <li>
-              <a href="#">
+            <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -100,7 +100,7 @@ export default function GenerateOrderReport() {
 
       <div style={{ position: "absolute", top: "6%",  left:"-6%",width: "100%", height: "100%" }}>
         <div className="container-fluid" style={{fontWeight:"bold",fontStyle:"italic"}}>
-          <MaterialTable style={{background:"#ace5ee"}}
+          <MaterialTable style={{background:"#E3ECFF"}}
             title="Order List"
             columns={[
               { title: "Order Id", field: "orderId", type: "string" },

@@ -33,7 +33,7 @@ export default function UpdateSupplier() {
     };
 
     await axios
-      .put(`http://localhost:8070/Supplier/updates/${supp_id}`, newSupplier)
+      .put(`http://localhost:8060/Supplier/updates/${supp_id}`, newSupplier)
       .then(() => {
         alert("Supplier details update Successfully");
       })
@@ -44,7 +44,7 @@ export default function UpdateSupplier() {
 
   const loadSupplier = async () => {
     await axios
-      .get(`http://localhost:8070/Supplier/gets/${supp_id}`)
+      .get(`http://localhost:8060/Supplier/gets/${supp_id}`)
       .then((res) => {
         console.log(res.data);
         setSupplierid(res.data.suppliers.supp_id);

@@ -26,7 +26,7 @@ export default function AddSupplier() {
     };
 
     axios
-      .post("http://localhost:8070/Supplier/adds", newSupplier)
+      .post("http://localhost:8060/Supplier/adds", newSupplier)
       .then(() => {
         alert("New Supplier added");
         function refreshPage() {

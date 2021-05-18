@@ -13,7 +13,7 @@ export default function ViewProductPriceDetails() {
   }, []);
 
   const loadProductPriceDetails = async () => {
-    await axios.get(`http://localhost:8080/productprice/getget/${salesid}`).then((res) => {
+    await axios.get(`http://localhost:8060/productprice/getget/${salesid}`).then((res) => {
       console.log(res.data);
       setProductPrices(res.data.productprices);
     }).catch((err) => {
@@ -85,7 +85,7 @@ export default function ViewProductPriceDetails() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>

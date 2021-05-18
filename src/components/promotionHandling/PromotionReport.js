@@ -8,7 +8,7 @@ export default function PromotionReport() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:8080/promotion/").then((res) => {
+    axios.get("http://localhost:8060/promotion/").then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {
@@ -82,7 +82,7 @@ export default function PromotionReport() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -99,7 +99,7 @@ export default function PromotionReport() {
         <br></br>
         <br></br>
 
-        <MaterialTable style={{backgroundColor:"#c2d6d6"}}
+        <MaterialTable style={{backgroundColor:"#E3ECFF"}}
           title={"Promotion Details List" } 
           columns={[
             { title: "Promotion ID", field: "promotionid", type: "text" },
