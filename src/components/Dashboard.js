@@ -17,7 +17,7 @@ function Dashboard(props) {
                 </a>
               </div>
               <div class="col-sm">
-              <a href="/viewVehicle">
+              <a href="/AllT">
                 <button type="button" class="dbutton" id="btn-dash">
                   
                   <i class="fa fb fa-truck mr-4" id="fa fa-2x"></i>

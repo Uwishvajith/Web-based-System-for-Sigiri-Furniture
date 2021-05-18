@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react"
+import React, {useState} from "react"
 import axios from 'axios'
-import MaterialTable from 'material-table'
-import { Modal } from "react-bootstrap"
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+
+// import MaterialTable from 'material-table'
 
 
-const HOST = "http://localhost:8050/Maintenance"
 
 
+export default function AddTransport(){
 
-export default function AddMaintaince() {
-
-    //adding
-    const [Maintenances, setMaintenances] = useState([]);
-
-    const [MaintainID, setID] = useState("");
+    
+    //states
+    const [TransportID, setID] = useState("");
     const [VehicleRegNo, setRegNo] = useState("");
     const [Date, setDate] = useState("");
-    const [Discription, setDiscription] = useState("");
-    const [Cost, setCost] = useState("");
+    const [DriverName, setName] = useState("");
+    const [Discription, setDescription] = useState("");
+    const [Status, setStatus] = useState("");
     const [RegNoErr, setRegNoErr] = useState("");
-
-    const [StateDelete, setStateDelete] = useState(false)
-    const [MaintenaceDelete, setMaintenaceDelete] = useState()
 
 
     function sendData(e) {//event
+
+
+
 
         e.preventDefault(); //prevent normal behaviour of submit button
 
@@ -32,28 +32,32 @@ export default function AddMaintaince() {
 
         if(isValid){//send data after validate
 
-        const newMaintaince = {
-            MaintainID,
+        const newVehicle = {
+            TransportID,
             VehicleRegNo,
             Date,
+            DriverName,
             Discription,
-            Cost
+            Status,
+
         }
 
-        axios.post("http://localhost:8050/Maintenance/addM", newMaintaince)
+
+        
+        axios.post("http://localhost:8050/TransportDetail/addT", newVehicle)
 
             .then(() => {
-                alert("Maintaince details  added")
-                window.location.reload(true)//reload page
+                alert("Detail Added")
 
             }).catch((err) => {
                 alert(err)
             })
-    }
+
 
     }
+}
 
-    const formValidation =() => {//validation function
+        const formValidation =() => {//validation function
         const RegNoErr ={};//state
         let isValid =true;//return boolean value, setting flag
 
@@ -68,42 +72,10 @@ export default function AddMaintaince() {
 
     }
 
-    
-
-
-    useEffect(() => {
-
-        axios.get(HOST + "/viewM")
-            .then((res) => {
-                setMaintenances(res.data);
-                console.log('Data has been received');
-            }).catch(() => {
-                alert('Error while fetching data')
-            })
-
-    }, []);
-
-    function onDelete() {
-        axios.delete(HOST + "/deleteM/" + MaintenaceDelete)
-            .then((res) => {
-                console.log(res)
-                alert('Maintenance detail deleted')
-                window.location.reload(true)//reload page
-
-            }).catch(() => {
-                alert('error while deleting Transport Detail')
-            })
-
-    }
-
-
-
-
-
     return (
-        <div class="component-body">
-        
-        <div class="area">
+
+        <div class ="component-body">
+             <div class="area">
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li>
@@ -174,15 +146,21 @@ export default function AddMaintaince() {
             </div>
 
 
+
+
+
+
+
+
+
             <div className="container mb-3" style={{ top: "500" }}>
-                <h1>Maintance Details</h1>
+                <h1>Assign Vehicle for Transport</h1>
                 <form className="mt-5" onSubmit={sendData}>
 
 
                     <div className="mb-3">
-                        <label for="Maintenance ID" className="form-label">Maintenance ID :</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Maintenance ID"
-                        
+                        <label for="Transport ID" className="form-label">Transport ID:</label>
+                        <input type="text" className="form-control" id="regNo" placeholder="Transport ID"
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
@@ -193,17 +171,19 @@ export default function AddMaintaince() {
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle Registration No:</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Registration Number"
-                        
                             onChange={(e) => {
                                 setRegNo(e.target.value); // assign value
                             }}
 
                         ></input>
+
                     </div>
 
                     {Object.keys(RegNoErr).map((key)=>{
                         return<div style={{color :"red"}}>{RegNoErr[key]}</div>
                     })}
+
+
                     <div className="mb-3">
                         <label for="date" className="form-label">Date :</label>
                         <input type="date" className="form-control" id="date" placeholder="Date"
@@ -214,79 +194,64 @@ export default function AddMaintaince() {
                         ></input>
                     </div>
                     <div className="mb-3">
-                        <label for="VehicleType" className="form-label">Description :</label>
-                        <input type="VehicleType" className="form-control" id="VehicleType" placeholder="Description"
+                        <label for="DriverName" className="form-label">Driver Name :</label>
+                        <input type="DriverName" className="form-control" id="DriverName" placeholder="DriverName"
                             onChange={(e) => {
-                                setDiscription(e.target.value); // assign value
+                                setName(e.target.value); // assign value
                             }}
 
                         ></input>
                     </div>
                     <div className="mb-3">
-                        <label for="VehicleBrand" className="form-label">Maintenance Cost :</label>
-                        <input type="VehicleBrand" className="form-control" id="VehicleBrand" placeholder="Maintenance Cost"
+                        <label for="Discription" className="form-label">Discription :</label>
+                        <input type="Discription" className="form-control" id="Discription" placeholder="Discription"
                             onChange={(e) => {
-                                setCost(e.target.value);  // assign value
+                                setDescription(e.target.value);  // assign value
                             }}
 
                         ></input>
                     </div>
+                    <div className="mb-4">
+                        <label for="Status" className="form-label">Status :   </label>
+                        {/* <input type="Status" className="form-control" id="Status" placeholder="Status"
+                            onChange={(e) => {
+                                setStatus(e.target.value);  // assign value
+                            }}
 
+                        >
 
-                    <button type="submit" className="btn btn-primary" >Add Details</button>
-                </form>
-
-
-
-
-                <div className="container-fluid mt-5">
-                    <MaterialTable style={{background:"#E3ECFF"}}
-                        title="Maintenance Details"
-
-                        columns={[
-                            { title: "Vehicle id", field: "MaintainID", type: "string" },
-                            { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
-                            { title: "Date", field: "Date", type: "string" },
-                            { title: "Description", field: "Discription", type: "string" },
-                            { title: "Cost", field: "Cost", type: "string" },
-
-                        ]}
-
-                        data={Maintenances}
-                        options={{
-                            sorting: true,
-                            actionsColumnIndex: -1,
-
-                        }}
-
-
-
-                        actions={[
+                        </input> */}
                             
-                            {
-                                icon: () => <button class="btn btn-sm btn-outline-danger">Delete</button>,
-                                onClick: (event, rowData) => {
-                                    setMaintenaceDelete(rowData._id) //setidto delete
-                                    setStateDelete(true);   //setstatetrue
-                                }
-                            },
-                            
-                        ]}
-
-                    />
-
-                <Modal show={StateDelete}>
-                    <Modal.Body>
-                        <p>You Want to delete this Transpot details ?</p>
-                        <button type="button" class="btn btn-outline-danger mr-3 pl-3" onClick={onDelete}>Delete</button>
-                        <button type="button" class="btn btn-outline-secondary pl-3" onClick={() => setStateDelete(false)}>Cancel</button>
-                    </Modal.Body>
-                </Modal>
-
-
-                </div>
-            </div>
+                                <select  className="w-50 h-25 ml-5 btn  dropdown"
+                                      onChange={(e) => {
+                                        setStatus(e.target.value);  // assign value
+                                    }}
         
-        </div>
+                                >
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">completed</option>
+                                </select>
+                                {/* <DropdownButton id="dropdown-basic-button" title="Select delivery Status"
+                                
+                                             onChange={(e) => {
+                                             setStatus(e.target.value);  // assign value
+                                              }}
+                                
+                                >
+                                    <Dropdown.Item value="Pending">Pending</Dropdown.Item>
+                                    <Dropdown.Item value="Completed">Completed</Dropdown.Item>
+                                  
+                                </DropdownButton> */}
+                    </div>
 
-    )}
+                    <button type="submit" className="btn btn-primary mt-4" >Submit</button>
+                </form>
+            </div>
+        </div>
+        
+    )
+
+
+    
+
+}

@@ -53,6 +53,12 @@ import AddVehicle from "./transportManagement/AddVehicle";
 import AllVehicle from "./transportManagement/AllVehicle";
 import UpdateVehicle from "./transportManagement/UpdateVehicle";
 import AddMaintaince from "./transportManagement/AddMaintenance";
+import AddTransport from "./transportManagement/AddTransport";
+import AllTransport from "./transportManagement/AllTransport";
+import UpdateTransport from "./transportManagement/UpdateTransport";
+import DashboardT from "./transportManagement/DashboardT";
+import ReportT from "./transportManagement/ReportT";
+import Drivers from "./transportManagement/Drivers";
 
 import ViewFinancialDetails from "./financialManagement/ViewFinancialDetails";
 import ViewBill from "./financialManagement/ViewBills";
@@ -131,6 +137,12 @@ function Home() {
       <Route exact path="/viewVehicle" component={AllVehicle} />
       <Route exact path="/updateVehicle" component={UpdateVehicle} />
       <Route exact path="/addM" component={AddMaintaince} />
+      <Route exact path="/addT" component={AddTransport} />
+      <Route exact path="/ViewT" component={AllTransport} />
+      <Route exact path="/updateT" component={UpdateTransport} />
+      <Route exact path="/AllT" component={DashboardT} />
+      <Route exact path="/ReportT" component={ReportT} />
+      <Route exact path="/viewD" component={Drivers} />
 
       {/*senal*/}
       <Route path="/ViewFinancial" exact component={ViewFinancialDetails} />

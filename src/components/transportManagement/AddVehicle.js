@@ -69,16 +69,18 @@ export default function AddVehicle() {
 
         <div class ="component-body">
         
+        
         <div class="area">
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li>
-                            <a href="/viewVehicle">
+                            <a href="/AllT">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Dashboard</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
+                        <hr></hr>
                         <li class="has-subnav">
                             <a href="/viewVehicle">
                                 <i class="fa fa-automobile fa-2x"></i>
@@ -93,10 +95,34 @@ export default function AddVehicle() {
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
+                        <hr></hr>
+                        <li class="has-subnav">
+                            <a href="/addT">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                <span class="nav-text">Add Transort Detials</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="has-subnav">
+                            <a href="/ViewT">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                <span class="nav-text">View Transport Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
                         <li class="has-subnav">
                             <a href="/addM">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span class="nav-text">Maintenance</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
+                            <a href="/ReportT">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                                <span class="nav-text">Transport Reports</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
@@ -112,6 +138,7 @@ export default function AddVehicle() {
                         </li>
                     </ul>
                 </nav>
+            </div>
 
 
             <div className="container mb-3" style={{ top: "500" }}>
@@ -188,7 +215,7 @@ export default function AddVehicle() {
                 </form>
             </div>
         </div>
-        </div>
+        
     )
 
 }
