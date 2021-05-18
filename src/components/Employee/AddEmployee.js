@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { addEmployee } from "../../services/employeeService";
 
+const HOST = "http://localhost:4000";
+
 export default function Addemployee() {
+  //get all employee details to validations
+  const [employee, setEmployee] = useState("");
+
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +28,17 @@ export default function Addemployee() {
   const [yearsOfEx, setYearsOfEx] = useState("");
   const [empPic, setEmpPic] = useState("");
   const [cv, setCV] = useState("");
+
+  //nic validation
+  function validation() {
+    axios.get(`${HOST}/api/getNic`).then((res) => {
+      setEmployee(res.data.data);
+    });
+  }
+
+  useEffect(() => {
+    validation();
+  }, []);
 
   function sendData(e) {
     e.preventDefault();
@@ -49,18 +66,22 @@ export default function Addemployee() {
       cv,
     };
 
-    addEmployee(newEmployee).then((response) => {
-      const message = response.ok
-        ? "Employee insertion successful"
-        : "Failed to insert employee";
-      alert(message);
-      window.location.replace("/empList");
-    });
+    if (nic === employee) {
+      alert("Employee exists!");
+    } else {
+      addEmployee(newEmployee).then((response) => {
+        const message = response.ok
+          ? "Employee insertion successful"
+          : "Failed to insert employee";
+        alert(message);
+        window.location.replace("/empList");
+      });
+    }
   }
 
   return (
     <div class="component-body">
-       <div>
+      <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
           <ul>
@@ -169,6 +190,7 @@ export default function Addemployee() {
                   type="email"
                   className="form-control"
                   placeholder="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -182,6 +204,7 @@ export default function Addemployee() {
                   type="text"
                   className="form-control"
                   placeholder="NIC"
+                  pattern="[0-9]{9}V"
                   onChange={(e) => {
                     setNIC(e.target.value);
                   }}
@@ -281,6 +304,7 @@ export default function Addemployee() {
                   type="number"
                   className="form-control"
                   placeholder="Mobile number"
+                  pattern="[0-9]{9}"
                   onChange={(e) => {
                     setMobileNo(e.target.value);
                   }}
@@ -294,6 +318,7 @@ export default function Addemployee() {
                   type="number"
                   className="form-control"
                   placeholder="Land line number"
+                  pattern="[0-9]{9}"
                   onChange={(e) => {
                     setLandLine(e.target.value);
                   }}
@@ -377,7 +402,6 @@ export default function Addemployee() {
               <div className="col-md-6">
                 <label for="yearsOfEx">Years of Experience:</label>
                 <input
-            
                   id="yearsOfEx"
                   type="number"
                   className="form-control"
@@ -393,7 +417,6 @@ export default function Addemployee() {
                 <div className="form-group">
                   <label for="empPic">Photo of the employee:</label>
                   <input
-            
                     id="empPic"
                     type="file"
                     className="form-control-file"
