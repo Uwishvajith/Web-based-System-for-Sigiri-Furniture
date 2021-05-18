@@ -57,7 +57,7 @@ export default function AddProductPrice(){
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/products/view")
+      .get("http://localhost:8060/products/view")
       .then((res) => {
         setProducts(res.data);
         console.log("Data has been received");
@@ -66,7 +66,7 @@ export default function AddProductPrice(){
         alert("Error while fetching data");
       });
 
-      axios.get("http://localhost:8080/promotion/").then((res) => {
+      axios.get("http://localhost:8060/promotion/").then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {
