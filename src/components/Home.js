@@ -6,6 +6,7 @@ import AddEmployee from "./Employee/AddEmployee";
 import RemoveEmployee from "./Employee/removeEmployee";
 import UpdateEmployee from "./Employee/updateEmployeeDetails";
 import ViewEmpDetails from "./Employee/employeeDetails";
+import EmpListReport from "./Employee/employeeReport";
 import QRMarker from "./attendance/QRMarker";
 import AttendanceList from "./attendance/AttendanceList";
 import EmployeeList from "./Employee/employeeList";
@@ -77,7 +78,7 @@ function Home() {
     <Router>
       <Header />
       <Route path="/" exact component={Dashboard} />
-      {/*<Route path="/" exact component={EmployeeList} />*/}
+
       <Route path="/empList" exact component={EmployeeList} />
       <Route path="/addEmp" exact component={AddEmployee} />
       <Route path="/removeEmp" exact component={RemoveEmployee} />
@@ -87,6 +88,8 @@ function Home() {
       <Route path="/attendanceList" exact component={AttendanceList} />
       <Route path="/addLeave" exact component={addNewLeave} />
       <Route path="/leaveList" exact component={LeaveList} />
+      <Route path="/empReport" exact component={EmpListReport} />
+
       {/*hasani*/}
       <Route path="/addCustomer" exact component={AddCustomer} />
       <Route path="/customer/get/:nic" exact component={DisplayCustomer} />

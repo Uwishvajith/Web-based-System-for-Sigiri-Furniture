@@ -1,25 +1,25 @@
-import React from "react";
-import QrReader from "react-qr-reader";
-import { markAttendance } from "../../services/attendanceService";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import MaterialTable from "material-table";
 
-export default function QRMarker() {
-  let isMarked = false;
-  const handleScan = async (data) => {
-    if (!isMarked && data) {
-      isMarked = true;
-      console.log("User Signed In Request Initiated!");
-      await markAttendance(data.trim());
-      alert("Attendance marking success!");
-      console.log("User Signed In Request Completed!");
-    }
-  };
+export default function EmpListReport() {
+  const [employee, setEmployee] = useState([]);
 
-  const handleError = (err) => {
-    console.error(err);
-  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/employeeData")
+      .then((res) => {
+        setEmployee(res.data);
+        console.log("Data has been received");
+        console.log(res.data);
+      })
+      .catch(() => {
+        alert("Error while fetching data");
+      });
+  }, []);
 
   return (
-    <div>
+    <div class="component-body">
       <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
@@ -88,14 +88,48 @@ export default function QRMarker() {
           </ul>
         </nav>
       </div>
-      <h2 className="qr-txt text-center">Place Your QR Code Here</h2>
-      <div class="qrReader">
-        <QrReader
-          class="qrReader"
-          delay={300}
-          onError={handleError}
-          onScan={handleScan}
-          style={{ width: "50%" }}
+      <div className="container-fluid">
+        <MaterialTable
+          style={{ background: "#E3ECFF" }}
+          title="Details of Current Employees"
+          columns={[
+            {
+              title: "First Name",
+              field: "FirstName",
+              type: "string",
+            },
+            { title: "Last Name", field: "LastName", type: "string" },
+            { title: "e-mail", field: "eMail", type: "string" },
+            { title: "NIC", field: "NIC", type: "string" },
+            { title: "Age", field: "Age", type: "number" },
+            /*{ title: "Gender", field: "Gender", type: "string" },
+            { title: "Marital Status", field: "MaritalStatus", type: "string" },
+            {
+              title: "Current Address",
+              field: "CurrentAddress",
+              type: "string",
+            },
+            {
+              title: "Permanant Address",
+              field: "PermanentAddress",
+              type: "string",
+            },
+            */ { title: "Mobile No", field: "MobileNumber", type: "number" },
+            {
+              title: "Emergency Contact",
+              field: "EmergencyContact",
+              type: "number",
+            },
+            { title: "Designation", field: "Designation", type: "string" },
+            { title: "Department", field: "Department", type: "string" },
+            { title: "Joined Date", field: "JoinedDate", type: "string" },
+          ]}
+          data={employee}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
         />
       </div>
     </div>

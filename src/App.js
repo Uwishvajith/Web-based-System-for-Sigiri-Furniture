@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-/*import "bootstrap-css-only/css/bootstrap.min.css";
-/*import "@fortawesome/fontawesome-free/css/all.min.css";*/
 import Home from "./components/Home";
 
 function App() {
