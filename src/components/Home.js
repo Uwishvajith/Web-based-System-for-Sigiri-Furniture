@@ -177,6 +177,8 @@ function Home() {
       <Route exact path="/AllT" component={DashboardT} />
       <Route exact path="/ReportT" component={ReportT} />
       <Route exact path="/viewD" component={Drivers} />
+      <Route exact path="/DashboardT" component={DashboardT} />
+
 
       {/*senal*/}
       <Route path="/ViewFinancial" exact component={ViewFinancialDetails} />

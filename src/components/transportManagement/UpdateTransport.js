@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HOST = "http://localhost:8050/TransportDetail";
+const HOST = "http://localhost:8060/TransportDetail";
 
 export default function UpdateTransport({ data, cl }) {
 

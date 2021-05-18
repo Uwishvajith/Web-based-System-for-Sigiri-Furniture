@@ -5,9 +5,9 @@ import MaterialTable from 'material-table'
 
 
 
-const HOST1 = "http://localhost:8050/TransportDetail"
-const HOST2 = "http://localhost:8050/vehicle"
-const HOST3 = "http://localhost:8050/Maintenance"
+const HOST1 = "http://localhost:8060/TransportDetail"
+const HOST2 = "http://localhost:8060/vehicle"
+const HOST3 = "http://localhost:8060/Maintenance"
 
 
 export default  function ReportT(){

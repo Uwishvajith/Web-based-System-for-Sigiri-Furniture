@@ -6,7 +6,7 @@ import UpdateTransport from "./UpdateTransport"
 
 
 
-const HOST = "http://localhost:8050/TransportDetail"
+const HOST = "http://localhost:8060/TransportDetail"
 
 
 export default  function AllTransport(){

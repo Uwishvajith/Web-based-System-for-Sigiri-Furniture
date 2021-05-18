@@ -5,8 +5,8 @@ import MaterialTable from 'material-table'
 
 
 
-const HOST1 = "http://localhost:8050/TransportDetail"
-const HOST2 = "http://localhost:8050/vehicle"
+const HOST1 = "http://localhost:8060/TransportDetail"
+const HOST2 = "http://localhost:8060/vehicle"
 
 
 export default  function DashboardT(){
