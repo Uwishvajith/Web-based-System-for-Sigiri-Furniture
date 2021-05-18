@@ -109,8 +109,8 @@ export default function AddSupplier() {
           className="border border-info"
           style={{
             marginBottom: 60,
-            borderRadius: 20,
-            backgroundColor: "#98AFC7",
+            
+            backgroundColor: "#e7ebe8",
           }}
         >
           <form
@@ -200,6 +200,7 @@ export default function AddSupplier() {
                 type="text"
                 className="form-control"
                 id="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}

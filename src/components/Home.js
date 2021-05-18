@@ -1,5 +1,5 @@
 import Header from "./Header";
-
+import LoginUser from "./Login";
 import Dashboard from "../components/Dashboard";
 
 import AddEmployee from "./Employee/AddEmployee";
@@ -72,7 +72,8 @@ function Home() {
     <Router>
       
         <Header />
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/" exact component={LoginUser}/>
         {/*<Route path="/" exact component={EmployeeList} />*/}
         <Route path="/empList" exact component={EmployeeList} />
         <Route path="/addEmp" exact component={AddEmployee} />
