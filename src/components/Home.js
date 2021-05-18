@@ -65,6 +65,8 @@ import EditBill from "./financialManagement/EditBill";
 import EditPayment from "./financialManagement/EditPayment";
 import AddSalary from "./financialManagement/AddSalary";
 
+import LoginUser from "./Login";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Home() {
@@ -72,7 +74,9 @@ function Home() {
     <Router>
       
         <Header />
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        {/*login*/}
+        <Route path="/" exact component={LoginUser}/>
         {/*<Route path="/" exact component={EmployeeList} />*/}
         <Route path="/empList" exact component={EmployeeList} />
         <Route path="/addEmp" exact component={AddEmployee} />
@@ -143,6 +147,9 @@ function Home() {
       <Route path="/add/:id" exact component={AddSalary} />
       <Route path="/edit/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
+    
+    
+    
     </Router>
   );
 }

@@ -28,7 +28,7 @@ export default function AllProductPriceDetails() {
 
   const deleteProductPrice = async salesid => {
     await axios.delete(`http://localhost:8080/productprice/deletedelete/${salesid}`);
-    alert("Product Price delete Successfully");
+    alert("Product Price deleted Successfully");
     getPromotion();
   }
 
@@ -66,7 +66,7 @@ export default function AllProductPriceDetails() {
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
             value={searchsaleid} onChange={(e) => { setsearchsaleid(e.target.value); }} />
           <button class="btn btn-outline-success mr-2" id="searchsaleid" type="submit">Search</button>
-          <button class="btn btn-success" name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+          <button class="fa fa-refresh btn btn-success " name="refresh" id="refresh" onClick={refreshPage}></button>
         </form>
       </div>
 
@@ -138,7 +138,7 @@ export default function AllProductPriceDetails() {
 
               <ul class="logout">
                 <li>
-                  <a href="#">
+                  <a href="/">
                     <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text" >Logout</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -177,12 +177,9 @@ export default function AllProductPriceDetails() {
                   <td class="text-center">{productprices.discountprice}</td>
                   <td class="text-center">{productprices.newprice}</td>
                   <td class="text-center">{productprices.quentity}</td>
-                  <td class="text-center"><Link class="btn btn-info mr-2" role="button" to={`/getget/${productprices.salesid}`}>View</Link>
-                    <Link class="btn btn-outline-primary mr-2" role="button" to={`/updateupdate/${productprices.salesid}`}>Update</Link>
-                    <Link class="btn btn-danger" role="button" onClick={() => deleteProductPrice(productprices.salesid)}>Delete</Link></td>
-
-
-
+                  <td class="text-center"><Link class="fa fa-arrow-right btn btn-info" role="button" to={`/getget/${productprices.salesid}`}></Link>
+                    <Link class="fa fa-pencil-square-o btn btn-warning" role="button" to={`/updateupdate/${productprices.salesid}`}></Link>
+                    <Link class="btn btn-danger fa fa-trash" role="button" onClick={() => deleteProductPrice(productprices.salesid)}></Link></td>
 
                 </tr>
               )

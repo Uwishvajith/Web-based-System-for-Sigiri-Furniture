@@ -121,7 +121,7 @@ export default function UpdatePromotionDetails() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -147,7 +147,7 @@ export default function UpdatePromotionDetails() {
 
             <div className="mb-3">
               <label for="productid" >Product ID</label>
-              <input type="text" className="form-control" id="productid" value={productid} onChange={(e) => {
+              <input type="text" className="form-control" id="productid" pattern="PI[0-9]{3}" value={productid} onChange={(e) => {
                 setProductid(e.target.value);
               }} />
 
