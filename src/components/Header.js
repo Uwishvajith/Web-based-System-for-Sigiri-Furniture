@@ -12,7 +12,7 @@ function Header(props) {
             <a class="navbar-brand js-scroll-trigger" href="index.html">
               <img
                 className="ml-3"
-                src="https://scontent.fcmb11-1.fna.fbcdn.net/v/t1.6435-9/79279911_2707267312674583_7837530139343716352_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=GNAxnmwnZcYAX9uBLFW&_nc_ht=scontent.fcmb11-1.fna&oh=2bc7528893f81017b33bda7d7f396b20&oe=609ED175"
+                src="https://i.ibb.co/G5SMQ82/Sigiri-logo.png"
                 width="100px"
                 height="70px"
               />
@@ -34,7 +34,7 @@ function Header(props) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="index.html">
+                  <a class="nav-link text-light" href="/">
                     Home <span class="sr-only">(current)</span>
                   </a>
                 </li>

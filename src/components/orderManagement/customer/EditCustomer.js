@@ -140,11 +140,11 @@ function EditCustomer() {
 
                     <ul class="logout">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-power-off fa-2x"></i>
-                                <span class="nav-text">Logout</span>
-                                <i class="fa fa-angle-right fa-2x"></i>
-                            </a>
+                        <Link to="/">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">Logout</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </Link>
                         </li>
                     </ul>
                 </nav>

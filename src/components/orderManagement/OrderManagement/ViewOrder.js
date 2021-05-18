@@ -112,11 +112,11 @@ function ViewOrder() {
 
           <ul class="logout">
             <li>
-              <a href="#">
+            <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

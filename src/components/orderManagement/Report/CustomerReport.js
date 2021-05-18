@@ -102,11 +102,11 @@ export default function GenerateCustomerReport() {
           </ul>
           <ul class="logout">
             <li>
-              <a href="#">
+            <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -121,8 +121,8 @@ export default function GenerateCustomerReport() {
           
         }}
       >
-        <div className="container-fluid" style={{fontWeight:"bold",fontStyle:"italic"}}>
-          <MaterialTable style={{background:"#ace5ee"}}
+        <div className="container-fluid" style={{fontStyle:"italic"}}>
+          <MaterialTable style={{background:"#E3ECFF"}}
             title="Customer List"
             columns={[
               { title: "Customer NIC", field: "NIC", type: "string" },
