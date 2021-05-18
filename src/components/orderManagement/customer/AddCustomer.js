@@ -20,7 +20,7 @@ export default function AddCustomer() {
     if (answer) {
       const newCustomer = { NIC, name, organization, address, contactNo, email, regDate, empId }
 
-      axios.post("http://localhost:8090/customer/add", newCustomer).then(() => {
+      axios.post("http://localhost:8060/customer/add", newCustomer).then(() => {
         alert("Customer added successfully")
         function refreshPage() {
           window.location.reload();

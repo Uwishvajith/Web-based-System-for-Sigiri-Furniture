@@ -15,7 +15,7 @@ export default function AllOrders() {
         } else {//normally the fetched order details are here   
 
             function getOrders() {
-                axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+                axios.get("http://localhost:8060/order/displayOrders").then((res) => {
                     setOrders(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -35,14 +35,14 @@ export default function AllOrders() {
 
         if (answer) {
 
-            await axios.delete(`http://localhost:8090/orderItem/deleteOrderItem/${orderId}`)
+            await axios.delete(`http://localhost:8060/orderItem/deleteOrderItem/${orderId}`)
             alert("OrderItems successfully deleted");
 
-            await axios.delete(`http://localhost:8090/order/deleteOrder/${orderId}`)
+            await axios.delete(`http://localhost:8060/order/deleteOrder/${orderId}`)
             alert("Order successfully deleted");
 
             function getOrders() {
-                axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+                axios.get("http://localhost:8060/order/displayOrders").then((res) => {
                     setOrders(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -57,13 +57,13 @@ export default function AllOrders() {
     function searchOrders(e) {
         e.preventDefault();
         if (!isNaN(search.charAt(0))) {//checking if the value entered at the search box is for NIC or normal name
-            axios.get(`http://localhost:8090/order/searchOrders/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/order/searchOrders/${search}`).then((res) => {
                 setOrders(res.data);
             }).catch((error) => {
                 alert(error.message);
             })
         } else {
-            axios.get(`http://localhost:8090/order/searchOrdersByOrderId/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/order/searchOrdersByOrderId/${search}`).then((res) => {
                 setOrders(res.data);
             }).catch((error) => {
                 alert(error.message);

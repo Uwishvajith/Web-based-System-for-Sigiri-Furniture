@@ -38,6 +38,7 @@ import PriceReport from "./promotionHandling/PriceReport";
 
 import AddProduct from "./productionManagement/AddProduct";
 import ViewProducts from "./productionManagement/ViewProducts";
+import InventoryReport from "./productionManagement/ViewRawMaterial";
 
 import AddSupplier from "./supplierManagement/AddSupplier";
 import AddTenderRestock from "./supplierManagement/AddTenderRestock";
@@ -113,6 +114,7 @@ function Home() {
       {/*uditha*/}
       <Route exact path="/add" component={AddProduct} />
       <Route exact path="/view" component={ViewProducts} />
+      <Route exact path="/rawmaterial" component={InventoryReport}/>
 
       {/*nalini*/}
 

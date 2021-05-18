@@ -33,7 +33,7 @@ function EditCustomer() {
             const newCustomer = {
                 NIC, name, organization, address, contactNo, email, regDate, empId
             }
-            await axios.put(`http://localhost:8090/customer/updates/${nic}`, newCustomer).then(() => {
+            await axios.put(`http://localhost:8060/customer/updates/${nic}`, newCustomer).then(() => {
                 alert("Customer successfully Updated");
 
 
@@ -48,7 +48,7 @@ function EditCustomer() {
     }
 
     const loadCustomer = async () => {
-        await axios.get(`http://localhost:8090/customer/get/${nic}`).then((res) => {
+        await axios.get(`http://localhost:8060/customer/get/${nic}`).then((res) => {
             console.log(res.data)
             setNIC(res.data.customer.NIC);
             setName(res.data.customer.name);

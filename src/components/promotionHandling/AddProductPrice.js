@@ -32,7 +32,7 @@ export default function AddProductPrice(){
         quentity
     }
 
-   axios.post("http://localhost:8080/productprice/addadd" , newProductPrice).then(()=>{
+   axios.post("http://localhost:8060/productprice/addadd" , newProductPrice).then(()=>{
       alert("New Product Price Added");
       function refreshPage(){
         window.location.replace("/getproductprice");

@@ -25,7 +25,7 @@ export default class ViewBills extends Component {
 
   //creting a method for retrieve data
   getData() {
-    axios.get("http://localhost:8000/bills").then((res) => {
+    axios.get("http://localhost:8060/bills").then((res) => {
       if (res.data.success) {
         this.setState({
           bills: res.data.existingPosts,

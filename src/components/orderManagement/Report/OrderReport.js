@@ -8,7 +8,7 @@ export default function GenerateOrderReport() {
 
   useEffect(() => {
     function getOrders() {
-      axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+      axios.get("http://localhost:8060/order/displayOrders").then((res) => {
         setOrders(res.data.reverse());
       }).catch((error) => {
         alert(error.message);

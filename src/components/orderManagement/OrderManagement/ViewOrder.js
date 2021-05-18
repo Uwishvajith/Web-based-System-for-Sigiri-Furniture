@@ -18,7 +18,7 @@ function ViewOrder() {
   }, []);
 
   const loadOrder = async () => {
-    await axios.get(`http://localhost:8090/order/getOrder/${oID}`).then((res) => {
+    await axios.get(`http://localhost:8060/order/getOrder/${oID}`).then((res) => {
       console.log(res.data);
       setOrderDetails(res.data.order)
 
@@ -29,7 +29,7 @@ function ViewOrder() {
   };
 
   const loadOrderItems = async () => {
-    await axios.get(`http://localhost:8090/orderItem/getOrderItem/${oID}`).then((res) => {
+    await axios.get(`http://localhost:8060/orderItem/getOrderItem/${oID}`).then((res) => {
       console.log(res.data);
       setOrderItemsDetails(res.data.orderItem)
 

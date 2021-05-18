@@ -25,7 +25,7 @@ export default class ViewPayments extends Component {
 
   //creting a method for retrieve data
   getData() {
-    axios.get("http://localhost:8000/payments").then((res) => {
+    axios.get("http://localhost:8060/payments").then((res) => {
       if (res.data.success) {
         this.setState({
           payments: res.data.existingPosts,

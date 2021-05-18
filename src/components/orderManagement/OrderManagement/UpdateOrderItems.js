@@ -33,7 +33,7 @@ function UpdateOrderItems() {
       const newOrderItems = {
         orderId, productId1, qty1, feature1, productId2, qty2, feature2, productId3, qty3, feature3
       }
-      await axios.put(`http://localhost:8090/orderItem/updatesOrderItem/${oID}`, newOrderItems).then(() => {
+      await axios.put(`http://localhost:8060/orderItem/updatesOrderItem/${oID}`, newOrderItems).then(() => {
         alert("Order Product List details successfully Updated");
 
 
@@ -50,7 +50,7 @@ function UpdateOrderItems() {
 
 
   const loadOrderItems = async () => {
-    await axios.get(`http://localhost:8090/orderItem/getOrderItem/${oID}`).then((res) => {
+    await axios.get(`http://localhost:8060/orderItem/getOrderItem/${oID}`).then((res) => {
       console.log(res.data.orderItem)
       setOrderId(res.data.orderItem.orderId);
       setProductId1(res.data.orderItem.productId1);

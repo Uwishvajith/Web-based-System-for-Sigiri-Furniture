@@ -50,9 +50,9 @@ export default function AddOrder() {
 
 
 
-            axios.post("http://localhost:8090/order/addOrder", newOrder).then(() => {
+            axios.post("http://localhost:8060/order/addOrder", newOrder).then(() => {
                 alert("Order successfully placed");
-                axios.post("http://localhost:8090/orderItem/addOrderItems", newOrderItem).then(() => {
+                axios.post("http://localhost:8060/orderItem/addOrderItems", newOrderItem).then(() => {
                     alert("Order items are successfully added");
 
                     history.push("/displayOrders");
@@ -76,7 +76,7 @@ export default function AddOrder() {
 
     }
     function checkCustomerExistance() {
-        axios.get(`http://localhost:8090/customer/searchCustomer/${cNIC}`).then((res) => {
+        axios.get(`http://localhost:8060/customer/searchCustomer/${cNIC}`).then((res) => {
             setCustomers(res.data);
         }).catch((err) => {
             alert(err.response.data.error);
@@ -136,7 +136,7 @@ export default function AddOrder() {
     }, []);
 
     const loadOrder = async () => {
-        await axios.get(`http://localhost:8090/order/getLatestOrder/`).then((res) => {
+        await axios.get(`http://localhost:8060/order/getLatestOrder/`).then((res) => {
             console.log(res.data);
             setOrderId(res.data.order[0].orderId);
 

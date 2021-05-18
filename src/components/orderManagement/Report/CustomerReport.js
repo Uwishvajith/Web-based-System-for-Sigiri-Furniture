@@ -9,7 +9,7 @@ export default function GenerateCustomerReport() {
   useEffect(() => {
     function getCustomers() {
       axios
-        .get("http://localhost:8090/customer/")
+        .get("http://localhost:8060/customer/")
         .then((res) => {
           setCustomers(res.data.reverse());
         })

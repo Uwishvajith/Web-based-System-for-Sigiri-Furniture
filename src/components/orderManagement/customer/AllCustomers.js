@@ -18,7 +18,7 @@ export default function AllCustomers() {
         } else { //normally the fetched customer details are here   
 
             function getCustomers() {
-                axios.get("http://localhost:8090/customer/").then((res) => {
+                axios.get("http://localhost:8060/customer/").then((res) => {
                     setCustomers(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
