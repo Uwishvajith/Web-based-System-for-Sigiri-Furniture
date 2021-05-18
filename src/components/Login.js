@@ -13,7 +13,7 @@ export default function LoginUser() {
     function checkUser(e){//function checks the availbilty of the admin within the system
         e.preventDefault();
         //pass the username and password and if exact user exsits will be directed to dashbord else it will display error for unavailable user
-        axios.get(`http://localhost:8090/login/get/${username}/${password}`).then((response) => {
+        axios.get(`http://localhost:8060/login/get/${username}/${password}`).then((response) => {
         console.log(response.data);
         setLogin(response.data.login);
         if(response.data.login === null){
@@ -22,8 +22,26 @@ export default function LoginUser() {
             alert("User available");
             if(response.data.login.username =="VM001"){
                     history.push("/allCustomer");
+            }else if(response.data.login.username == "PM001"){
+                history.push("/allview");
+            }else if(response.data.login.username == "SM001"){
+                history.push("/alltenders");
+            }
+            else if(response.data.login.username == "EM001"){
+                history.push("/empList");
+            }
+            else if(response.data.login.username == "PM002"){
+                history.push("/view");
+            }
+            else if(response.data.login.username == "TM001"){
+                history.push("/DashboardT");
+            }
+            else if(response.data.login.username == "IM001"){
+                    history.push("/inventory");
+            }else if(response.data.login.username == "FM001"){
+                history.push("/ViewFinancial");
             }else if(response.data.login.username == "CO001"){
-                    history.push("/dashboard");
+                history.push("/dashboard");
             }
         }
       }).catch((err) => {

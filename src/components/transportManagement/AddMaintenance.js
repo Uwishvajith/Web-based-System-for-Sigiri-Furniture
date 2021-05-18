@@ -8,7 +8,7 @@ import MaterialTable from 'material-table'
 import { Modal } from "react-bootstrap"
 
 
-const HOST = "http://localhost:8050/Maintenance"
+const HOST = "http://localhost:8060/Maintenance"
 
 
 
@@ -36,7 +36,7 @@ export default function AddMaintaince() {
             Cost
         }
 
-        axios.post("http://localhost:8050/Maintenance/addM", newMaintaince)
+        axios.post("http://localhost:8060/Maintenance/addM", newMaintaince)
 
             .then(() => {
                 alert("Maintaince details  added")

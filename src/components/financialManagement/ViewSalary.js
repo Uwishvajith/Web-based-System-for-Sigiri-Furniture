@@ -25,7 +25,7 @@ export default class ViewSalary extends Component {
 
   //creting a method for retrieve data
   getData() {
-    axios.get("http://localhost:8000/sals").then((res) => {
+    axios.get("http://localhost:8060/sals").then((res) => {
       if (res.data.success) {
         this.setState({
           sals: res.data.existingPosts,
@@ -92,7 +92,7 @@ export default class ViewSalary extends Component {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text">Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>

@@ -29,7 +29,7 @@ export default function UpdateTenderRestock() {
     };
 
     await axios
-      .put(`http://localhost:8070/Tender/update/${tenderid}`, newTender)
+      .put(`http://localhost:8060/Tender/update/${tenderid}`, newTender)
       .then(() => {
         alert("Tender details update Successfully");
       })
@@ -40,7 +40,7 @@ export default function UpdateTenderRestock() {
 
   const loadTender = async () => {
     await axios
-      .get(`http://localhost:8070/Tender/get/${tenderid}`)
+      .get(`http://localhost:8060/Tender/get/${tenderid}`)
       .then((res) => {
         console.log(res.data);
         setTid(res.data.Tenders.tenderid);

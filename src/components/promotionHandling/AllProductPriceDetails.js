@@ -15,7 +15,7 @@ export default function AllProductPriceDetails() {
 
     } else {
       function getproductpricedetails() {
-        axios.get("http://localhost:8080/productprice/getproductprice").then((res) => {
+        axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {
           console.log(res.data);
           setProductPrices(res.data);
         }).catch((err) => {
@@ -27,13 +27,13 @@ export default function AllProductPriceDetails() {
   }, [])
 
   const deleteProductPrice = async salesid => {
-    await axios.delete(`http://localhost:8080/productprice/deletedelete/${salesid}`);
+    await axios.delete(`http://localhost:8060/productprice/deletedelete/${salesid}`);
     alert("Product Price delete Successfully");
     getPromotion();
   }
 
   function getPromotion() {
-    axios.get("http://localhost:8080/productprice/getproductprice").then((res) => {
+    axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {
       setProductPrices(res.data);
     }).catch((error) => {
       alert(error.message);
@@ -43,7 +43,7 @@ export default function AllProductPriceDetails() {
 
   function searchProductPriceID(e) {
     e.preventDefault();
-    axios.get(`http://localhost:8080/productprice/searchProductByID/${searchsaleid}`).then((res) => {
+    axios.get(`http://localhost:8060/productprice/searchProductByID/${searchsaleid}`).then((res) => {
       console.log(res.data);
       setProductPrices(res.data);
     }).catch((err) => {

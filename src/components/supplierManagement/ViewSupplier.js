@@ -13,7 +13,7 @@ export default function ViewSupplier() {
 
   const loadSupplier = async () => {
     await axios
-      .get(`http://localhost:8070/Supplier/gets/${supp_id}`)
+      .get(`http://localhost:8060/Supplier/gets/${supp_id}`)
       .then((res) => {
         console.log(res.data);
         setSuppliers(res.data.suppliers);

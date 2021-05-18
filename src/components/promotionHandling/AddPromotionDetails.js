@@ -29,7 +29,7 @@ export default function AddPromotionDetails() {
       status
     }
 
-    axios.post("http://localhost:8080/promotion/add", newPromotion).then(() => {
+    axios.post("http://localhost:8060/promotion/add", newPromotion).then(() => {
       alert("New Promotion Added");
       function refreshPage() {
         window.location.replace("/allview");

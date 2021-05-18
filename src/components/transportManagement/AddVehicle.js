@@ -37,7 +37,7 @@ export default function AddVehicle() {
 
 
         
-        axios.post("http://localhost:8050/vehicle/add", newVehicle)
+        axios.post("http://localhost:8060/vehicle/add", newVehicle)
 
             .then(() => {
                 alert("Vehicle added")
@@ -45,7 +45,6 @@ export default function AddVehicle() {
             }).catch((err) => {
                 alert(err)
             })
-
 
     }
 }
