@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { addEmployee } from "../../services/employeeService";
 
-const HOST = "http://localhost:4000";
+const HOST = "http://localhost:8060";
 
 export default function Addemployee() {
   //get all employee details to validations
