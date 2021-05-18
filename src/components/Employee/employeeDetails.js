@@ -60,7 +60,7 @@ export default function ViewEmpDetails(props) {
 
   return (
     <div class="component-body">
-       <div>
+      <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
           <ul>
@@ -128,7 +128,10 @@ export default function ViewEmpDetails(props) {
           </ul>
         </nav>
       </div>
-      <table class="table table-striped table-dark">
+      <a href="/empList" class="float-right mb-3 mr-3">
+        <button class="btn btn-sm btn-outline-primary">close</button>
+      </a>
+      <table class="table table-striped" style={{ background: "#E3ECFF" }}>
         <tbody>
           <tr>
             <th class="text-left" scope="row">

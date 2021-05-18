@@ -17,7 +17,7 @@ export default function AllPromotionDetails() {
     } else { //normally the fetched promotion details are here
 
       function getpromotiondetails() {
-        axios.get("http://localhost:8080/promotion/").then((res) => {
+        axios.get("http://localhost:8060/promotion/").then((res) => {
           console.log(res.data);
           setPromotions(res.data);
         }).catch((err) => {
@@ -30,13 +30,13 @@ export default function AllPromotionDetails() {
   }, [])
 
   const deletePromotion = async promotionid => {
-    await axios.delete(`http://localhost:8080/promotion/delete/${promotionid}`);
+    await axios.delete(`http://localhost:8060/promotion/delete/${promotionid}`);
     alert("Promotion delete Successfully");
     getPromotion();
   }
 
   function getPromotion() {
-    axios.get("http://localhost:8080/promotion/").then((res) => {
+    axios.get("http://localhost:8060/promotion/").then((res) => {
       setPromotions(res.data);
     }).catch((error) => {
       alert(error.message);
@@ -46,7 +46,7 @@ export default function AllPromotionDetails() {
 
   function searchPromotionByID(e) {
     e.preventDefault();
-    axios.get(`http://localhost:8080/promotion/searchPromotionByID/${searchproid}`).then((res) => {
+    axios.get(`http://localhost:8060/promotion/searchPromotionByID/${searchproid}`).then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {

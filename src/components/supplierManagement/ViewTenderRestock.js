@@ -13,7 +13,7 @@ export default function ViewTenderRestock() {
 
   const loadTender = async () => {
     await axios
-      .get(`http://localhost:8070/Tender/get/${tenderid}`)
+      .get(`http://localhost:8060/Tender/get/${tenderid}`)
       .then((res) => {
         console.log(res.data);
         setTenders(res.data.Tenders);

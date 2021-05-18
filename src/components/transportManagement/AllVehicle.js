@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap"
 import UpdateVehicle from "./UpdateVehicle"
 
 
-const HOST = "http://localhost:8050/vehicle"
+const HOST = "http://localhost:8060/vehicle"
 
 export default function AllVehicle() {
 

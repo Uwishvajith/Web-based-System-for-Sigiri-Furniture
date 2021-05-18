@@ -31,7 +31,7 @@ export default function UpdatePromotionDetails() {
 
     }
 
-    await axios.put(`http://localhost:8080/promotion/update/${promotionid}`, newPromotion).then(() => {
+    await axios.put(`http://localhost:8060/promotion/update/${promotionid}`, newPromotion).then(() => {
       alert("Promotion details update Successfully")
     }).catch((err) => {
       alert(err);
@@ -40,7 +40,7 @@ export default function UpdatePromotionDetails() {
   }
 
   const loadPromotionDetails = async () => {
-    await axios.get(`http://localhost:8080/promotion/get/${promotionid}`).then((res) => {
+    await axios.get(`http://localhost:8060/promotion/get/${promotionid}`).then((res) => {
       console.log(res.data);
       setPromoid(res.data.promotions.promotionid);
       setProductid(res.data.promotions.productid);

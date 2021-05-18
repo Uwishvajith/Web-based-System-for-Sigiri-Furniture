@@ -8,7 +8,7 @@ export default function PromotionReport() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:8080/promotion/").then((res) => {
+    axios.get("http://localhost:8060/promotion/").then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {

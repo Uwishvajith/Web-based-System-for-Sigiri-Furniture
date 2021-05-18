@@ -1,11 +1,12 @@
 import Header from "./Header";
-
+import LoginUser from "./Login";
 import Dashboard from "../components/Dashboard";
 
 import AddEmployee from "./Employee/AddEmployee";
 import RemoveEmployee from "./Employee/removeEmployee";
 import UpdateEmployee from "./Employee/updateEmployeeDetails";
 import ViewEmpDetails from "./Employee/employeeDetails";
+import EmpListReport from "./Employee/employeeReport";
 import QRMarker from "./attendance/QRMarker";
 import AttendanceList from "./attendance/AttendanceList";
 import EmployeeList from "./Employee/employeeList";
@@ -38,6 +39,7 @@ import PriceReport from "./promotionHandling/PriceReport";
 
 import AddProduct from "./productionManagement/AddProduct";
 import ViewProducts from "./productionManagement/ViewProducts";
+import InventoryReport from "./productionManagement/ViewRawMaterial";
 
 import AddSupplier from "./supplierManagement/AddSupplier";
 import AddTenderRestock from "./supplierManagement/AddTenderRestock";
@@ -71,6 +73,11 @@ import EditBill from "./financialManagement/EditBill";
 import EditPayment from "./financialManagement/EditPayment";
 import AddSalary from "./financialManagement/AddSalary";
 
+import InventoryDetails from "./inventoryManagement/inventory-details.component";
+import EditInventory from "./inventoryManagement/edit-inventory.component";
+import CreateInventory from "./inventoryManagement/create-inventory.component";
+import AddItem from "./inventoryManagement/add-item.component";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Home() {
@@ -78,17 +85,10 @@ function Home() {
     <Router>
       
         <Header />
-        <Route path="/" exact component={Dashboard} />
-        {/*<Route path="/" exact component={EmployeeList} />*/}
-        <Route path="/empList" exact component={EmployeeList} />
-        <Route path="/addEmp" exact component={AddEmployee} />
-        <Route path="/removeEmp" exact component={RemoveEmployee} />
-        <Route path="/updateEmp/:userId" exact component={UpdateEmployee} />
-        <Route path="/viewEmp/:userId" exact component={ViewEmpDetails} />
-        <Route path="/attendaceMark" exact component={QRMarker} />
-        <Route path="/attendanceList" exact component={AttendanceList} />
-        <Route path="/addLeave" exact component={addNewLeave} />
-        <Route path="/leaveList" exact component={LeaveList} />
+        
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/" exact component={LoginUser}/>
+        
         {/*hasani*/}
         <Route path="/addCustomer" exact component={AddCustomer} />
         <Route path="/customer/get/:nic" exact component={DisplayCustomer} />
@@ -103,22 +103,52 @@ function Home() {
         <Route path="/order/GenerateCustomerReport" exact component={GenerateCustomerReport}/>
         <Route path="/order/GenerateOrderItemsReport" exact component={GenerateOrderItemsReport}/>
 
-        {/*thisara*/}
-        <Route path="/addpromotion" exact component={AddPromotionDetails} />
-        <Route path="/addadd" exact component={AddProductPrice} />
-        <Route path="/allview" exact component={AllPromotionDetails} />
-        <Route path="/getproductprice" exact component={AllProductPriceDetails}/>
-        <Route path="/get/viewpromotion/:promotionid" exact component={ViewPromotionDetails}/>
-        <Route path="/getget/:salesid" exact component={ViewProductPriceDetails}/>
-        <Route path="/update/promotion/:promotionid" exact component={UpdatePromotionDetails}/>
-        <Route path="/updateupdate/:salesid" exact component={UpdateProductPricesDetails}/>
-        <Route path="/promotion/report" exact component={PromotionReport} />
-        <Route path="/price/report" exact component={PriceReport} />
-      
+
+      {/*kaveen*/}
+      <Route path="/empList" exact component={EmployeeList} />
+      <Route path="/addEmp" exact component={AddEmployee} />
+      <Route path="/removeEmp" exact component={RemoveEmployee} />
+      <Route path="/updateEmp/:userId" exact component={UpdateEmployee} />
+      <Route path="/viewEmp/:userId" exact component={ViewEmpDetails} />
+      <Route path="/attendaceMark" exact component={QRMarker} />
+      <Route path="/attendanceList" exact component={AttendanceList} />
+      <Route path="/addLeave" exact component={addNewLeave} />
+      <Route path="/leaveList" exact component={LeaveList} />
+      <Route path="/empReport" exact component={EmpListReport} />
+
+    
+      {/*thisara*/}
+      <Route path="/addpromotion" exact component={AddPromotionDetails} />
+      <Route path="/addadd" exact component={AddProductPrice} />
+      <Route path="/allview" exact component={AllPromotionDetails} />
+      <Route path="/getproductprice" exact component={AllProductPriceDetails} />
+      <Route
+        path="/get/viewpromotion/:promotionid"
+        exact
+        component={ViewPromotionDetails}
+      />
+      <Route
+        path="/getget/:salesid"
+        exact
+        component={ViewProductPriceDetails}
+      />
+      <Route
+        path="/update/promotion/:promotionid"
+        exact
+        component={UpdatePromotionDetails}
+      />
+      <Route
+        path="/updateupdate/:salesid"
+        exact
+        component={UpdateProductPricesDetails}
+      />
+      <Route path="/promotion/report" exact component={PromotionReport} />
+      <Route path="/price/report" exact component={PriceReport} />
 
       {/*uditha*/}
       <Route exact path="/add" component={AddProduct} />
       <Route exact path="/view" component={ViewProducts} />
+      <Route exact path="/rawmaterial" component={InventoryReport}/>
 
       {/*nalini*/}
 
@@ -127,7 +157,11 @@ function Home() {
       <Route path="/s" exact component={AllSuppliers} />
       <Route path="/alltenders" exact component={AllTenderRestock} />
       <Route path="/updates/:supp_id" exact component={UpdateSupplier} />
-      <Route path="/updateTender/:tenderid" exact component={UpdateTenderRestock} />
+      <Route
+        path="/updateTender/:tenderid"
+        exact
+        component={UpdateTenderRestock}
+      />
       <Route path="/gets/:supp_id" exact component={ViewSupplier} />
       <Route path="/get/:tenderid" exact component={ViewTenderRestock} />
       <Route path="/report/tender" exact component={TenderReport} />
@@ -155,6 +189,12 @@ function Home() {
       <Route path="/add/:id" exact component={AddSalary} />
       <Route path="/edit/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
+
+      {/*hiruni*/}
+      <Route path="/inventory" exact component={InventoryDetails} />
+      <Route path="/edit/:id" exact component={EditInventory} />
+      <Route path="/addInventory" exact component={CreateInventory} />
+      <Route path="/item" exact component={AddItem} />
     </Router>
   );
 }

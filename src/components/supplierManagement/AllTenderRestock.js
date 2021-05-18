@@ -6,14 +6,14 @@ export default function AllTenderRestock() {
   const [Tenders, setTenders] = useState([]);
 
   const deleteTender = async (tenderid) => {
-    await axios.delete(`http://localhost:8070/Tender/delete/${tenderid}`);
+    await axios.delete(`http://localhost:8060/Tender/delete/${tenderid}`);
     alert("deleted");
     getTenders();
   };
 
   function getTenders() {
     axios
-      .get("http://localhost:8070/Tender/")
+      .get("http://localhost:8060/Tender/")
       .then((res) => {
         console.log(res.data);
         setTenders(res.data);

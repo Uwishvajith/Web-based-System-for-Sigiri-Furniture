@@ -53,7 +53,7 @@ export default function AddProduct() {
                   </a>
                 </li>
                 <li class="has-subnav">
-                  <a href="http://localhost:8070/products">
+                  <a href="http://localhost:3000/rawMaterial">
                     <i class="fa fa-cogs fa-2x"></i>
                     <span class="nav-text">Raw Material</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -63,7 +63,7 @@ export default function AddProduct() {
       
               <ul class="logout">
                 <li>
-                  <a href="#">
+                  <a href="/">
                     <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text">Logout</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -72,15 +72,16 @@ export default function AddProduct() {
               </ul>
             </nav>
        
-
+        <div className="add_form">
         <div className="productform">
+            <center>
             <div class="topic"><h2>Add New Product</h2> <br></br>
             <br></br></div>
             <form onSubmit={addProduct}>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form_content">
                         <label for="pId">Product ID : </label>
-                        <input type="text" class="form-control" id="pId" placeholder="Product ID"
+                        <input type="text" class="form-control" id="pId" placeholder="Product ID" pattern="PI[0-9]{3}"
                             onChange={(e) => {
 
                                 setId(e.target.value);
@@ -90,7 +91,7 @@ export default function AddProduct() {
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form_content">
                         <label for="name">Product Name : </label>
                         <input type="text" class="form-control" id="name" placeholder="Product name"
                             onChange={(e) => {
@@ -102,7 +103,7 @@ export default function AddProduct() {
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form_content">
                         <label for="ptype">Product Type : </label>
                         <input type="text" class="form-control" id="ptype" placeholder="Steel/Wooden etc"
                             onChange={(e) => {
@@ -114,7 +115,7 @@ export default function AddProduct() {
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form_content">
                         <label for="ptype">Product Price : Rs.</label>
                         <input type="text" class="form-control" id="ptype" placeholder="Price Rs."
                             onChange={(e) => {
@@ -126,7 +127,7 @@ export default function AddProduct() {
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form_content">
                         <label for="qty">Quantity : </label>
                         <input type="text" class="form-control" id="qty" placeholder="Qty"
                             onChange={(e) => {
@@ -136,9 +137,14 @@ export default function AddProduct() {
                             }} />
                     </div>
                 </div>
+                <br></br>
                 <button type="submit" class="btn btn-primary">Add Product</button>
             </form>
+            </center>
+            </div>
+            <br></br>
         </div>
         </div>
+        
     )
 }
