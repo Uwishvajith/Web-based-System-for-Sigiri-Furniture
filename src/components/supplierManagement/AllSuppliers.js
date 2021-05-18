@@ -123,14 +123,14 @@ export default function AllSuppliers() {
                     <td>{Suppliers.credit_limit}</td>
 
                     <Link
-                      class="btn btn-info mr-2"
+                      class="btn btn-primary"
                       role="button"
                       to={`/gets/${Suppliers.supp_id}`}
                     >
                       View
                     </Link>
                     <Link
-                      class="btn btn-outline-primary mr-2"
+                      class="btn btn-warning"
                       role="button"
                       to={`/updates/${Suppliers.supp_id}`}
                     >
@@ -150,7 +150,7 @@ export default function AllSuppliers() {
           </table>
 
           <button className="btn btn-back">
-            <Link to="/add">+ Back Suppliers</Link>
+            <Link to="/adds">+ Back Suppliers</Link>
           </button>
         </div>
       </div>

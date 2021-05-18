@@ -45,6 +45,13 @@ export default function AddPromotionDetails() {
     window.location.reload();
   }
 
+  function addpromotion(){
+    if(promotionid === ""){
+      alert("Fill out the form")
+
+    }
+  }
+
 
   return (
     <div>
@@ -110,7 +117,7 @@ export default function AddPromotionDetails() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -123,14 +130,14 @@ export default function AddPromotionDetails() {
 
       <div className="container" style={{ width: 800, marginTop: 120 }}>
 
-        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#ccccb3" }} >
+        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#e7ebe8" }} >
 
 
           <form onSubmit={sendData} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 800 }}>
             <h1 style={{fontSize:30, top :70,textAlign:"center",fontFamily:"Georgia"}}>Add Promotion Details</h1><br></br><br></br>
             <div className="mb-3">
               <label for="promotionid" >Promotion ID</label>
-              <input type="text" className="form-control" id="promotionid" 
+              <input type="text" className="form-control" id="promotionid" pattern="PM[0-9]{3}"
               onChange={(e) => {
                 setPromotionid(e.target.value);
               }} />
@@ -213,7 +220,7 @@ export default function AddPromotionDetails() {
             </div>
             <br></br>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button type="submit" className="btn btn-outline-info ml-2" >Add Promotion Details</button>
+              <button type="submit" className="btn btn-outline-info ml-2" onClick={addpromotion}>Add Promotion Details</button>
               <Link className="btn btn-outline-info ml-2" role="button" to="/allview">View All Promotions </Link>
               <button className="btn btn-outline-info ml-2" n ame="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
             </div>
