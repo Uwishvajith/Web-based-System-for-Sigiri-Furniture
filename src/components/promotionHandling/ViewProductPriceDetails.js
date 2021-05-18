@@ -13,7 +13,7 @@ export default function ViewProductPriceDetails() {
   }, []);
 
   const loadProductPriceDetails = async () => {
-    await axios.get(`http://localhost:8080/productprice/getget/${salesid}`).then((res) => {
+    await axios.get(`http://localhost:8060/productprice/getget/${salesid}`).then((res) => {
       console.log(res.data);
       setProductPrices(res.data.productprices);
     }).catch((err) => {

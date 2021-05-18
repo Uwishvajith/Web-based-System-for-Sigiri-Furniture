@@ -25,7 +25,7 @@ export default class ViewFinancialDetails extends Component {
 
   //creting a method for retrieve data
   getData() {
-    axios.get("http://localhost:8000/posts").then((res) => {
+    axios.get("http://localhost:8060/posts").then((res) => {
       if (res.data.success) {
         this.setState({
           posts: res.data.existingPosts,
@@ -89,7 +89,7 @@ export default class ViewFinancialDetails extends Component {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text">Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>

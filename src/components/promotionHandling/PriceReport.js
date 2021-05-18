@@ -9,7 +9,7 @@ export default function PriceReport() {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8080/productprice/getproductprice").then((res) => {
+    axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {
       console.log(res.data);
       setProductPrices(res.data);
     }).catch((error) => {

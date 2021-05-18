@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HOST = "http://localhost:4000";
+const HOST = "http://localhost:8060";
 
 export const addLeave = async (leavePayload) => {
   //console.log(leavePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");
