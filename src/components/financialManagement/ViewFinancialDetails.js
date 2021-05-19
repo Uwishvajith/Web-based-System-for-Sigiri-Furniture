@@ -4,47 +4,37 @@ Walpola S.R.
 */
 
 //importing react and axios
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import MaterialTable from "material-table";
 import axios from "axios";
 
-export default class ViewFinancialDetails extends Component {
-  //creating constructor
-  constructor(props) {
-    super(props);
+//create constant for path
+const HOST = "http://localhost:8000";
 
-    //creating an array to store data
-    this.state = {
-      posts: [],
-    };
-  }
+export default function ViewFinancialDetails () {
+  
+  const [income, setState] = useState([]);
 
-  //calling the method
-  componentDidMount() {
-    this.getData();
-  }
+  
 
   //creting a method for retrieve data
-  getData() {
-    axios.get("http://localhost:8000/posts").then((res) => {
-      if (res.data.success) {
-        this.setState({
-          posts: res.data.existingPosts,
-        });
-        console.log(this.state.posts);
-      }
-    });
-  }
+  useEffect(() => {
+    axios
+      .get(HOST + "/posts")
+      .then((res) => {
+        setState(res.data);
+        console.log("Data has been received");
+      })
+      .catch(() => {
+        alert("Error in retrieving data");
+      });
+  }, []);
 
-  onDelete = (id) => {
-    axios.delete(`http://localhost:8000/posts/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.getData();
-    });
-  };
 
   //adding components to the page body
-  render() {
-    return (
+
+  return (
+     /* side navigtaion bar components*/
       <div className="container" id="height">
         <div>
           <div class="area"></div>
@@ -98,39 +88,27 @@ export default class ViewFinancialDetails extends Component {
             </ul>
           </nav>
         </div>
-        <h2 align="center">Daily Income</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">OrderID</th>
-              <th scope="col">Date</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {this.state.posts.map((posts, index) => (
-              <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{posts.OrderId}</td>
-                <td>{posts.Date}</td>
-                <td>{posts.Amount}</td>
-                <td>
-                  <a
-                    className="btn btn-danger"
-                    href="#"
-                    onClick={() => this.onDelete(posts._id)}
-                  >
-                    <i className="far fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+ {/* implementing the meterial table for display data */}
+        <div class="DailyIncomeTable">
+        <MaterialTable style={{background:"#E3ECFF"}}
+          title="Daily Income"
+          columns={[
+            { title: "Order ID", field: "OrderId", type: "string" },
+            { title: "Date", field: "Date", type: "string" },
+            { title: "Amount", field: "Amount", type: "number" }
+
+          ]}
+          data={income}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
+          
+          />
       </div>
+      </div>
+    
     );
-  }
-}
+}      

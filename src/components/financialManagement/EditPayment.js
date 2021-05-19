@@ -86,14 +86,7 @@ export default class EditPayment extends Component {
               <li>
                 <a href="/ViewFinancial">
                   <i class="fa fa-home fa-2x"></i>
-                  <span class="nav-text">Salary</span>
-                  <i class="fa fa-angle-right fa-2x"></i>
-                </a>
-              </li>
-              <li class="has-subnav">
-                <a href="/ViewMsg">
-                  <i class="fa fa fa-users fa-2x"></i>
-                  <span class="nav-text">Messages</span>
+                  <span class="nav-text">Daily Income</span>
                   <i class="fa fa-angle-right fa-2x"></i>
                 </a>
               </li>
@@ -140,7 +133,7 @@ export default class EditPayment extends Component {
         </div>
         <div className="col-md-8 mt-4 mx-auto">
           <h1 className="h3 mb-3 font-weight-normal">Edit Payment Details</h1>
-          <form className="needs-validation" noValidate>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <lable style={{ marginBottom: "5px" }}>Description</lable>
               <input
@@ -148,6 +141,8 @@ export default class EditPayment extends Component {
                 className="form-control"
                 name="des"
                 placeholder="Ex:Warehouse fee"
+                pattern="[A-Za-z ]{3,20}"
+                title="Description must be between 3 to 20 characters in length and contain only Alphabats"
                 value={this.state.des}
                 onChange={this.handleInputChange}
               />
@@ -156,10 +151,9 @@ export default class EditPayment extends Component {
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <lable style={{ marginBottom: "5px" }}>Date</lable>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 name="day"
-                placeholder="Ex:2021-01-01"
                 value={this.state.day}
                 onChange={this.handleInputChange}
               />
@@ -172,6 +166,9 @@ export default class EditPayment extends Component {
                 className="form-control"
                 name="price"
                 placeholder="Ex:25000"
+                pattern="[0-9]{1,20}"
+                title="Amount must be a number"
+                
                 value={this.state.price}
                 onChange={this.handleInputChange}
               />
@@ -181,7 +178,6 @@ export default class EditPayment extends Component {
               className="btn btn-success"
               type="submit"
               style={{ marginTop: "15px" }}
-              onClick={this.onSubmit}
             >
               <i className="far fa-check-square"></i>
               &nbsp; Save

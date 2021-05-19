@@ -176,7 +176,7 @@ function Home() {
       <Route path="/AddBillDetails" exact component={AddBillDetails} />
       <Route path="/AddPayment" exact component={AddPaymentsDetails} />
       <Route path="/add/:id" exact component={AddSalary} />
-      <Route path="/edit/:id" exact component={EditBill} />
+      <Route path="/editBill/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
 
       {/*hiruni*/}

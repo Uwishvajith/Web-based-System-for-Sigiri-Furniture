@@ -6,10 +6,12 @@ Walpola S.R.
 import React, { Component } from "react";
 import axios from "axios";
 
-//create contant for path
+//create constant for path
 const HOST = "http://localhost:8000";
 
 export default class AddBillDetails extends Component {
+  
+  
   //creating constructor for get values
   constructor(props) {
     super(props);
@@ -52,9 +54,10 @@ export default class AddBillDetails extends Component {
         });
         alert("Data Added Successfully!");
       }
-      return {
-        ok: false,
-      };
+       return {  
+               
+         ok: false,        
+       };      
     });
   };
 
@@ -66,17 +69,11 @@ export default class AddBillDetails extends Component {
           <div class="area"></div>
           <nav class="main-menu bg-primary">
             <ul>
-              <li>
-                <a href="/ViewFinancial">
-                  <i class="fa fa-home fa-2x"></i>
-                  <span class="nav-text">Salary</span>
-                  <i class="fa fa-angle-right fa-2x"></i>
-                </a>
-              </li>
+              
               <li class="has-subnav">
-                <a href="/ViewMsg">
+                <a href="/ViewFinancial">
                   <i class="fa fa fa-users fa-2x"></i>
-                  <span class="nav-text">Messages</span>
+                  <span class="nav-text">Daily Income</span>
                   <i class="fa fa-angle-right fa-2x"></i>
                 </a>
               </li>
@@ -121,16 +118,21 @@ export default class AddBillDetails extends Component {
             </ul>
           </nav>
         </div>
+
+        {/* Data input Form */}
         <div className="col-md-8 mt-4 mx-auto">
           <h1 className="h3 mb-3 font-weight-normal">Add Bill Details</h1>
-          <form className="needs-validation" noValidate>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <lable style={{ marginBottom: "5px" }}>Bill Type</lable>
               <input
                 type="text"
-                className="form-control"
+                class="form-control"
                 name="topic"
                 placeholder="Ex:Electricity"
+                pattern="[A-Za-z ]{3,20}"
+                title="Bill type must be between 3 to 20 characters in length and contain only Alphabats"
+                required
                 value={this.state.topic}
                 onChange={this.handleInputChange}
               />
@@ -139,10 +141,9 @@ export default class AddBillDetails extends Component {
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <lable style={{ marginBottom: "5px" }}>Date</lable>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 name="day"
-                placeholder="Ex:2021-01-01"
                 value={this.state.day}
                 onChange={this.handleInputChange}
               />
@@ -154,7 +155,9 @@ export default class AddBillDetails extends Component {
                 type="text"
                 className="form-control"
                 name="price"
-                placeholder="Ex:25000"
+                placeholder="Ex:25000" required
+                pattern="[0-9]{1,20}"
+                title="Amount must be a number"      
                 value={this.state.price}
                 onChange={this.handleInputChange}
               />
@@ -164,7 +167,6 @@ export default class AddBillDetails extends Component {
               className="btn btn-success"
               type="submit"
               style={{ marginTop: "15px" }}
-              onClick={this.onSubmit}
             >
               <i className="far fa-check-square"></i>
               &nbsp; Save

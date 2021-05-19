@@ -6,10 +6,11 @@ Walpola S.R.
 import React, { Component } from "react";
 import axios from "axios";
 
-//create contant for path
+//create constant for path
 const HOST = "http://localhost:8000";
 
 export default class AddSalary extends Component {
+  
   //creating constructor for get values
   constructor(props) {
     super(props);
@@ -139,16 +140,21 @@ export default class AddSalary extends Component {
             </ul>
           </nav>
         </div>
+
+        {/* Data input Form */}
         <div className="col-md-8 mt-4 mx-auto">
           <h1 className="h3 mb-3 font-weight-normal">Add Salary</h1>
-          <form className="needs-validation" noValidate>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <lable style={{ marginBottom: "5px" }}>No of Leaves</lable>
               <input
                 type="text"
                 className="form-control"
                 name="leave"
-                placeholder="Ex:2021-01-01"
+                placeholder="Ex:10"
+                required
+                pattern="[0-9]{1,3}"
+                title="Amount must be a number"
                 value={this.state.leave}
                 onChange={this.handleInputChange}
               />
@@ -161,6 +167,9 @@ export default class AddSalary extends Component {
                 className="form-control"
                 name="sal"
                 placeholder="Ex:25000"
+                required
+                pattern="[0-9]{1,20}"
+                title="Amount must be a number"
                 value={this.state.sal}
                 onChange={this.handleInputChange}
               />
