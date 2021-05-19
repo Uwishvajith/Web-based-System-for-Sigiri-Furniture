@@ -156,7 +156,7 @@ export default class CreateInventory extends Component {
     else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
      
       axios
-        .post("http://localhost:5000/inventories/add", inventory)
+        .post("http://localhost:8060/inventories/add", inventory)
         .then((res) => console.log(res.data));
 
         window.location = "/inventories";
