@@ -119,6 +119,14 @@ export default function AddVehicle() {
                         </li>
                         <hr></hr>
                         <li class="has-subnav">
+                            <a href="/viewD">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span class="nav-text">Driver Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
                             <a href="/ReportT">
                             <i class="fa fa-download" aria-hidden="true"></i>
                                 <span class="nav-text">Transport Reports</span>
@@ -148,11 +156,13 @@ export default function AddVehicle() {
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle ID :</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Vehicle ID"
+                        pattern="V[0-9]{3}" required
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
 
                         ></input>
+                        <p class="font-weight-light">eg : V001</p>
                     </div>
 
                     <div className="mb-3">

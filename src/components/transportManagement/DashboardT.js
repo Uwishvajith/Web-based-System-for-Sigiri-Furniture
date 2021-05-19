@@ -87,6 +87,14 @@ export default  function DashboardT(){
                         </li>
                         <hr></hr>
                         <li class="has-subnav">
+                            <a href="/viewD">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span class="nav-text">Driver Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
                             <a href="/addM">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span class="nav-text">Maintenance</span>
@@ -119,9 +127,9 @@ export default  function DashboardT(){
             <a href="/addVehicle" class="btn btn-primary active ml-5 " role="button" aria-pressed="true"> + Add Vehicle Details </a>
             <a href="/addT" class="btn btn-primary active ml-3 " role="button" aria-pressed="true"> + Add Transport Details </a>
            
-
+            {/* All Transport Details */}
             <div className="container-fluid mt-5">
-
+        
         <MaterialTable style={{background:"#E3ECFF"}}
                     title=" All Transport Details "
 
@@ -150,7 +158,7 @@ export default  function DashboardT(){
 
 
 
-                
+                {/* All Vehicle Details */}
             <div className="container-fluid">
                 <MaterialTable style={{background:"#E3ECFF"}}
                     title=" Vehicles Details"

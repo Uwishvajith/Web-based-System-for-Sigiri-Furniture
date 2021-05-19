@@ -17,7 +17,7 @@ export default function Drivers() {
 
         axios.get(HOST + "/viewD")
             .then((res) => {
-                setDrivers(res.data);
+                setDrivers(res.data.Drivers);
                 console.log(Drivers,"<<<<<<<<<<<<<<<<<<<");
                 console.log('Data has been received');
             }).catch(() => {
@@ -75,6 +75,14 @@ export default function Drivers() {
                         </li>
                         <hr></hr>
                         <li class="has-subnav">
+                            <a href="/viewD">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span class="nav-text">Driver Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
                             <a href="/addM">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span class="nav-text">Maintenance</span>
@@ -106,14 +114,16 @@ export default function Drivers() {
 
             <div className="container-fluid mt-3">
                 <MaterialTable  style={{background:"#E3ECFF"}}
-                    title=" Vehicles Details"
+                    title=" Driver  Details"
                     
 
                     columns={[
-                        { title: "FName", field: "FirstName", type: "string" },
-                        { title: "LName", field: "LastName", type: "string" },
+                        { title: "First Name", field: "FirstName", type: "string" },
+                        { title: "Last Name", field: "LastName", type: "string" },
                         { title: "NIC", field: "NIC", type: "string" },
                         { title: "MobileNumber", field: "MobileNumber", type: "string" },
+                        { title: "Emergancy Contact Number", field: "EmergencyContact", type: "string" },
+                        { title: "Years of Experience", field: "YearsOfExperiance", type: "string" },
                         { title: "Age", field: "Age", type: "numeric" },
                     ]}
 
@@ -131,7 +141,7 @@ export default function Drivers() {
 
             </div>
 
-            <div className="container-fluid"><a href="/addVehicle" class="btn-sm btn-primary btn-lg active float-right " role="button" aria-pressed="true"> + Add New Vehicle </a></div>
+            <div className="container-fluid"><a href="/addT" class="btn-sm btn-primary btn-lg active float-right " role="button" aria-pressed="true"> + Add New Transport Details </a></div>
         
 
         {/* </> */}

@@ -61,7 +61,7 @@ function Dashboard(props) {
               </div>
             <div class="row">
               <div class="col-sm">
-                <Link to="/inventory">
+                <Link to="/inventories">
                   <button type="button" class="dbutton" id="btn-dash">
                     <i class="fa fb fa-line-chart mr-4" id="fa fa-2x"></i>
                     <span class="lead align-top">Inventory Management</span>
