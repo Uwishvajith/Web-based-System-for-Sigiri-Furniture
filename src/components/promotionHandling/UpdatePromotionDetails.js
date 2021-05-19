@@ -137,7 +137,7 @@ export default function UpdatePromotionDetails() {
 
 
           <form onSubmit={onSubmit} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 800 }}>
-          <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia" ,textAlign:"center" }}>Add Promotion Details</h1><br></br>
+          <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia" ,textAlign:"center" }}>Update Promotion Details</h1><br></br>
             <div className="mb-3">
               <label for="promotionid" >Promotion ID</label>
               <input type="text" className="form-control" id="promotionid" value={promotionid} onChange={(e) => {
@@ -148,7 +148,7 @@ export default function UpdatePromotionDetails() {
 
             <div className="mb-3">
               <label for="productid" >Product ID</label>
-              <input type="text" className="form-control" id="productid" pattern="PI[0-9]{3}" value={productid} onChange={(e) => {
+              <input type="text" className="form-control" id="productid" value={productid} onChange={(e) => {
                 setProductid(e.target.value);
               }} />
 
