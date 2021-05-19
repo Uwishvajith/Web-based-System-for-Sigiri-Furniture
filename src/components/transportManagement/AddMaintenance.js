@@ -190,6 +190,7 @@ export default function AddMaintaince() {
                     <div className="mb-3">
                         <label for="Maintenance ID" className="form-label">Maintenance ID :</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Maintenance ID"
+                        pattern="M[0-9]{3}" required
                         
                             onChange={(e) => {
                                 setID(e.target.value); // assign value

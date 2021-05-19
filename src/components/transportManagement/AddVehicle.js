@@ -156,11 +156,13 @@ export default function AddVehicle() {
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle ID :</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Vehicle ID"
+                        pattern="V[0-9]{3}" required
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
 
                         ></input>
+                        <p class="font-weight-light">eg : V001</p>
                     </div>
 
                     <div className="mb-3">

@@ -177,11 +177,11 @@ export default class InventoryDetails extends Component {
                       <button className="delete btn m-2 p-1 w-75" style={{background:"#d5d9e0"}}
 
                           onClick={()=>{
-                          axios.delete("http://localhost:5000/inventories/"+ inventory._id)
+                          axios.delete("http://localhost:8060/inventories/"+ inventory._id)
                           .then(()=>{
        
                       });
-                          axios.get("http://localhost:5000/inventories/")
+                          axios.get("http://localhost:8060/inventories/")
                           .then((Response)=>{
                             console.log(Response.data);
                             this.setState({
