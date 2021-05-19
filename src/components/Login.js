@@ -37,7 +37,7 @@ export default function LoginUser() {
                 history.push("/DashboardT");
             }
             else if(response.data.login.username == "IM001"){
-                    history.push("/inventory");
+                    history.push("/inventories");
             }else if(response.data.login.username == "FM001"){
                 history.push("/ViewFinancial");
             }else if(response.data.login.username == "CO001"){
