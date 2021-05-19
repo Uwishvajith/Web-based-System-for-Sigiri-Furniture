@@ -30,7 +30,7 @@ export default function UpdatePromotionDetails() {
 
     }
 
-    await axios.put(`http://localhost:8080/productprice/updateupdate/${salesid}`, newProductPrices).then(() => {
+    await axios.put(`http://localhost:8060/productprice/updateupdate/${salesid}`, newProductPrices).then(() => {
       alert("Product Price details update Successfully")
     }).catch((err) => {
       alert(err);
@@ -39,7 +39,7 @@ export default function UpdatePromotionDetails() {
   }
 
   const loadProductPricesDetails = async () => {
-    await axios.get(`http://localhost:8080/productprice/getget/${salesid}`).then((res) => {
+    await axios.get(`http://localhost:8060/productprice/getget/${salesid}`).then((res) => {
       console.log(res.data);
       setsalesID(res.data.productprices.salesid);
       setProductid(res.data.productprices.productid);
@@ -123,7 +123,7 @@ export default function UpdatePromotionDetails() {
 
             <ul class="logout">
               <li>
-                <a href="#">
+                <a href="/">
                   <i class="fa fa-power-off fa-2x"></i>
                   <span class="nav-text" >Logout</span>
                   <i class="fa fa-angle-right fa-2x"></i>
@@ -150,7 +150,7 @@ export default function UpdatePromotionDetails() {
 
             <div className="mb-3">
               <label for="productid" >Product ID</label>
-              <input type="text" className="form-control" id="productid" value={productid} onChange={(e) => {
+              <input type="text" className="form-control" id="productid" pattern="PI[0-9]{3}" value={productid} onChange={(e) => {
                 setProductid(e.target.value);
               }} />
 

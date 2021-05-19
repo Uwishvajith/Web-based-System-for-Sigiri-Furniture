@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import MaterialTable from 'material-table'
-import { Modal } from "react-bootstrap"
-import UpdateVehicle from "./UpdateVehicle"
 
 
-const HOST = "http://localhost:8060/vehicle"
 
-export default function AllVehicle() {
 
+const HOST1 = "http://localhost:8060/TransportDetail"
+const HOST2 = "http://localhost:8060/vehicle"
+const HOST3 = "http://localhost:8060/Maintenance"
+
+
+export default  function ReportT(){
+
+    const [TransportDetails, setTransportDetails] = useState([]);
     const [Vehicles, setVehicles] = useState([]);
-
-    const [StateUpdate, setStateUpdate] = useState(false)
-    const [VehicleUpdate, setVehicleUpdate] = useState()
-
-    const [StateDelete, setStateDelete] = useState(false)
-    const [VehicleDelete, setVehicleDelete] = useState()
+    const [Maintenances, setMaintenances] = useState([]);
 
     useEffect(() => {
 
-        axios.get(HOST + "/")
+        axios.get(HOST1 + "/ViewT")
+            .then((res) => {
+                setTransportDetails(res.data);
+                console.log('Data has been received');
+            }).catch(() => {
+                alert('Error while fetching data')
+            })
+
+    }, []);
+    useEffect(() => {
+
+        axios.get(HOST2 + "/")
             .then((res) => {
                 setVehicles(res.data);
                 console.log('Data has been received');
@@ -28,24 +38,29 @@ export default function AllVehicle() {
             })
 
     }, []);
+    
+    useEffect(() => {
 
-    function onDelete() {
-        axios.delete(HOST + "/delete/" + VehicleDelete)
+        axios.get(HOST3 + "/viewM")
             .then((res) => {
-                console.log(res)
-                alert('Vehicle deleted')
-                window.location.reload(true)//reload page
-
+                setMaintenances(res.data);
+                console.log('Data has been received');
             }).catch(() => {
-                alert('error while deleting vehicle data')
+                alert('Error while fetching data')
             })
 
-    }
+    }, []);
 
-    return (
-        // <>
-            <div class ="component-body">
-            <div class="area">
+
+
+    
+
+
+
+
+    return(
+        <div class ="component-body">
+             <div class="area">
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li>
@@ -122,11 +137,46 @@ export default function AllVehicle() {
                     </ul>
                 </nav>
             </div>
-           
 
-            <div className="container-fluid mt-3">
-                <MaterialTable  style={{background:"#E3ECFF"}}
-                    title=" Vehicles Details"
+
+
+
+
+            <div className="container-fluid">
+
+        <MaterialTable style={{background:"#E3ECFF"}}
+                    title="  Transport Details Report"
+
+                    columns={[
+                        { title: "Transport id", field: "TransportID", type: "string" },
+                        { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
+                        { title: "Date", field: "Date", type: "string" },
+                        { title: "DriverName", field: "DriverName", type: "string" },
+                        { title: "Discription", field: "Discription", type: "string" },
+                        { title: "Status", field: "Status", type: "string" },
+                    ]}
+
+                    data={TransportDetails}
+                    options={{
+                        sorting: true,
+                        actionsColumnIndex: -1,
+                        exportButton: true
+
+                    }}
+      
+                
+                    />
+                    
+                
+                </div>
+
+
+
+
+                
+            <div className="container-fluid">
+                <MaterialTable style={{background:"#E3ECFF"}}
+                    title=" Vehicles Details Report"
 
                     columns={[
                         { title: "Vehicle id", field: "VehicleID", type: "string" },
@@ -141,51 +191,55 @@ export default function AllVehicle() {
                     options={{
                         sorting: true,
                         actionsColumnIndex: -1,
+                        exportButton: true
 
                     }}
 
-                    actions={[
-                        {
-                            icon: () => <button class="btn btn-sm btn-outline-warning">Update</button>,
-                            onClick: (event, rowData) => {
-                                setVehicleUpdate(rowData); //setVehiclewithID
-                                setStateUpdate(true); //setStatetrue
-                            }
-                        },
-                        {
-                            icon: () => <button class="btn btn-sm btn-outline-danger">Delete</button>,
-                            onClick: (event, rowData) => {
-                                setVehicleDelete(rowData._id) //setidto delete
-                                setStateDelete(true);   //setstatetrue
-                            }
-                        },
-                    ]}
+                    
                 />
 
-                <Modal show={StateUpdate}>
-                    <Modal.Body>
-                        <UpdateVehicle data={VehicleUpdate} cl={() => setStateUpdate(false)} />
-                    </Modal.Body>
-                </Modal>
-
-                <Modal show={StateDelete}>
-                    <Modal.Body>
-                        <p>You Want to delete this vehicle details ?</p>
-                        <button type="button" class="btn btn-outline-danger mr-3 pl-3" onClick={onDelete}>Delete</button>
-                        <button type="button" class="btn btn-outline-secondary pl-3" onClick={() => setStateDelete(false)}>Cancel</button>
-                    </Modal.Body>
-                </Modal>
-
+                
             </div>
 
-            <div className="container-fluid"><a href="/addVehicle" class="btn-sm btn-primary btn-lg active float-right " role="button" aria-pressed="true"> + Add New Vehicle </a></div>
-        
 
-        {/* </> */}
+
+
+
+            <div className="container-fluid mt-5">
+                    <MaterialTable style={{background:"#E3ECFF"}}
+                        title="Maintenance Details Report"
+
+                        columns={[
+                            { title: "Vehicle id", field: "MaintainID", type: "string" },
+                            { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
+                            { title: "Date", field: "Date", type: "string" },
+                            { title: "Description", field: "Discription", type: "string" },
+                            { title: "Cost", field: "Cost", type: "string" },
+
+                        ]}
+
+                        data={Maintenances}
+                        options={{
+                            sorting: true,
+                            actionsColumnIndex: -1,
+                            exportButton: true
+
+                        }}
+
+                    />
+
+
+                </div>
+
+
+
 
         </div>
+
     )
 
+    
+
+
+
 }
-
-

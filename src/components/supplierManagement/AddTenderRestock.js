@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
+import MaterialTable from "material-table";
 
 export default function AddTenderRestock() {
+
+  const [item, setItems] = useState([]);
+  
   const [tenderid, setTenderid] = useState("");
   const [supp_id, setSuppid] = useState("");
   const [itemcode, setItemcode] = useState("");
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
+
 
   function sendData(e) {
     e.preventDefault();
@@ -22,7 +27,7 @@ export default function AddTenderRestock() {
     };
 
     axios
-      .post("http://localhost:8070/Tender/add", newTender)
+      .post("http://localhost:8060/Tender/add", newTender)
       .then(() => {
         alert("New Tender added");
         function refreshPage() {
@@ -34,8 +39,20 @@ export default function AddTenderRestock() {
         alert(err);
       });
   }
-
+  useEffect(() => {
+    axios
+      .get("http://localhost:8070/item/")
+      .then((res) => {
+        console.log(res.data);
+        setItems(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+    
+  }, []);
   return (
+    
     <div>
       <div>
         <div>
@@ -100,13 +117,17 @@ export default function AddTenderRestock() {
           </nav>
         </div>
       </div>
-      <div className="container" style={{ width: 800, marginTop: 200 }}>
+      <div className="container" style={{ width: 1000, marginTop: 200,marginBottom: 100, display: "flex",marginLeft: 400 }}>
         <div
           className="border border-info"
           style={{
-            marginBottom: 60,
-            borderRadius: 20,
-            backgroundColor: "#98AFC7",
+            
+            
+            backgroundColor: "#e7ebe8",
+            marginLeft: -300,
+            
+
+            
           }}
         >
           <form
@@ -116,14 +137,16 @@ export default function AddTenderRestock() {
               marginLeft: 30,
               marginRight: 30,
               height: 700,
+              width: 600,
+              
             }}
           >
             <legend
               style={{
-                fontSize: 40,
+                fontSize: 36,
                 paddingTop: 20,
                 paddingBottom: 20,
-                paddingLeft: 150,
+                paddingLeft: 50,
               }}
             >
               {" "}
@@ -177,6 +200,7 @@ export default function AddTenderRestock() {
                 }}/>
 
             </div>*/}
+            
 
             <div className="mb-3">
               <label for="type">Type</label>
@@ -223,10 +247,49 @@ export default function AddTenderRestock() {
                 Add Tender Details
               </button>
             </div>
+            
           </form>
+          
           <br></br>
         </div>
+        
+
+      <div  class = "div container" >
+      <div >
+        <MaterialTable
+          style={{backgroundColor:" #e7e7e7"}}
+          title={"Tender Details List"}
+          columns={[
+           
+            { title: "Itemname", field: "itemname", type: "String" },
+            { title: "Itemcode", field: "itemcode", type: "String" },
+            { title: "quantity", field: "quantity", type: "String" },
+            { title: "required", field: "minrequired", type: "Number" },
+            
+           
+          ]}
+          data={item}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
+
+          className="div container"
+          style={{
+
+            marginLeft: 100,
+            marginTop: 2,
+            width:550,
+            
+          }}
+        />
+      
+        </div>
       </div>
+      </div>
+      
     </div>
   );
-}
+  }
+

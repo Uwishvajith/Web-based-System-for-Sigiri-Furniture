@@ -6,8 +6,8 @@ Walpola S.R.
 import React, { Component } from "react";
 import axios from "axios";
 
-//create constant for path
-const HOST = "http://localhost:8000";
+//create contant for path
+const HOST = "http://localhost:8060";
 
 export default class AddPaymentDetails extends Component {
   //creating constructor for get values

@@ -233,11 +233,24 @@ IT 19965550*/
 
 .productform {
   margin-top: 125px;
-  margin-left: 35%;
-  max-width: 93%;
-  table-layout: auto;
+  margin-left: 30%;
+  padding: 50px;
+  width: 700px;
   border-collapse: collapse;
-  padding: 10px;
+  background-color:#888888;
+  border-width: 2px;
+  border-color: black;
+  border-style: inset; 
+  box-shadow: 5px 5px #000000ce; 
+  overflow: visible;
+}
+
+.form_content {
+  margin-left: 50px;
+  width: 500px;
+  border-collapse: collapse;
+  align-items: center;
+  color: black;
 }
  
 .topic {

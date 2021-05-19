@@ -6,14 +6,14 @@ export default function AllSuppliers() {
   const [Suppliers, setSuppliers] = useState([]);
 
   const deleteSupplier = async (supp_id) => {
-    await axios.delete(`http://localhost:8070/Supplier/delete/${supp_id}`);
+    await axios.delete(`http://localhost:8060/Supplier/delete/${supp_id}`);
     alert("deleted");
     getSuppliers();
   };
 
   function getSuppliers() {
     axios
-      .get("http://localhost:8070/Supplier/")
+      .get("http://localhost:8060/Supplier/")
       .then((res) => {
         console.log(res.data);
         setSuppliers(res.data);
@@ -123,14 +123,14 @@ export default function AllSuppliers() {
                     <td>{Suppliers.credit_limit}</td>
 
                     <Link
-                      class="btn btn-info mr-2"
+                      class="btn btn-primary"
                       role="button"
                       to={`/gets/${Suppliers.supp_id}`}
                     >
                       View
                     </Link>
                     <Link
-                      class="btn btn-outline-primary mr-2"
+                      class="btn btn-warning"
                       role="button"
                       to={`/updates/${Suppliers.supp_id}`}
                     >
@@ -150,7 +150,7 @@ export default function AllSuppliers() {
           </table>
 
           <button className="btn btn-back">
-            <Link to="/add">+ Back Suppliers</Link>
+            <Link to="/adds">+ Back Suppliers</Link>
           </button>
         </div>
       </div>
