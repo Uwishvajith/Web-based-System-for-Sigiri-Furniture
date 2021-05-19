@@ -156,7 +156,9 @@ export default class EditInventory extends Component {
     };
 
     console.log(inventory);
-    if(this.state.category.length <= 3){
+
+    
+   /* if(this.state.category.length <= 3){
       this.setState({categoryError:"Category Length must be longer than 3"})
     }
     else if(this.state.quantity <= 0){
@@ -171,12 +173,15 @@ export default class EditInventory extends Component {
     else if(this.state.minrequired <= 0 ){
       this.setState({minrequiredError:"Minimum Required must be more than 0"})
     }
-    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
+    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0) */{
+
 
     axios.post("http://localhost:8060/inventories/update/" + this.props.match.params.id,inventory)
         .then(res => console.log(res.data));
 
-    window.location = '/inventories';
+        window.alert("Update success!")
+        window.location = '/inventories';
+   
   }
 
 }
