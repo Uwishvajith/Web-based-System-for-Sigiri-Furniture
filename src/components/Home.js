@@ -69,6 +69,7 @@ import InventoryDetails from "./inventoryManagement/inventory-details.component"
 import EditInventory from "./inventoryManagement/edit-inventory.component";
 import CreateInventory from "./inventoryManagement/create-inventory.component";
 import AddItem from "./inventoryManagement/add-item.component";
+import InventoryReport from "./inventoryManagement/inventoryReport";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -176,14 +177,15 @@ function Home() {
       <Route path="/AddBillDetails" exact component={AddBillDetails} />
       <Route path="/AddPayment" exact component={AddPaymentsDetails} />
       <Route path="/add/:id" exact component={AddSalary} />
-      <Route path="/edit/:id" exact component={EditBill} />
+      <Route path="/editBill/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
 
       {/*hiruni*/}
-      <Route path="/inventory" exact component={InventoryDetails} />
+      <Route path="/inventories" exact component={InventoryDetails} />
       <Route path="/edit/:id" exact component={EditInventory} />
       <Route path="/addInventory" exact component={CreateInventory} />
       <Route path="/item" exact component={AddItem} />
+      <Route path="/inventoryReport" exact component={InventoryReport}/>
     </Router>
   );
 }

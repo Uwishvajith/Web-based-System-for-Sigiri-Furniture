@@ -16,15 +16,9 @@ const Inventory = (props) => {
     <td>{props.inventory.dateofmanufactured.substring(0, 10)}</td>
     <td>{props.inventory.lastupdated.substring(0, 10)}</td>
     <td>
-      <Link to={"/edit/" + props.inventory._id}>edit</Link> |{" "}
-      <a
-        href="#"
-        onClick={() => {
-          props.deleteInventory(props.inventory._id);
-        }}
-      >
-        delete
-      </a>
+      <button className='edit'><Link to={"/edit/" + props.inventory._id} className="link">edit</Link></button>
+      <button className='delete' onClick={()=>{props.deleteInventory(props.inventory._id)}}>Delete</button>
+
     </td>
   </tr>;
 };
@@ -57,14 +51,16 @@ export default class InventoryDetails extends Component {
     this.setState({
       inventories: this.state.inventories.filter((el) => el._id !== id),
     });
+
+    
   }
 
-  /*inventoryDetails() {
+  inventoryDetails() {
         return this.state.inventories.map(currentInventory => {
             <Inventory inventory={currentInventory} deleteInventory={this.deleteInventory} key={currentInventory._id}/>;
         })
     }
-*/
+
 
   render() {
     return (
@@ -82,8 +78,8 @@ export default class InventoryDetails extends Component {
               </li>
 
               <li className="has-subnav">
-                <a href="/inventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                <a href="/inventories">
+                  <i className="fa fa-cogs fa-2x"></i>
                   <span className="nav-text">Inventory</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </a>
@@ -91,7 +87,7 @@ export default class InventoryDetails extends Component {
 
               <li className="has-subnav">
                 <Link to="./item">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-plus-square fa-2x"></i>
                   <span className="nav-text">Add Item</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
@@ -99,11 +95,20 @@ export default class InventoryDetails extends Component {
 
               <li className="has-subnav">
                 <Link to="/addInventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-table fa-2x"></i>
                   <span className="nav-text">Create Item Log</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
               </li>
+
+              <li className="has-subnav">
+                <Link to="/inventoryReport">
+                  <i className="fa fa-file-pdf-o fa-2x"></i>
+                  <span className="nav-text">Reports</span>
+                  <i className="fa fa-angle-right fa-2x"></i>
+                </Link>
+              </li>
+
             </ul>
             <ul class="logout">
             <li>
@@ -116,8 +121,16 @@ export default class InventoryDetails extends Component {
           </ul>
           </nav>
         </div>
+
+        <a href="/inventoryReport" class="float-right mb-3 mr-3">
+            <button class="btn btn-sm btn-outline-primary">
+              <span class="fa fa-file-text-o"></span>
+              Report
+            </button>
+          </a> 
+
         <h3>Inventory Details</h3>
-        <table className="table">
+        <table className="table" style={{background:"#E3ECFF"}}>
           <thead className="thead-light">
             <tr>
               <th>Itemname</th>
@@ -131,6 +144,7 @@ export default class InventoryDetails extends Component {
               <th>Minimum</th>
               <th>DateofManufacture</th>
               <th>LastUpdated</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -147,8 +161,40 @@ export default class InventoryDetails extends Component {
                   <td>{inventory.currentstock}</td>
                   <td>{inventory.newstock}</td>
                   <td>{inventory.minrequired}</td>
-                  <td>{inventory.dateofmanufactured}</td>
-                  <td>{inventory.lastupdated}</td>
+                  <td>{inventory.dateofmanufactured.substring(0,15
+                    )}</td>
+                  <td>{inventory.lastupdated.substring(0,15)}</td>
+                  <td>
+                    
+                   <div class="mx-auto mb-0">
+                      <button className="edit btn m-2 p-1 w-75"  style={{background:"#d5d9e0"}}>
+                        <Link
+                        to={"/edit/"+inventory._id} className="link"
+                          >Edit
+                        </Link>  
+                      </button>
+                      
+                      <button className="delete btn m-2 p-1 w-75" style={{background:"#d5d9e0"}}
+
+                          onClick={()=>{
+                          axios.delete("http://localhost:5000/inventories/"+ inventory._id)
+                          .then(()=>{
+       
+                      });
+                          axios.get("http://localhost:5000/inventories/")
+                          .then((Response)=>{
+                            console.log(Response.data);
+                            this.setState({
+                              inventory:Response.data,
+                            });
+                          })
+                              window.alert("Delete success!")
+                              window.location="/inventories";
+                        }}>
+
+                       Delete</button> 
+                  </div> 
+                  </td>
                 </tr>
               );
             })}
