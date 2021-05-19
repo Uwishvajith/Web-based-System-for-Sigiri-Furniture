@@ -176,7 +176,7 @@ table {
   table-layout: fixed;
 }
 
-table,
+/*table,
 td,
 th {
   border-collapse: collapse;
@@ -186,7 +186,7 @@ th,
 td {
   padding: 10px;
   text-align: center;
-}
+}*/
 
 /* QR Reader Window */
 .qrReader {

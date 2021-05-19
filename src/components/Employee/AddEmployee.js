@@ -8,26 +8,26 @@ export default function Addemployee() {
   //get all employee details to validations
   const [employee, setEmployee] = useState("");
 
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [email, setEmail] = useState("");
-  const [nic, setNIC] = useState("");
-  const [DOB, setDOB] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [maritalStat, setMaritalStat] = useState("");
-  const [currAdd, setCurrAdd] = useState("");
-  const [permAdd, setPermAdd] = useState("");
-  const [mobileNo, setMobileNo] = useState("");
-  const [landLine, setLandLine] = useState("");
-  const [emgContact, setEmgContact] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [department, setDepartment] = useState("");
-  const [joinedDate, setJoinedDate] = useState("");
-  const [workedCompany, setWorkedCompany] = useState("");
-  const [yearsOfEx, setYearsOfEx] = useState("");
-  const [empPic, setEmpPic] = useState("");
-  const [cv, setCV] = useState("");
+  var [fName, setfName] = useState("");
+  var [lName, setlName] = useState("");
+  var [email, setEmail] = useState("");
+  var [nic, setNIC] = useState("");
+  var [DOB, setDOB] = useState("");
+  var [age, setAge] = useState("");
+  var [gender, setGender] = useState("");
+  var [maritalStat, setMaritalStat] = useState("");
+  var [currAdd, setCurrAdd] = useState("");
+  var [permAdd, setPermAdd] = useState("");
+  var [mobileNo, setMobileNo] = useState("");
+  var [landLine, setLandLine] = useState("");
+  var [emgContact, setEmgContact] = useState("");
+  var [designation, setDesignation] = useState("");
+  var [department, setDepartment] = useState("");
+  var [joinedDate, setJoinedDate] = useState("");
+  var [workedCompany, setWorkedCompany] = useState("");
+  var [yearsOfEx, setYearsOfEx] = useState("");
+  var [empPic, setEmpPic] = useState("");
+  var [cv, setCV] = useState("");
 
   //nic validation
   function validation() {
@@ -77,6 +77,12 @@ export default function Addemployee() {
         window.location.replace("/empList");
       });
     }
+  }
+
+  function employeedemo(){
+    fName = "SI004";
+    document.getElementById('fName').value = fName;
+    
   }
 
   return (
@@ -442,6 +448,11 @@ export default function Addemployee() {
               </div>
             </div>
             <div className="row">
+            <div className="col py-3 text-center">
+            <button type="button" className="btn btn-primary" onClick={employeedemo}>
+                 Fill employee data
+                </button>
+              </div>
               <div className="col py-3 text-center">
                 <button type="submit" className="btn btn-primary">
                   Submit
