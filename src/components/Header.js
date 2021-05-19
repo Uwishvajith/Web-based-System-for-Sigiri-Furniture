@@ -8,9 +8,9 @@ function Header(props) {
           class="navbar navbar-expand-lg navbar-light bg-primary fixed-top"
           id="mainNav"
         >
-          <div class="container-fluid">
+          <div class="container-fluid" >
             <a class="navbar-brand js-scroll-trigger" href="index.html">
-              <img
+            <img
                 className="ml-3"
                 src="https://i.ibb.co/G5SMQ82/Sigiri-logo.png"
                 width="100px"
@@ -34,7 +34,7 @@ function Header(props) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="index.html">
+                  <a class="nav-link text-light" href="/">
                     Home <span class="sr-only">(current)</span>
                   </a>
                 </li>

@@ -6,7 +6,7 @@ import { useHistory, useParams, Link } from "react-router-dom";
 
 function UpdateOrder() {
     let history = useHistory();
-    const { oID } = useParams();
+    const { oID } = useParams();//taking the orderid value from all orders table component
 
 
     useEffect(() => {
@@ -142,11 +142,11 @@ function UpdateOrder() {
 
                     <ul class="logout">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-power-off fa-2x"></i>
-                                <span class="nav-text">Logout</span>
-                                <i class="fa fa-angle-right fa-2x"></i>
-                            </a>
+                        <Link to="/">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">Logout</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </Link>
                         </li>
                     </ul>
                 </nav>
@@ -206,7 +206,7 @@ function UpdateOrder() {
                         <div style={{position:"absolute",bottom: "2%", left: "67%", width: "15%", height: "10%"}}>
                         <div className="d-grid gap-2 d-md-flex justify-content">
                             <button className="btn btn-primary" type="reset" value="RESET" onClick={refreshPage}>RESET</button>
-                            <button className="btn btn-primary" type="submit" value="SUBMIT">UPDATE ORDER</button>
+                            <button className="btn btn-primary ml-2" type="submit" value="SUBMIT">UPDATE ORDER</button>
                         </div>
                         </div>
                         <div className="d-grid gap-2 d-md-flex justify-content">

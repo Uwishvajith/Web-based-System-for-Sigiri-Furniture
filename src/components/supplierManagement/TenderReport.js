@@ -90,6 +90,8 @@ export default function TenderReport() {
         <br></br>
 
         <MaterialTable
+        
+          style={{backgroundColor:" #E3ECFF"}}
           title={"Tender Details List"}
           columns={[
             { title: "Tender Id", field: "tenderid", type: "text" },

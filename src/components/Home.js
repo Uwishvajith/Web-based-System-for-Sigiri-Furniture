@@ -1,5 +1,5 @@
 import Header from "./Header";
-
+import LoginUser from "./Login";
 import Dashboard from "../components/Dashboard";
 
 import AddEmployee from "./Employee/AddEmployee";
@@ -55,6 +55,12 @@ import AddVehicle from "./transportManagement/AddVehicle";
 import AllVehicle from "./transportManagement/AllVehicle";
 import UpdateVehicle from "./transportManagement/UpdateVehicle";
 import AddMaintaince from "./transportManagement/AddMaintenance";
+import AddTransport from "./transportManagement/AddTransport";
+import AllTransport from "./transportManagement/AllTransport";
+import UpdateTransport from "./transportManagement/UpdateTransport";
+import DashboardT from "./transportManagement/DashboardT";
+import ReportT from "./transportManagement/ReportT";
+import Drivers from "./transportManagement/Drivers";
 
 import ViewFinancialDetails from "./financialManagement/ViewFinancialDetails";
 import ViewBill from "./financialManagement/ViewBills";
@@ -77,9 +83,28 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 function Home() {
   return (
     <Router>
-      <Header />
-      <Route path="/" exact component={Dashboard} />
+      
+        <Header />
+        
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/" exact component={LoginUser}/>
+        
+        {/*hasani*/}
+        <Route path="/addCustomer" exact component={AddCustomer} />
+        <Route path="/customer/get/:nic" exact component={DisplayCustomer} />
+        <Route path="/customer/update/:nic" exact component={EditCustomer} />
+        <Route path="/addOrder" exact component={AddOrder} />
+        <Route path="/allCustomer" exact component={AllCustomers} />
+        <Route path="/order/getOrder/:oID" exact component={ViewOrder} />
+        <Route path="/order/update/:oID" exact component={UpdateOrder} />
+        <Route path="/orderItem/update/:oID" exact component={UpdateOrderItems}/>
+        <Route path="/displayOrders" exact component={AllOrders} />
+        <Route path="/order/GenerateOrderReport" exact component={GenerateOrderReport}/>
+        <Route path="/order/GenerateCustomerReport" exact component={GenerateCustomerReport}/>
+        <Route path="/order/GenerateOrderItemsReport" exact component={GenerateOrderItemsReport}/>
 
+
+      {/*kaveen*/}
       <Route path="/empList" exact component={EmployeeList} />
       <Route path="/addEmp" exact component={AddEmployee} />
       <Route path="/removeEmp" exact component={RemoveEmployee} />
@@ -91,32 +116,7 @@ function Home() {
       <Route path="/leaveList" exact component={LeaveList} />
       <Route path="/empReport" exact component={EmpListReport} />
 
-      {/*hasani*/}
-      <Route path="/addCustomer" exact component={AddCustomer} />
-      <Route path="/customer/get/:nic" exact component={DisplayCustomer} />
-      <Route path="/customer/update/:nic" exact component={EditCustomer} />
-      <Route path="/addOrder" exact component={AddOrder} />
-      <Route path="/allCustomer" exact component={AllCustomers} />
-      <Route path="/order/getOrder/:oID" exact component={ViewOrder} />
-      <Route path="/order/update/:oID" exact component={UpdateOrder} />
-      <Route path="/orderItem/update/:oID" exact component={UpdateOrderItems} />
-      <Route path="/displayOrders" exact component={AllOrders} />
-      <Route
-        path="/order/GenerateOrderReport"
-        exact
-        component={GenerateOrderReport}
-      />
-      <Route
-        path="/order/GenerateCustomerReport"
-        exact
-        component={GenerateCustomerReport}
-      />
-      <Route
-        path="/order/GenerateOrderItemsReport"
-        exact
-        component={GenerateOrderItemsReport}
-      />
-
+    
       {/*thisara*/}
       <Route path="/addpromotion" exact component={AddPromotionDetails} />
       <Route path="/addadd" exact component={AddProductPrice} />
@@ -171,6 +171,14 @@ function Home() {
       <Route exact path="/viewVehicle" component={AllVehicle} />
       <Route exact path="/updateVehicle" component={UpdateVehicle} />
       <Route exact path="/addM" component={AddMaintaince} />
+      <Route exact path="/addT" component={AddTransport} />
+      <Route exact path="/ViewT" component={AllTransport} />
+      <Route exact path="/updateT" component={UpdateTransport} />
+      <Route exact path="/AllT" component={DashboardT} />
+      <Route exact path="/ReportT" component={ReportT} />
+      <Route exact path="/viewD" component={Drivers} />
+      <Route exact path="/DashboardT" component={DashboardT} />
+
 
       {/*senal*/}
       <Route path="/ViewFinancial" exact component={ViewFinancialDetails} />
@@ -181,7 +189,7 @@ function Home() {
       <Route path="/AddBillDetails" exact component={AddBillDetails} />
       <Route path="/AddPayment" exact component={AddPaymentsDetails} />
       <Route path="/add/:id" exact component={AddSalary} />
-      <Route path="/edit/:id" exact component={EditBill} />
+      <Route path="/editBill/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
 
       {/*hiruni*/}

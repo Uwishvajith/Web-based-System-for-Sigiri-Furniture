@@ -1,7 +1,3 @@
-//import React,{useState} from "react"
-//import axios from "axios"
-
-//adding
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import MaterialTable from 'material-table'
@@ -14,19 +10,27 @@ const HOST = "http://localhost:8060/Maintenance"
 
 export default function AddMaintaince() {
 
+    //adding
+    const [Maintenances, setMaintenances] = useState([]);
 
     const [MaintainID, setID] = useState("");
     const [VehicleRegNo, setRegNo] = useState("");
     const [Date, setDate] = useState("");
     const [Discription, setDiscription] = useState("");
     const [Cost, setCost] = useState("");
+    const [RegNoErr, setRegNoErr] = useState("");
 
+    const [StateDelete, setStateDelete] = useState(false)
+    const [MaintenaceDelete, setMaintenaceDelete] = useState()
 
 
     function sendData(e) {//event
 
         e.preventDefault(); //prevent normal behaviour of submit button
 
+        const isValid =formValidation();
+
+        if(isValid){//send data after validate
 
         const newMaintaince = {
             MaintainID,
@@ -47,10 +51,24 @@ export default function AddMaintaince() {
             })
     }
 
+    }
+
+    const formValidation =() => {//validation function
+        const RegNoErr ={};//state
+        let isValid =true;//return boolean value, setting flag
 
 
-    //adding
-    const [Maintenances, setMaintenances] = useState([]);
+        if(VehicleRegNo.trim().length >8){
+            RegNoErr.InvalidRegNo="Invalid Vehicle registration number";//error
+            isValid=false;
+        }
+
+        setRegNoErr(RegNoErr); //update error objects
+        return isValid;
+
+    }
+
+    
 
 
     useEffect(() => {
@@ -65,22 +83,37 @@ export default function AddMaintaince() {
 
     }, []);
 
+    function onDelete() {
+        axios.delete(HOST + "/deleteM/" + MaintenaceDelete)
+            .then((res) => {
+                console.log(res)
+                alert('Maintenance detail deleted')
+                window.location.reload(true)//reload page
+
+            }).catch(() => {
+                alert('error while deleting Transport Detail')
+            })
+
+    }
+
 
 
 
 
     return (
         <div class="component-body">
+        
         <div class="area">
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li>
-                            <a href="/viewVehicle">
+                            <a href="/AllT">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span class="nav-text">Dashboard</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
+                        <hr></hr>
                         <li class="has-subnav">
                             <a href="/viewVehicle">
                                 <i class="fa fa-automobile fa-2x"></i>
@@ -95,10 +128,42 @@ export default function AddMaintaince() {
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
+                        <hr></hr>
+                        <li class="has-subnav">
+                            <a href="/addT">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                <span class="nav-text">Add Transort Detials</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="has-subnav">
+                            <a href="/ViewT">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                <span class="nav-text">View Transport Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
                         <li class="has-subnav">
                             <a href="/addM">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span class="nav-text">Maintenance</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
+                            <a href="/viewD">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span class="nav-text">Driver Details</span>
+                                <i class="fa fa-angle-right fa-2x"></i>
+                            </a>
+                        </li>
+                        <hr></hr>
+                        <li class="has-subnav">
+                            <a href="/ReportT">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                                <span class="nav-text">Transport Reports</span>
                                 <i class="fa fa-angle-right fa-2x"></i>
                             </a>
                         </li>
@@ -114,9 +179,10 @@ export default function AddMaintaince() {
                         </li>
                     </ul>
                 </nav>
+            </div>
 
 
-            <div className="container" style={{ top: "500" }}>
+            <div className="container mb-3" style={{ top: "500" }}>
                 <h1>Maintance Details</h1>
                 <form className="mt-5" onSubmit={sendData}>
 
@@ -124,6 +190,7 @@ export default function AddMaintaince() {
                     <div className="mb-3">
                         <label for="Maintenance ID" className="form-label">Maintenance ID :</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Maintenance ID"
+                        
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
@@ -134,12 +201,17 @@ export default function AddMaintaince() {
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle Registration No:</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Registration Number"
+                        
                             onChange={(e) => {
                                 setRegNo(e.target.value); // assign value
                             }}
 
                         ></input>
                     </div>
+
+                    {Object.keys(RegNoErr).map((key)=>{
+                        return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                    })}
                     <div className="mb-3">
                         <label for="date" className="form-label">Date :</label>
                         <input type="date" className="form-control" id="date" placeholder="Date"
@@ -176,7 +248,7 @@ export default function AddMaintaince() {
 
 
                 <div className="container-fluid mt-5">
-                    <MaterialTable
+                    <MaterialTable style={{background:"#E3ECFF"}}
                         title="Maintenance Details"
 
                         columns={[
@@ -195,14 +267,34 @@ export default function AddMaintaince() {
 
                         }}
 
+
+
+                        actions={[
+                            
+                            {
+                                icon: () => <button class="btn btn-sm btn-outline-danger">Delete</button>,
+                                onClick: (event, rowData) => {
+                                    setMaintenaceDelete(rowData._id) //setidto delete
+                                    setStateDelete(true);   //setstatetrue
+                                }
+                            },
+                            
+                        ]}
+
                     />
+
+                <Modal show={StateDelete}>
+                    <Modal.Body>
+                        <p>You Want to delete this Transpot details ?</p>
+                        <button type="button" class="btn btn-outline-danger mr-3 pl-3" onClick={onDelete}>Delete</button>
+                        <button type="button" class="btn btn-outline-secondary pl-3" onClick={() => setStateDelete(false)}>Cancel</button>
+                    </Modal.Body>
+                </Modal>
 
 
                 </div>
             </div>
-        </div>
+        
         </div>
 
-    )
-
-}
+    )}

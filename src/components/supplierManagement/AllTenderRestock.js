@@ -118,14 +118,14 @@ export default function AllTenderRestock() {
                     <td>{Tenders.quantity}</td>
 
                     <Link
-                      class="btn btn-info mr-2"
+                      class="btn btn-primary"
                       role="button"
                       to={`/getTender/${Tenders.tenderid}`}
                     >
                       View
                     </Link>
                     <Link
-                      class="btn btn-outline-primary mr-2"
+                      class="btn btn-warning"
                       role="button"
                       to={`/updateTender/${Tenders.tenderid}`}
                     >
@@ -145,7 +145,7 @@ export default function AllTenderRestock() {
           </table>
 
           <button className="btn btn-back">
-            <Link to="/add">+ Back TenderRestock</Link>
+            <Link to="/addTender">+ Back TenderRestock</Link>
           </button>
         </div>
       </div>
