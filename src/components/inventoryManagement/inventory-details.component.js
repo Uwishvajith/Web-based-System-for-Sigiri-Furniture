@@ -33,7 +33,7 @@ export default class InventoryDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/inventories/")
+      .get("http://localhost:8060/inventories/")
       .then((response) => {
         this.setState({ inventories: response.data });
       })
@@ -45,7 +45,7 @@ export default class InventoryDetails extends Component {
 
   deleteInventory(id) {
     axios
-      .delete("http://localhost:5000/inventories/" + id)
+      .delete("http://localhost:8060/inventories/" + id)
       .then((res) => console.log(res.data));
 
     this.setState({
@@ -102,7 +102,7 @@ export default class InventoryDetails extends Component {
               </li>
 
               <li className="has-subnav">
-                <Link to="/inventoryReport">
+                <Link to="/inventReport">
                   <i className="fa fa-file-pdf-o fa-2x"></i>
                   <span className="nav-text">Reports</span>
                   <i className="fa fa-angle-right fa-2x"></i>
@@ -122,7 +122,7 @@ export default class InventoryDetails extends Component {
           </nav>
         </div>
 
-        <a href="/inventoryReport" class="float-right mb-3 mr-3">
+        <a href="/inventReport" class="float-right mb-3 mr-3">
             <button class="btn btn-sm btn-outline-primary">
               <span class="fa fa-file-text-o"></span>
               Report

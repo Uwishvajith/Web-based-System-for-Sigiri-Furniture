@@ -9,7 +9,7 @@ export default function InventoryReport() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/inventories/")
+      .get("http://localhost:8060/inventories/")
       .then((res) => {
         setInventory(res.data);
         console.log(res.data);
@@ -59,7 +59,7 @@ export default function InventoryReport() {
               </li>
 
               <li className="has-subnav">
-                <Link to="/addInventory">
+                <Link to="/inventReport">
                   <i className="fa fa-file-pdf-o fa-2x"></i>
                   <span className="nav-text">Reports</span>
                   <i className="fa fa-angle-right fa-2x"></i>

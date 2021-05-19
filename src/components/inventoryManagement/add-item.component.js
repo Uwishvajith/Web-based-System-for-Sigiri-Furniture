@@ -48,7 +48,7 @@ export default class AddItem extends Component {
     console.log(items);
 
     axios
-      .post("http://localhost:5000/items/add", items)
+      .post("http://localhost:8060/items/add", items)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
 
@@ -146,7 +146,7 @@ export default class AddItem extends Component {
               </li>
 
               <li className="has-subnav">
-                <Link to="/inventoryReport">
+                <Link to="/inventReport">
                   <i className="fa fa-file-pdf-o fa-2x"></i>
                   <span className="nav-text">Reports</span>
                   <i className="fa fa-angle-right fa-2x"></i>

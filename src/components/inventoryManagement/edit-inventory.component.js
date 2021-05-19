@@ -38,7 +38,7 @@ export default class EditInventory extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/inventories/" + this.props.match.params.id)
+      .get("http://localhost:8060/inventories/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           itemname:response.data.itemname,
@@ -60,7 +60,7 @@ export default class EditInventory extends Component {
         console.log(error);
       });
 
-        axios.get("http://localhost:5000/items/").then(response => {
+        axios.get("http://localhost:8060/items/").then(response => {
           if (response.data.length > 0) {
             this.setState({
               itemnames: response.data.map((item) => item.itemname),
@@ -173,7 +173,7 @@ export default class EditInventory extends Component {
     }
     else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
 
-    axios.post("http://localhost:5000/inventories/update/" + this.props.match.params.id,inventory)
+    axios.post("http://localhost:8060/inventories/update/" + this.props.match.params.id,inventory)
         .then(res => console.log(res.data));
 
     window.location = '/inventories';
@@ -221,7 +221,7 @@ export default class EditInventory extends Component {
               </li>
 
               <li className="has-subnav">
-                <Link to="/inventoryReport">
+                <Link to="/inventReport">
                   <i className="fa fa-file-pdf-o fa-2x"></i>
                   <span className="nav-text">Reports</span>
                   <i className="fa fa-angle-right fa-2x"></i>

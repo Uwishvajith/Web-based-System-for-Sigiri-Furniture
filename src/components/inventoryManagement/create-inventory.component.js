@@ -39,7 +39,7 @@ export default class CreateInventory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/items/").then((response) => {
+    axios.get("http://localhost:8060/items/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
           items: response.data.map((item) => item.itemname),
@@ -203,7 +203,7 @@ export default class CreateInventory extends Component {
               </li>
 
               <li className="has-subnav">
-                <Link to="/inventoryReport">
+                <Link to="/inventReport">
                   <i className="fa fa-file-pdf-o fa-2x"></i>
                   <span className="nav-text">Reports</span>
                   <i className="fa fa-angle-right fa-2x"></i>
