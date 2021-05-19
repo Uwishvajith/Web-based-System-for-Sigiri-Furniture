@@ -42,6 +42,7 @@ export default function Addemployee() {
 
   function sendData(e) {
     e.preventDefault();
+   
 
     const newEmployee = {
       fName,
@@ -79,9 +80,51 @@ export default function Addemployee() {
     }
   }
 
-  function employeedemo(){
-    fName = "SI004";
-    document.getElementById('fName').value = fName;
+  function employeedemo(e){
+    e.preventDefault();
+
+      fName = "Senal"
+      document.getElementById('fName').value = fName;
+      lName = "Ransara"
+      document.getElementById('lName').value = lName;
+      email = "senal@gmail.com"
+      document.getElementById('email').value = email;
+      nic ="985843795V"
+      document.getElementById('nic').value = nic; 
+      DOB ="1998-12-30"
+      document.getElementById('dob').value = DOB;
+      age = "30"
+      document.getElementById('age').value = age;
+      gender = "male"
+      document.getElementById('gender').value = gender;
+      maritalStat ="Unmarried"
+      document.getElementById('maritalStatus').value = maritalStat;
+      currAdd ="Colombo"
+      document.getElementById('currAdd').value = currAdd;
+      permAdd ="Rathnapura"
+      document.getElementById('permAdd').value = permAdd;
+      mobileNo="0718564532"
+      document.getElementById('mobileNo').value = mobileNo;
+      landLine="0413495643"
+      document.getElementById('landLine').value = landLine;
+      emgContact="4567823434"
+      document.getElementById('emgContact').value = emgContact;
+      designation ="financial Manager"
+      document.getElementById('designation').value = designation;
+      department="financial"
+      document.getElementById('department').value = department;
+      joinedDate="2021-04-29"
+      document.getElementById('joinedDate').value = joinedDate;
+      workedCompany="No"
+      document.getElementById('workedCompany').value = workedCompany;
+      yearsOfEx="6"
+      document.getElementById('yearsOfEx').value = yearsOfEx;
+      empPic=""
+      document.getElementById('empPic').value = empPic;
+      cv=""
+      document.getElementById('cv').value = cv;
+
+      
     
   }
 
@@ -219,7 +262,7 @@ export default function Addemployee() {
               <div className="col">
                 <label for="dob">Date of Birth:</label>
                 <input
-                  required
+                  //required
                   id="dob"
                   type="date"
                   className="form-control"
@@ -436,7 +479,7 @@ export default function Addemployee() {
                 <div className="form-group">
                   <label for="cv">CV:</label>
                   <input
-                    required
+                    //required
                     id="cv"
                     type="file"
                     className="form-control-file"
