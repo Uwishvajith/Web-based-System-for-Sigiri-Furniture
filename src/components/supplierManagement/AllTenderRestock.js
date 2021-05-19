@@ -6,14 +6,14 @@ export default function AllTenderRestock() {
   const [Tenders, setTenders] = useState([]);
 
   const deleteTender = async (tenderid) => {
-    await axios.delete(`http://localhost:8070/Tender/delete/${tenderid}`);
+    await axios.delete(`http://localhost:8060/Tender/delete/${tenderid}`);
     alert("deleted");
     getTenders();
   };
 
   function getTenders() {
     axios
-      .get("http://localhost:8070/Tender/")
+      .get("http://localhost:8060/Tender/")
       .then((res) => {
         console.log(res.data);
         setTenders(res.data);
@@ -118,14 +118,14 @@ export default function AllTenderRestock() {
                     <td>{Tenders.quantity}</td>
 
                     <Link
-                      class="btn btn-info mr-2"
+                      class="btn btn-primary"
                       role="button"
                       to={`/getTender/${Tenders.tenderid}`}
                     >
                       View
                     </Link>
                     <Link
-                      class="btn btn-outline-primary mr-2"
+                      class="btn btn-warning"
                       role="button"
                       to={`/updateTender/${Tenders.tenderid}`}
                     >
@@ -145,7 +145,7 @@ export default function AllTenderRestock() {
           </table>
 
           <button className="btn btn-back">
-            <Link to="/add">+ Back TenderRestock</Link>
+            <Link to="/addTender">+ Back TenderRestock</Link>
           </button>
         </div>
       </div>

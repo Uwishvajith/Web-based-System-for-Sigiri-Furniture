@@ -218,13 +218,39 @@ IT 19965550*/
   text-align: center;
 }
 
-.productform {
+.DailyIncomeTable{
   margin-top: 125px;
-  margin-left: 35%;
-  max-width: 93%;
+  margin-left: 70px;
+  max-width: 100%;
   table-layout: auto;
   border-collapse: collapse;
   padding: 10px;
+  text-align: center;
+}
+
+
+
+
+.productform {
+  margin-top: 125px;
+  margin-left: 30%;
+  padding: 50px;
+  width: 700px;
+  border-collapse: collapse;
+  background-color:#888888;
+  border-width: 2px;
+  border-color: black;
+  border-style: inset; 
+  box-shadow: 5px 5px #000000ce; 
+  overflow: visible;
+}
+
+.form_content {
+  margin-left: 50px;
+  width: 500px;
+  border-collapse: collapse;
+  align-items: center;
+  color: black;
 }
  
 .topic {
@@ -275,3 +301,8 @@ IT 19965550*/
   padding-left: 110px;
 
 }
+
+#ledger{
+  text-align: center;
+}
+

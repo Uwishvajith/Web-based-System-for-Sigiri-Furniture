@@ -7,7 +7,7 @@ export default function TenderReport() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8070/Tender/")
+      .get("http://localhost:8060/Tender/")
       .then((res) => {
         console.log(res.data);
         setTenders(res.data);
@@ -90,6 +90,8 @@ export default function TenderReport() {
         <br></br>
 
         <MaterialTable
+        
+          style={{backgroundColor:" #E3ECFF"}}
           title={"Tender Details List"}
           columns={[
             { title: "Tender Id", field: "tenderid", type: "text" },

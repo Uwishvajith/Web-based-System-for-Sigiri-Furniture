@@ -15,7 +15,7 @@ export default function AllOrders() {
         } else {//normally the fetched order details are here   
 
             function getOrders() {
-                axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+                axios.get("http://localhost:8060/order/displayOrders").then((res) => {
                     setOrders(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -35,14 +35,14 @@ export default function AllOrders() {
 
         if (answer) {
 
-            await axios.delete(`http://localhost:8090/orderItem/deleteOrderItem/${orderId}`)
+            await axios.delete(`http://localhost:8060/orderItem/deleteOrderItem/${orderId}`)
             alert("OrderItems successfully deleted");
 
-            await axios.delete(`http://localhost:8090/order/deleteOrder/${orderId}`)
+            await axios.delete(`http://localhost:8060/order/deleteOrder/${orderId}`)
             alert("Order successfully deleted");
 
             function getOrders() {
-                axios.get("http://localhost:8090/order/displayOrders").then((res) => {
+                axios.get("http://localhost:8060/order/displayOrders").then((res) => {
                     setOrders(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -57,13 +57,13 @@ export default function AllOrders() {
     function searchOrders(e) {
         e.preventDefault();
         if (!isNaN(search.charAt(0))) {//checking if the value entered at the search box is for NIC or normal name
-            axios.get(`http://localhost:8090/order/searchOrders/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/order/searchOrders/${search}`).then((res) => {
                 setOrders(res.data);
             }).catch((error) => {
                 alert(error.message);
             })
         } else {
-            axios.get(`http://localhost:8090/order/searchOrdersByOrderId/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/order/searchOrdersByOrderId/${search}`).then((res) => {
                 setOrders(res.data);
             }).catch((error) => {
                 alert(error.message);
@@ -148,11 +148,11 @@ export default function AllOrders() {
 
                     <ul class="logout">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-power-off fa-2x"></i>
-                                <span class="nav-text">Logout</span>
-                                <i class="fa fa-angle-right fa-2x"></i>
-                            </a>
+                        <Link to="/">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">Logout</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </Link>
                         </li>
                     </ul>
                 </nav>
@@ -164,10 +164,11 @@ export default function AllOrders() {
                         <br></br><br></br>
                         <input className="col-md-8" type="text" name="search" placeholder="Search..."
                             value={search} onChange={(event) => { setSearch(event.target.value) }} required />
-                        <button class="btn btn-danger" name="submit" id="submit" value="submit">Go</button>
+                        <button class="fa fa-search btn btn-danger" name="submit" id="submit" value="submit"></button>
 
                     </form>
-                    <button class="btn btn-success" name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+                    <div style={{ position: "absolute", top: "67%", left: "81.9%"}}>
+                    <button class="fa fa-refresh btn btn-success" name="refresh" id="refresh" onClick={refreshPage}></button></div>
                 </div>
 
             </div>
@@ -210,9 +211,9 @@ export default function AllOrders() {
                                         <td class="text-center">{orders.oStatus}</td>
                                         <td class="text-center">{orders.oDate}</td>
                                         <td class="text-center">
-                                            <Link class="btn btn-primary mr-2" role="button" to={`/order/getOrder/${orders.orderId}`}>View</Link>
-                                            <Link class="btn btn-outline-primary mr-2" to={`/order/update/${orders.orderId}`} role="button">Update</Link>
-                                            <Link class="btn btn-danger" onClick={() => deleteOrder(orders.orderId)} role="button">Delete</Link>
+                                            <Link class="fa fa-eye btn btn-primary ml-4" role="button" to={`/order/getOrder/${orders.orderId}`}></Link>
+                                            <Link class="fa fa-pencil-square-o btn btn-outline-warning ml-4" to={`/order/update/${orders.orderId}`} role="button"></Link>
+                                            <Link class="fa fa-trash btn btn-danger ml-3" onClick={() => deleteOrder(orders.orderId)} role="button"></Link>
                                         </td>
                                     </tr>
                                 );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HOST = "http://localhost:8050/vehicle";
+const HOST = "http://localhost:8060/vehicle";
 
 export default function UpdateVehicle({ data, cl }) {
   const [formDetails, setFormDetails] = useState({

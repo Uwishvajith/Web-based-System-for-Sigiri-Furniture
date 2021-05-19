@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { addEmployee } from "../../services/employeeService";
 
-const HOST = "http://localhost:4000";
+const HOST = "http://localhost:8060";
 
 export default function Addemployee() {
   //get all employee details to validations
@@ -67,7 +67,7 @@ export default function Addemployee() {
     };
 
     if (nic === employee) {
-      alert("data exists!");
+      alert("Employee exists!");
     } else {
       addEmployee(newEmployee).then((response) => {
         const message = response.ok
@@ -190,6 +190,7 @@ export default function Addemployee() {
                   type="email"
                   className="form-control"
                   placeholder="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -203,6 +204,7 @@ export default function Addemployee() {
                   type="text"
                   className="form-control"
                   placeholder="NIC"
+                  pattern="[0-9]{9}V"
                   onChange={(e) => {
                     setNIC(e.target.value);
                   }}
@@ -302,6 +304,7 @@ export default function Addemployee() {
                   type="number"
                   className="form-control"
                   placeholder="Mobile number"
+                  pattern="[0-9]{9}"
                   onChange={(e) => {
                     setMobileNo(e.target.value);
                   }}
@@ -315,6 +318,7 @@ export default function Addemployee() {
                   type="number"
                   className="form-control"
                   placeholder="Land line number"
+                  pattern="[0-9]{9}"
                   onChange={(e) => {
                     setLandLine(e.target.value);
                   }}

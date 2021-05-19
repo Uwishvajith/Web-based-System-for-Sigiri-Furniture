@@ -1,16 +1,23 @@
-import React, { useState } from "react"
-import axios from "axios"
+import React, {useState} from "react"
+import axios from 'axios'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+
+// import MaterialTable from 'material-table'
 
 
 
-export default function AddVehicle() {
+
+export default function AddTransport(){
+
+    
     //states
-    const [VehicleID, setID] = useState("");
+    const [TransportID, setID] = useState("");
     const [VehicleRegNo, setRegNo] = useState("");
     const [Date, setDate] = useState("");
-    const [VehicleType, setVehicleType] = useState("");
-    const [VehicleBrand, setVehicleBrand] = useState("");
-    const [Mileage, setMileage] = useState("");
+    const [DriverName, setName] = useState("");
+    const [Discription, setDescription] = useState("");
+    const [Status, setStatus] = useState("");
     const [RegNoErr, setRegNoErr] = useState("");
 
 
@@ -26,25 +33,26 @@ export default function AddVehicle() {
         if(isValid){//send data after validate
 
         const newVehicle = {
-            VehicleID,
+            TransportID,
             VehicleRegNo,
             Date,
-            VehicleType,
-            VehicleBrand,
-            Mileage,
+            DriverName,
+            Discription,
+            Status,
 
         }
 
 
         
-        axios.post("http://localhost:8060/vehicle/add", newVehicle)
+        axios.post("http://localhost:8060/TransportDetail/addT", newVehicle)
 
             .then(() => {
-                alert("Vehicle added")
+                alert("Detail Added")
 
             }).catch((err) => {
                 alert(err)
             })
+
 
     }
 }
@@ -67,9 +75,7 @@ export default function AddVehicle() {
     return (
 
         <div class ="component-body">
-        
-        
-        <div class="area">
+             <div class="area">
                 <nav class="main-menu bg-primary">
                     <ul>
                         <li>
@@ -148,14 +154,21 @@ export default function AddVehicle() {
             </div>
 
 
+
+
+
+
+
+
+
             <div className="container mb-3" style={{ top: "500" }}>
-                <h1>Add Vehicle Details</h1>
+                <h1>Assign Vehicle for Transport</h1>
                 <form className="mt-5" onSubmit={sendData}>
 
 
                     <div className="mb-3">
-                        <label for="regNo" className="form-label">Vehicle ID :</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Vehicle ID"
+                        <label for="Transport ID" className="form-label">Transport ID:</label>
+                        <input type="text" className="form-control" id="regNo" placeholder="Transport ID"
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
@@ -189,40 +202,64 @@ export default function AddVehicle() {
                         ></input>
                     </div>
                     <div className="mb-3">
-                        <label for="VehicleType" className="form-label">Vehicle Type :</label>
-                        <input type="VehicleType" className="form-control" id="VehicleType" placeholder="Vehicle Type"
+                        <label for="DriverName" className="form-label">Driver Name :</label>
+                        <input type="DriverName" className="form-control" id="DriverName" placeholder="DriverName"
                             onChange={(e) => {
-                                setVehicleType(e.target.value); // assign value
+                                setName(e.target.value); // assign value
                             }}
 
                         ></input>
                     </div>
                     <div className="mb-3">
-                        <label for="VehicleBrand" className="form-label">Vehicle Brand :</label>
-                        <input type="VehicleBrand" className="form-control" id="VehicleBrand" placeholder="Vehicle Brand"
+                        <label for="Discription" className="form-label">Discription :</label>
+                        <input type="Discription" className="form-control" id="Discription" placeholder="Discription"
                             onChange={(e) => {
-                                setVehicleBrand(e.target.value);  // assign value
+                                setDescription(e.target.value);  // assign value
                             }}
 
                         ></input>
                     </div>
-                    <div className="mb-3">
-                        <label for="Mileage" className="form-label">Mileage :</label>
-                        <input type="Mileage" className="form-control" id="VehicleBrand" placeholder="Mileage"
+                    <div className="mb-4">
+                        <label for="Status" className="form-label">Status :   </label>
+                        {/* <input type="Status" className="form-control" id="Status" placeholder="Status"
                             onChange={(e) => {
-                                setMileage(e.target.value);  // assign value
+                                setStatus(e.target.value);  // assign value
                             }}
 
                         >
 
-                        </input>
+                        </input> */}
+                            
+                                <select  className="w-50 h-25 ml-5 btn  dropdown"
+                                      onChange={(e) => {
+                                        setStatus(e.target.value);  // assign value
+                                    }}
+        
+                                >
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">completed</option>
+                                </select>
+                                {/* <DropdownButton id="dropdown-basic-button" title="Select delivery Status"
+                                
+                                             onChange={(e) => {
+                                             setStatus(e.target.value);  // assign value
+                                              }}
+                                
+                                >
+                                    <Dropdown.Item value="Pending">Pending</Dropdown.Item>
+                                    <Dropdown.Item value="Completed">Completed</Dropdown.Item>
+                                  
+                                </DropdownButton> */}
                     </div>
 
-                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <button type="submit" className="btn btn-primary mt-4" >Submit</button>
                 </form>
             </div>
         </div>
         
     )
+
+
+    
 
 }

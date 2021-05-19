@@ -15,7 +15,7 @@ function DisplayCustomer() {
 
 
   const loadCustomer = async () => {
-    await axios.get(`http://localhost:8090/customer/get/${nic}`).then((res) => {
+    await axios.get(`http://localhost:8060/customer/get/${nic}`).then((res) => {
       console.log(res.data);
       setCustomerProfile(res.data.customer)
 
@@ -98,11 +98,11 @@ function DisplayCustomer() {
 
           <ul class="logout">
             <li>
-              <a href="#">
+            <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

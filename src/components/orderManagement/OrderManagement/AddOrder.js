@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, Link } from "react-router-dom";
+import MaterialTable from "material-table";
 
 export default function AddOrder() {
 
@@ -13,29 +14,32 @@ export default function AddOrder() {
     const [type, setType] = useState("");
     const [oDate, setOdate] = useState("");
     const [dAddress, setdAddress] = useState("");
-    const [additonalCharge, setAdditonalCharge] = useState("");
-    const [finalPrice, setFinalPrice] = useState("");
+    var [additonalCharge, setAdditonalCharge] = useState("");
+    var [finalPrice, setFinalPrice] = useState("");
     const [oStatus, setOstatus] = useState("");
     const [oEmpId, setOempId] = useState("");
     const [productId1, setProductId1] = useState("");
     const [productId2, setProductId2] = useState("");
     const [productId3, setProductId3] = useState("");
-    const [qty1, setQty1] = useState("");
-    const [qty2, setQty2] = useState("");
-    const [qty3, setQty3] = useState("");
+    var [qty1, setQty1] = useState("");
+    var [qty2, setQty2] = useState("");
+    var [qty3, setQty3] = useState("");
     const [feature1, setFeature1] = useState("");
     const [feature2, setFeature2] = useState("");
     const [feature3, setFeature3] = useState("");
+    var [price1, setPrice1] = useState("");
+    var [price2, setPrice2] = useState("");
+    var [price3, setPrice3] = useState("");
+    
+
+    const [productprices, setProductPrices] = useState([]);
 
 
 
     function sendData(e) {
 
         e.preventDefault();//to prevent the default submission by submit button
-        //check weather the entered NIC is already available in the system
-
-
-
+       
         const answer = window.confirm("Are you sure you want to confirm submission?");
         if (answer) {
 
@@ -50,9 +54,9 @@ export default function AddOrder() {
 
 
 
-            axios.post("http://localhost:8090/order/addOrder", newOrder).then(() => {
+            axios.post("http://localhost:8060/order/addOrder", newOrder).then(() => {
                 alert("Order successfully placed");
-                axios.post("http://localhost:8090/orderItem/addOrderItems", newOrderItem).then(() => {
+                axios.post("http://localhost:8060/orderItem/addOrderItems", newOrderItem).then(() => {
                     alert("Order items are successfully added");
 
                     history.push("/displayOrders");
@@ -76,7 +80,7 @@ export default function AddOrder() {
 
     }
     function checkCustomerExistance() {
-        axios.get(`http://localhost:8090/customer/searchCustomer/${cNIC}`).then((res) => {
+        axios.get(`http://localhost:8060/customer/searchCustomer/${cNIC}`).then((res) => {
             setCustomers(res.data);
         }).catch((err) => {
             alert(err.response.data.error);
@@ -98,7 +102,7 @@ export default function AddOrder() {
     }
 
 
-
+     //check weather the entered NIC is already available in the system
     function nextPage() {
         if (cNIC === "") {
             alert("IN ORDER TO PROCEED FILL OUT THE FORM");
@@ -132,11 +136,19 @@ export default function AddOrder() {
     }
 
     useEffect(() => {
-        loadOrder();
+        
+            loadOrder();
+                    axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {
+                        console.log(res.data);
+                        setProductPrices(res.data);
+                    }).catch((error) => {
+                        alert(error.message);
+                    })
+        
     }, []);
 
     const loadOrder = async () => {
-        await axios.get(`http://localhost:8090/order/getLatestOrder/`).then((res) => {
+        await axios.get(`http://localhost:8060/order/getLatestOrder/`).then((res) => {
             console.log(res.data);
             setOrderId(res.data.order[0].orderId);
 
@@ -146,6 +158,31 @@ export default function AddOrder() {
         })
 
     };
+
+    function calculatePrice(){
+
+        if(additonalCharge == ""){
+            additonalCharge = 0;
+        }
+
+        if(qty2 == "" && qty3 == "" && price2 == "" && price3 == ""  ){
+                finalPrice = ((qty1 * price1)+Number(additonalCharge));
+                document.getElementById('finalPrice').value = finalPrice;
+        }else if(qty2 !== "" && price2 !=="" && qty3 == "" && price3 == "" ){
+            finalPrice = ((qty1 * price1)+(qty2 * price2)+Number(additonalCharge));
+            document.getElementById('finalPrice').value = finalPrice;
+        }else if(qty2 !== "" && price2 !=="" && qty3 !== "" && price3 !== "" ){
+            finalPrice = ((qty1 * price1)+(qty2 * price2)+(qty3 * price3)+Number(additonalCharge));
+            document.getElementById('finalPrice').value = finalPrice;
+        }else if(qty2 !=="" && price2 == ""){
+            alert("Please enter a valid price for product 2 ")
+        }
+        else if(qty3 !=="" && price3 == ""){
+            alert("Please enter a valid price for product 3 ")
+        }
+      
+    }
+
 
 
     return (
@@ -219,17 +256,17 @@ export default function AddOrder() {
 
                     <ul class="logout">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-power-off fa-2x"></i>
-                                <span class="nav-text">Logout</span>
-                                <i class="fa fa-angle-right fa-2x"></i>
-                            </a>
+                        <Link to="/">
+                        <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">Logout</span>
+                        <i class="fa fa-angle-right fa-2x"></i>
+                    </Link>
                         </li>
                     </ul>
                 </nav>
             </div>
             <br></br><h3>Last added Order Id : {orderId}</h3>
-            <div style={{ position: "absolute", top: "8%", left: "-5%", width: "60%", height: "100%" }}>
+            <div style={{ position: "absolute", top: "6%", left: "-15%", width: "60%", height: "100%" }}>
                 <br></br>
                 <div className="container" class="border border-dark border-2" style={{ background: "#e7ebe8" }}>
 
@@ -334,7 +371,10 @@ export default function AddOrder() {
                                 </div>
                                 <div class="col-md-2">
                                     <label for="price1">Unit Price</label>
-                                    <input type="text" class="form-control" name="price1" />
+                                    <input type="text" class="form-control" 
+                                    name="price1" required
+                                    placeholder="1000"
+                                    onChange={(event) => {setPrice1(event.target.value);}} />
                                 </div>
                                 <div class="col-md-3">
                                     <label for="feature1">Customize</label>
@@ -359,7 +399,9 @@ export default function AddOrder() {
                                         onChange={(event) => { setQty2(event.target.value); }} />
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control" name="price2" />
+                                    <input type="text" class="form-control" name="price2" 
+                                    placeholder="1000"
+                                    onChange={(event) => {setPrice2(event.target.value);}}/>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control"
@@ -383,7 +425,9 @@ export default function AddOrder() {
                                         onChange={(event) => { setQty3(event.target.value); }} />
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control" name="price3" />
+                                    <input type="text" class="form-control" name="price3" 
+                                    placeholder="1000"
+                                    onChange={(event) => {setPrice3(event.target.value);}}/>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control"
@@ -397,11 +441,11 @@ export default function AddOrder() {
 
 
                         <div class="col-md-6" style={{ display: "none" }} id="main-hide8">
-                            <button className="btn btn-primary" type="button" id="calPrice">GetFinalPrice</button><br></br>
+                            <button className="btn btn-primary" class="fa fa-money fa-2x btn-danger" type="button" id="calPrice" onClick={calculatePrice}></button><br></br>
                             <label for="finalPrice" class="form-label"></label>
                             <input type="text" class="form-control"
-                                name="finalPrice"
-                                placeholder="25000.00" required
+                                name="finalPrice" id="finalPrice" value="0"
+                                placeholder="25000.00" required 
                                 onChange={(event) => { setFinalPrice(event.target.value); }} />
                         </div>
 
@@ -449,44 +493,37 @@ export default function AddOrder() {
                 </div>
             </div>
 
-            <div style={{ position: "absolute", top: "12%", right: "5%", width: "36%", height: "88%" }}>
-                <div className="container" class="border border-dark border-2">
-                    <form>
-                        <center>
-                            <h5>Product Details</h5>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <br></br>
-                                    <input type="text" class="form-control" id="ProductName" placeholder="Enter Product Name" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <br></br>
-                                    <input type="text" class="form-control" id="ProductId" placeholder="Enter Product Id" />
-                                    <br></br>
-                                </div>
-                                <div class="col">
-                                    <button className="btn btn-outline-danger" name="reset" value="reset" disabled>RESET</button>
-                                    <button className="btn btn-outline-danger" name="submit" value="submit" disabled>SEARCH</button>
-                                </div>
-                            </div>
-                        </center>
-                    </form>
-                    <hr></hr>
-                    <br></br>
-                    <ul class="list-group">
-                        <center><li>Search Result</li></center>
+            <div style={{ position: "absolute", top: "10%", right: "-5%", width: "60%", height: "88%" }}>
+               
+        <div className="container-fluid">
+                    <div>
+                    
+                    <MaterialTable style={{backgroundColor:"#ace5ee"}}
+                        title={"Pricing List"}
+                        columns={[
+                        { title: "Product", field: "productid", type: "text" },
+                        { title: "Category", field: "category", type: "text" },
+                        { title: "Discount", field: "discount", type: "text" },
+                        { title: "Unit", field: "price", type: "text" },
+                        { title: "DPrice", field: "discountprice", type: "text" },
+                        { title: "Selling", field: "newprice", type: "text" },
+                        { title: "QTY", field: "quentity", type: Number }]}
 
+                        data={productprices}
 
-                        <li class="list-group-item list-group-item-primary">Product Name :</li>
-                        <li class="list-group-item list-group-item-secondary">Product Code :</li>
-                        <li class="list-group-item list-group-item-success">No of available items :</li>
-                        <li class="list-group-item list-group-item-danger">Customizability : </li>
-                        <li class="list-group-item list-group-item-warning">Unit Price :</li>
-                        <li class="list-group-item list-group-item-info">Available Discount :</li>
-                        <li class="list-group-item list-group-item-light">Selling price:</li>
-                    </ul>
+                        options={{
+                        sorting: true,
+                        actionsColumnIndex: -1,
+                        exportButton: true
+                        }}
+                    />
+
+                    </div>
+
                 </div>
-                <Link to="/displayOrders"> <button class="text-decoration-none" class="btn btn-danger"> BACK</button> </Link>
+
+                        <center>
+                <Link to="/displayOrders"> <button class="text-decoration-none" class="btn btn-danger"> BACK</button> </Link></center>
             </div>
 
         </div>

@@ -18,7 +18,7 @@ export default function AllCustomers() {
         } else { //normally the fetched customer details are here   
 
             function getCustomers() {
-                axios.get("http://localhost:8090/customer/").then((res) => {
+                axios.get("http://localhost:8060/customer/").then((res) => {
                     setCustomers(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -34,14 +34,14 @@ export default function AllCustomers() {
     function searchCustomers(e) {
         e.preventDefault();
         if (!isNaN(search.charAt(0))) {//checking if the value entered at the search box is for NIC or normal name
-            axios.get(`http://localhost:8090/customer/searchCustomer/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/customer/searchCustomer/${search}`).then((res) => {
                 setCustomers(res.data);
             }).catch((error) => {
                 alert(error.message);
             })
         } else {
 
-            axios.get(`http://localhost:8090/customer/searchCustomerByName/${search}`).then((res) => {
+            axios.get(`http://localhost:8060/customer/searchCustomerByName/${search}`).then((res) => {
                 setCustomers(res.data);
             }).catch((error) => {
                 alert(error.message);
@@ -56,11 +56,11 @@ export default function AllCustomers() {
 
         if (answer) {
 
-            await axios.delete(`http://localhost:8090/customer/delete/${NIC}`);
+            await axios.delete(`http://localhost:8060/customer/delete/${NIC}`);
             alert(`Permenantly deleted the customer ${NIC}`);
 
             function getCustomers() {
-                axios.get("http://localhost:8090/customer/").then((res) => {
+                axios.get("http://localhost:8060/customer/").then((res) => {
                     setCustomers(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -89,10 +89,11 @@ export default function AllCustomers() {
                         <br></br><br></br>
                         <input className="col-md-8" type="text" name="search" placeholder="Search..."
                             value={search} onChange={(event) => { setSearch(event.target.value) }} required />
-                        <button class="btn btn-danger" name="submit" id="submit" value="submit">Go</button>
+                        <button class=" fa fa-search btn btn-danger" name="submit" id="submit" value="submit"></button>
 
                     </form>
-                    <button class="btn btn-success" name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+                    <div style={{ position: "absolute", top: "67%", left: "81.9%"}}>
+                    <button class="fa fa-refresh btn btn-success" name="refresh" id="refresh" onClick={refreshPage}></button></div>
                 </div>
 
             </div>
@@ -175,11 +176,11 @@ export default function AllCustomers() {
 
                     <ul class="logout">
                         <li>
-                            <a href="#">
-                                <i class="fa fa-power-off fa-2x"></i>
-                                <span class="nav-text">Logout</span>
-                                <i class="fa fa-angle-right fa-2x"></i>
-                            </a>
+                        <Link to="/">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">Logout</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </Link>
                         </li>
                     </ul>
                 </nav>
@@ -215,10 +216,10 @@ export default function AllCustomers() {
                                         <td class="text-center">
 
 
-                                            <Link class="btn btn-primary mr-2" to={`/customer/get/${customers.NIC}`} role="button">View</Link>
-                                            <Link class="btn btn-outline-primary mr-2" to={`/customer/update/${customers.NIC}`} role="button">Update</Link>
-                                            <Link class="btn btn-danger mr-2" onClick={() => deleteCustomer(customers.NIC)} role="button">Delete</Link>
-                                            <Link class="btn btn-outline-primary mr-2" to={"/addOrder"} role="button">Add Order</Link>
+                                            <Link class="btn btn-primary ml-2 fa fa-eye" to={`/customer/get/${customers.NIC}`} role="button"></Link>
+                                            <Link class="btn btn-outline-warning ml-2 fa fa-pencil-square-o" to={`/customer/update/${customers.NIC}`} role="button"></Link>
+                                            <Link class="fa fa-trash btn btn-danger" onClick={() => deleteCustomer(customers.NIC)} role="button"></Link>
+                                            <Link class="fa fa-pencil btn-outline-success ml-2" to={"/addOrder"} role="button"></Link>
                                         </td>
                                     </tr>
                                 );

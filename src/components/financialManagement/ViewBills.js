@@ -4,50 +4,57 @@ Walpola S.R.
 */
 
 //importing react and axios
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import MaterialTable from "material-table";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
+import EditBillForm from "./EditBillForm";
 
-export default class ViewBills extends Component {
-  //creating constructor
-  constructor(props) {
-    super(props);
+//create constant for path
+const HOST = "http://localhost:8060";
 
-    //creating an array to store data
-    this.state = {
-      bills: [],
-    };
-  }
+export default function ViewBills() {
+ 
 
-  //calling the method
-  componentDidMount() {
-    this.getData();
-  }
+  const [bill, setState] = useState([]);
+
+  
+  const [modalBillUpdate, setModalBillUpdate] = useState(false);
+  const [currentBillUpdate, setCurrentBillUpdate] = useState();
+
+  const [modalBillDelete, setModalBillDelete] = useState(false);
+  const [currentBillDelete, setCurrentBillDelete] = useState();
+
+
 
   //creting a method for retrieve data
-  getData() {
-    axios.get("http://localhost:8000/bills").then((res) => {
-      if (res.data.success) {
-        this.setState({
-          bills: res.data.existingPosts,
-        });
-        var x = this.state.bills[0].Amount;
-        console.log(this.state.bills);
-        console.log(x);
-      }
-    });
+  useEffect(() => {
+    axios
+      .get(HOST + "/bills")
+      .then((res) => {
+        setState(res.data);
+      })
+      .catch(() => {
+        alert("Error in retrieving data");
+      });
+  }, []);
+
+  //Delete method implementation
+  function onDelete() {
+    axios
+      .delete(HOST + "/bills/delete/" + currentBillDelete)
+      .then((res) => {
+        alert("Deleted Successfully!");
+        window.location.reload(true);
+      })
+      .catch(() => {
+        alert("Deleted Successfully!");
+      });
   }
 
-  //function declarion for delete
-  onDelete = (id) => {
-    axios.delete(`http://localhost:8000/bills/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.getData();
-    });
-  };
-
   //adding components to the page body
-  render() {
     return (
+      /* side navigtaion bar components*/
       <div className="container" id="height">
         <div>
           <div class="area"></div>
@@ -101,47 +108,74 @@ export default class ViewBills extends Component {
             </ul>
           </nav>
         </div>
-        <div>
-          <h2 align="center">Bill Details</h2>
-        </div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">BillType</th>
-              <th scope="col">Date</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {this.state.bills.map((bills, index) => (
-              <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{bills.BillType}</td>
-                <td>{bills.Date}</td>
-                <td>{bills.Amount}</td>
-                <td>
-                  <a className="btn btn-warning" href={`/edit/${bills._id}`}>
-                    <i className="fas fa-edit"></i>&nbsp;Edit
-                  </a>
-                  &nbsp;
-                  <a
-                    className="btn btn-danger"
-                    href="#"
-                    onClick={() => this.onDelete(bills._id)}
-                  >
-                    <i className="far fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {/* implementing the meterial table for display data */}
 
-        <button className="btn btn-success">
+        <div class="BillPaymentTable">
+        <MaterialTable style={{background:"#E3ECFF"}}
+          title="Bill Payment"
+          columns={[
+            { title: "Bill Type", field: "BillType", type: "string" },
+            { title: "Date", field: "Date", type: "string" },
+            { title: "Amount", field: "Amount", type: "number" }
+
+          ]}
+          data={bill}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
+          actions={[
+            {
+              icon: () => (
+                <button class="btn btn-sm btn-warning">Edit</button>
+              ),
+              onClick: (event, rowData) => {
+                setCurrentBillUpdate(rowData);
+                setModalBillUpdate(true);
+              },
+            },
+            {
+              icon: () => <button class="btn btn-sm btn-danger">Delete</button>,
+              onClick: (event, rowData) => {
+                setCurrentBillDelete(rowData._id);
+                setModalBillDelete(true);
+              },
+            },
+          ]}
+          
+          />
+      </div>
+      <div>
+      <Modal show={modalBillUpdate}>
+        <Modal.Body>
+          <EditBillForm
+            data={currentBillUpdate}
+            data01={() => setModalBillUpdate(false)}
+          />
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={modalBillDelete}>
+        <Modal.Body>
+          <p>Are you want to delete this item ?</p>
+          <button type="button" class="btn btn-success mr-3" onClick={onDelete}>
+            Delete Item
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            onClick={() => setModalBillDelete(false)}
+          >
+            Cancel
+          </button>
+        </Modal.Body>
+      </Modal>
+      </div>
+      <button class="btn btn-success"
+      style={{ marginBottom: "20px" }}>
           <a
             href="/AddBillDetails"
             style={{ textDecoration: "none", color: "white" }}
@@ -150,7 +184,10 @@ export default class ViewBills extends Component {
             Add Bill details
           </a>
         </button>
+
+
       </div>
+      
     );
   }
-}
+

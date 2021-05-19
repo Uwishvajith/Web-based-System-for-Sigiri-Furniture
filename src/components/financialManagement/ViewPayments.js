@@ -3,48 +3,57 @@ owned by IT19965550
 Walpola S.R.
 */
 
-//importing react and axios
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import MaterialTable from "material-table";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
+import EditPaymentForm from "./EditPaymentForm";
 
-export default class ViewPayments extends Component {
-  //creating constructor
-  constructor(props) {
-    super(props);
+//create constant for path
+const HOST = "http://localhost:8060";
 
-    //creating an array to store data
-    this.state = {
-      payments: [],
-    };
-  }
+export default function Viewpayments() {
+ 
 
-  //calling the method
-  componentDidMount() {
-    this.getData();
-  }
+  const [payment, setState] = useState([]);
+
+  
+  const [modalPaymentUpdate, setModalPaymentUpdate] = useState(false);
+  const [currentPaymentUpdate, setCurrentPaymentUpdate] = useState();
+
+  const [ModalPaymentDelete, setModalPaymentDelete] = useState(false);
+  const [currentPaymentDelete, setCurrentPaymentDelete] = useState();
+
+
 
   //creting a method for retrieve data
-  getData() {
-    axios.get("http://localhost:8000/payments").then((res) => {
-      if (res.data.success) {
-        this.setState({
-          payments: res.data.existingPosts,
-        });
-        console.log(this.state.payments);
-      }
-    });
+  useEffect(() => {
+    axios
+      .get(HOST + "/payments")
+      .then((res) => {
+        setState(res.data);
+      })
+      .catch(() => {
+        alert("Error in retrieving data");
+      });
+  }, []);
+
+   //Delete method implementation
+  function onDelete() {
+    axios
+      .delete(HOST + "/payments/delete/" + currentPaymentDelete)
+      .then((res) => {
+        alert("Deleted Successfully!");
+        window.location.reload(true);
+      })
+      .catch(() => {
+        alert("Deleted Successfully");
+      });
   }
 
-  onDelete = (id) => {
-    axios.delete(`http://localhost:8000/payments/delete/${id}`).then((res) => {
-      alert("Deleted Successfully");
-      this.getData();
-    });
-  };
-
   //adding components to the page body
-  render() {
     return (
+      /* side navigtaion bar components*/
       <div className="container" id="height">
         <div>
           <div class="area"></div>
@@ -98,55 +107,84 @@ export default class ViewPayments extends Component {
             </ul>
           </nav>
         </div>
-        <h2 align="center">Payments Details</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Description</th>
-              <th scope="col">Date</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {this.state.payments.map((payments, index) => (
-              <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{payments.Description}</td>
-                <td>{payments.Date}</td>
-                <td>{payments.Amount}</td>
-                <td>
-                  <a
-                    className="btn btn-warning"
-                    href={`/update/${payments._id}`}
-                  >
-                    <i className="fas fa-edit"></i>&nbsp;Edit
-                  </a>
-                  &nbsp;
-                  <a
-                    className="btn btn-danger"
-                    href="#"
-                    onClick={() => this.onDelete(payments._id)}
-                  >
-                    <i className="far fa-trash-alt"></i>&nbsp;Delete
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {/* implementing the meterial table for display data */}
+        
+        <div class="OtherPaymentTable">
+        <MaterialTable style={{background:"#E3ECFF"}}
+          title="Other Payments"
+          columns={[
+            { title: "Description", field: "Description", type: "string" },
+            { title: "Date", field: "Date", type: "string" },
+            { title: "Amount", field: "Amount", type: "number" }
 
-        <button className="btn btn-success">
+          ]}
+          data={payment}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
+          actions={[
+            {
+              icon: () => (
+                <button class="btn btn-sm btn-warning">Edit</button>
+              ),
+              onClick: (event, rowData) => {
+                setCurrentPaymentUpdate(rowData);
+                setModalPaymentUpdate(true);
+              },
+            },
+            {
+              icon: () => <button class="btn btn-sm btn-danger">Delete</button>,
+              onClick: (event, rowData) => {
+                setCurrentPaymentDelete(rowData._id);
+                setModalPaymentDelete(true);
+              },
+            },
+          ]}
+          
+          />
+      </div>
+      <div>
+      <Modal show={modalPaymentUpdate}>
+        <Modal.Body>
+          <EditPaymentForm
+            data={currentPaymentUpdate}
+            data01={() => setModalPaymentUpdate(false)}
+          />
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={ModalPaymentDelete}>
+        <Modal.Body>
+          <p>Are you want to delete this item ?</p>
+          <button type="button" class="btn btn-success mr-3" onClick={onDelete}>
+            Delete Item
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            onClick={() => setModalPaymentDelete(false)}
+          >
+            Cancel
+          </button>
+        </Modal.Body>
+      </Modal>
+      </div>
+      <button class="btn btn-success"
+      style={{ marginBottom: "20px" }}>
           <a
             href="/AddPayment"
             style={{ textDecoration: "none", color: "white" }}
           >
-            Add Payment Details
+            {" "}
+            Add Payment details
           </a>
         </button>
+
+
       </div>
+      
     );
   }
-}
