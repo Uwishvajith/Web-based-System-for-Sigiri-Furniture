@@ -51,12 +51,15 @@ export default function LoginUser() {
     }
 
     return (
+        
+<>
        
+        <div className ="bgImg">
 
-        <div style={{position: "absolute", top: "10%", left: "20%", width: "80%", height: "100%" }} class = "bgImage">
-
-        <div style={{position: "absolute", top: "30%", left: "20%", width: "50%", height: "50%"}}>
-                <form onSubmit={checkUser}>
+       
+                <form className="login" onSubmit={checkUser}>
+                <div style={{marginLeft:"120px"}}><h2>Welcome!</h2> <br></br></div>
+                <div class="login-topic"><h2>Login</h2></div>
                 <div class="form-group row">
                     <div class="col-sm-10">
                     <input type="text" class="form-control" 
@@ -78,9 +81,12 @@ export default function LoginUser() {
                     <button type="submit" value="submit" class="btn btn-primary">Login</button></center>
                     </div>
                 </div>
+                
                 </form>
                 </div>
-        </div>
+              </>
+  
+    
      
     )
 }
