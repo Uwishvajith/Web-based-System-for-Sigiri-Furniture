@@ -218,6 +218,19 @@ IT 19965550*/
   text-align: center;
 }
 
+.DailyIncomeTable{
+  margin-top: 125px;
+  margin-left: 70px;
+  max-width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
 .productform {
   margin-top: 125px;
   margin-left: 30%;
@@ -289,3 +302,11 @@ IT 19965550*/
 
 }
 
+#ledger{
+  text-align: center;
+}
+
+.bgImage {
+  background-image: url(./components/bc-image.jpg);
+  background-repeat: no-repeat;
+}

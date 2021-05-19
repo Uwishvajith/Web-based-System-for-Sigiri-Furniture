@@ -7,9 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class EditInventory extends Component {
   constructor(props) {
     super(props);
-
     this.onChangeItemname = this.onChangeItemname.bind(this);
-    this.onChangeItemcode = this.onChangeItemcode.bind(this);
+    this.onChangeItemcode =this.onChangeItemcode.bind(this);
     this.onChangeSuppliername = this.onChangeSuppliername.bind(this);
     this.onChangeQuantity = this.onChangeQuantity.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
@@ -17,43 +16,43 @@ export default class EditInventory extends Component {
     this.onChangeCurrentstock = this.onChangeCurrentstock.bind(this);
     this.onChangeNewstock = this.onChangeNewstock.bind(this);
     this.onChangeMinrequired = this.onChangeMinrequired.bind(this);
-    this.onChangeDateofmanufactured = this.onChangeDateofmanufactured.bind(
-      this
-    );
+    this.onChangeDateofmanufactured = this.onChangeDateofmanufactured.bind(this);
     this.onChangeLastupdated = this.onChangeLastupdated.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      items: [],
-      itemcodes: [],
-      suppliernames: [],
-      category: "",
-      quantity: 0,
-      description: "",
-      currentstock: 0,
-      newstock: 0,
-      minrequired: 0,
+      
+      quantity: '',
+      category: '',
+      description: '',
+      currentstock: '',
+      newstock: '',
+      minrequired:'',
       dateofmanufactured: new Date(),
       lastupdated: new Date(),
+      itemnames: [],
+      itemcodes: [],
+      suppliernames: [],
     };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/inventories" + this.props.match.params.id)
-      .then((response) => {
+      .get("http://localhost:8060/inventories/" + this.props.match.params.id)
+      .then(response => {
         this.setState({
-          itemname: response.data.itemname,
-          itemcode: response.data.itemcode,
-          suppliername: response.data.suppliername,
-          quantity: response.data.quantity,
+          itemname:response.data.itemname,
+          itemcode:response.data.itemcode,
+          suppliername:response.data.suppliername,
           category: response.data.category,
+          quantity: response.data.quantity,
           description: response.data.description,
           currentstock: response.data.currentstock,
           newstock: response.data.newstock,
           minrequired: response.data.minrequired,
           dateofmanufactured: new Date(response.data.dateofmanufactured),
           lastupdated: new Date(response.data.lastupdated),
+          
         });
       })
 
@@ -61,15 +60,16 @@ export default class EditInventory extends Component {
         console.log(error);
       });
 
-    axios.get("http://localhost:5000/inventories/").then((response) => {
-      if (response.data.length > 0) {
-        this.setState({
-          items: response.data.map((item) => item.itemname),
-          itemcodes: response.data.map((item) => item.itemcode),
-          suppliernames: response.data.map((item) => item.suppliername),
+        axios.get("http://localhost:8060/items/").then(response => {
+          if (response.data.length > 0) {
+            this.setState({
+              itemnames: response.data.map((item) => item.itemname),
+              itemcodes: response.data.map((item) => item.itemcode),
+              suppliernames: response.data.map((item) => item.suppliername),
+              
+            });
+          }
         });
-      }
-    });
   }
 
   onChangeItemname(e) {
@@ -142,9 +142,9 @@ export default class EditInventory extends Component {
     e.preventDefault();
 
     const inventory = {
-      itemname: this.state.itemname,
-      itemcode: this.state.itemcode,
-      suppliername: this.state.suppliername,
+      itemname:this.state.itemname,
+      itemcode:this.state.itemcode,
+      suppliername:this.state.suppliername,
       category: this.state.category,
       quantity: this.state.quantity,
       description: this.state.description,
@@ -156,16 +156,30 @@ export default class EditInventory extends Component {
     };
 
     console.log(inventory);
+    if(this.state.category.length <= 3){
+      this.setState({categoryError:"Category Length must be longer than 3"})
+    }
+    else if(this.state.quantity <= 0){
+      this.setState({quantityError:"Quantity must be more than 0"})
+    }
+    else if(this.state.currentstock <= 0 ){
+      this.setState({currentstockError:"Current stock must be more than 0"})
+    }
+    else if(this.state.newstock <= 0 ){
+      this.setState({newstockError:"New stock must be more than 0"})
+    }
+    else if(this.state.minrequired <= 0 ){
+      this.setState({minrequiredError:"Minimum Required must be more than 0"})
+    }
+    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
 
-    axios
-      .post(
-        "http://localhost:5000/inventories/update" + this.props.match.params.id,
-        inventory
-      )
-      .then((res) => console.log(res.data));
+    axios.post("http://localhost:8060/inventories/update/" + this.props.match.params.id,inventory)
+        .then(res => console.log(res.data));
 
-    window.location = "./";
+    window.location = '/inventories';
   }
+
+}
 
   render() {
     return (
@@ -183,8 +197,8 @@ export default class EditInventory extends Component {
               </li>
 
               <li className="has-subnav">
-                <a href="/inventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                <a href="/inventories">
+                  <i className="fa fa-cogs fa-2x"></i>
                   <span className="nav-text">Inventory</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </a>
@@ -192,7 +206,7 @@ export default class EditInventory extends Component {
 
               <li className="has-subnav">
                 <Link to="./item">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-plus-square fa-2x"></i>
                   <span className="nav-text">Add Item</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
@@ -200,11 +214,20 @@ export default class EditInventory extends Component {
 
               <li className="has-subnav">
                 <Link to="/addInventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-table fa-2x"></i>
                   <span className="nav-text">Create Item Log</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
               </li>
+
+              <li className="has-subnav">
+                <Link to="/inventReport">
+                  <i className="fa fa-file-pdf-o fa-2x"></i>
+                  <span className="nav-text">Reports</span>
+                  <i className="fa fa-angle-right fa-2x"></i>
+                </Link>
+              </li>
+
             </ul>
             <ul class="logout">
             <li>
@@ -228,7 +251,7 @@ export default class EditInventory extends Component {
               value={this.state.itemname}
               onChange={this.onChangeItemname}
             >
-              {this.state.items.map(function (item) {
+              {this.state.itemnames.map(function (item) {
                 return (
                   <option key={item} value={item}>
                     {item}
@@ -247,10 +270,10 @@ export default class EditInventory extends Component {
               value={this.state.itemcode}
               onChange={this.onChangeItemcode}
             >
-              {this.state.itemcodes.map(function (itemcode) {
+              {this.state.itemcodes.map(function (item) {
                 return (
-                  <option key={itemcode} value={itemcode}>
-                    {itemcode}
+                  <option key={item} value={item}>
+                    {item}
                   </option>
                 );
               })}
@@ -264,12 +287,12 @@ export default class EditInventory extends Component {
               required
               className="form-control"
               value={this.state.suppliername}
-              onChange={this.onChangeItemcode}
+              onChange={this.onChangeSuppliername}
             >
-              {this.state.suppliernames.map(function (suppliername) {
+              {this.state.suppliernames.map(function (item) {
                 return (
-                  <option key={suppliername} value={suppliername}>
-                    {suppliername}
+                  <option key={item} value={item}>
+                    {item}
                   </option>
                 );
               })}
@@ -285,6 +308,7 @@ export default class EditInventory extends Component {
               value={this.state.quantity}
               onChange={this.onChangeQuantity}
             />
+                <p className="validateMsg">{this.state.quantityError}</p>
           </div>
 
           <div className="form-group">
@@ -296,6 +320,7 @@ export default class EditInventory extends Component {
               value={this.state.category}
               onChange={this.onChangeCategory}
             />
+             <p className="validateMsg">{this.state.categoryError}</p>
           </div>
 
           <div className="form-group">
@@ -318,6 +343,7 @@ export default class EditInventory extends Component {
               value={this.state.currentstock}
               onChange={this.onChangeCurrentstock}
             />
+            <p className="validateMsg">{this.state.currentstockError}</p>
           </div>
 
           <div className="form-group">
@@ -329,6 +355,7 @@ export default class EditInventory extends Component {
               value={this.state.newstock}
               onChange={this.onChangeNewstock}
             />
+             <p className="validateMsg">{this.state.newstockError}</p>
           </div>
 
           <div className="form-group">
@@ -340,6 +367,7 @@ export default class EditInventory extends Component {
               value={this.state.minrequired}
               onChange={this.onChangeMinrequired}
             />
+              <p className="validateMsg">{this.state.minrequiredError}</p>
           </div>
 
           <div className="form-group">

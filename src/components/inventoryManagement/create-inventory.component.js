@@ -39,7 +39,7 @@ export default class CreateInventory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/items/").then((response) => {
+    axios.get("http://localhost:8060/items/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
           items: response.data.map((item) => item.itemname),
@@ -138,11 +138,29 @@ export default class CreateInventory extends Component {
 
     console.log(inventory);
 
-    axios
-      .post("http://localhost:5000/inventories/add", inventory)
-      .then((res) => console.log(res.data));
+    if(this.state.category.length <= 3){
+      this.setState({categoryError:"Category Length must be longer than 3"})
+    }
+    else if(this.state.quantity <= 0){
+      this.setState({quantityError:"Quantity must be more than 0"})
+    }
+    else if(this.state.currentstock <= 0 ){
+      this.setState({currentstockError:"Current stock must be more than 0"})
+    }
+    else if(this.state.newstock <= 0 ){
+      this.setState({newstockError:"New stock must be more than 0"})
+    }
+    else if(this.state.minrequired <= 0 ){
+      this.setState({minrequiredError:"Minimum Required must be more than 0"})
+    }
+    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
+     
+      axios
+        .post("http://localhost:8060/inventories/add", inventory)
+        .then((res) => console.log(res.data));
 
-    window.location = "./inventory";
+        window.location = "/inventories";
+    }
   }
 
   render() {
@@ -161,8 +179,8 @@ export default class CreateInventory extends Component {
               </li>
 
               <li className="has-subnav">
-                <a href="/inventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                <a href="/inventories">
+                  <i className="fa fa-cogs fa-2x"></i>
                   <span className="nav-text">Inventory</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </a>
@@ -170,7 +188,7 @@ export default class CreateInventory extends Component {
 
               <li className="has-subnav">
                 <Link to="./item">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-plus-square fa-2x"></i>
                   <span className="nav-text">Add Item</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
@@ -178,11 +196,20 @@ export default class CreateInventory extends Component {
 
               <li className="has-subnav">
                 <Link to="/addInventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-table fa-2x"></i>
                   <span className="nav-text">Create Item Log</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
               </li>
+
+              <li className="has-subnav">
+                <Link to="/inventReport">
+                  <i className="fa fa-file-pdf-o fa-2x"></i>
+                  <span className="nav-text">Reports</span>
+                  <i className="fa fa-angle-right fa-2x"></i>
+                </Link>
+              </li>
+
             </ul>
             <ul class="logout">
             <li>
@@ -253,18 +280,6 @@ export default class CreateInventory extends Component {
               })}
             </select>
           </div>
-
-          <div className="form-group">
-            <label>Quantity: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.quantity}
-              onChange={this.onChangeQuantity}
-            />
-          </div>
-
           <div className="form-group">
             <label>Category: </label>
             <input
@@ -274,7 +289,22 @@ export default class CreateInventory extends Component {
               value={this.state.category}
               onChange={this.onChangeCategory}
             />
+            <p className="validateMsg ">{this.state.categoryError}</p>
           </div>
+
+          <div className="form-group">
+            <label>Quantity: </label>
+            <input
+              placeholder="Enter value"
+              type="text"
+              required
+              className="form-control"
+              value={this.state.quantity}
+              onChange={this.onChangeQuantity}
+            />
+            <p className="validateMsg">{this.state.quantityError}</p>
+          </div>
+
 
           <div className="form-group">
             <label>Description: </label>
@@ -290,39 +320,42 @@ export default class CreateInventory extends Component {
           <div className="form-group">
             <label>Current stock: </label>
             <input
-              type="text"
+              type="number"
               required
               className="form-control"
               value={this.state.currentstock}
               onChange={this.onChangeCurrentstock}
             />
+             <p className="validateMsg">{this.state.currentstockError}</p>
           </div>
 
           <div className="form-group">
             <label>New stock: </label>
             <input
-              type="text"
+              type="number"
               required
               className="form-control"
               value={this.state.newstock}
               onChange={this.onChangeNewstock}
             />
+             <p className="validateMsg">{this.state.newstockError}</p>
           </div>
 
           <div className="form-group">
             <label>Minimum required: </label>
             <input
-              type="text"
+              type="number"
               required
               className="form-control"
               value={this.state.minrequired}
               onChange={this.onChangeMinrequired}
             />
+            <p className="validateMsg">{this.state.minrequiredError}</p>
           </div>
 
           <div className="form-group">
             <label>Date of manufactured: </label>
-            <div>
+          <div>
               <DatePicker
                 selected={this.state.dateofmanufactured}
                 onChange={this.onChangeDateofmanufactured}

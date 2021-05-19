@@ -48,7 +48,7 @@ export default class AddItem extends Component {
     console.log(items);
 
     axios
-      .post("http://localhost:5000/items/add", items)
+      .post("http://localhost:8060/items/add", items)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
 
@@ -122,8 +122,8 @@ export default class AddItem extends Component {
               </li>
 
               <li className="has-subnav">
-                <a href="/inventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                <a href="/inventories">
+                  <i className="fa fa-cogs fa-2x"></i>
                   <span className="nav-text">Inventory</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </a>
@@ -131,7 +131,7 @@ export default class AddItem extends Component {
 
               <li className="has-subnav">
                 <Link to="./item">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-plus-square fa-2x"></i>
                   <span className="nav-text">Add Item</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
@@ -139,11 +139,20 @@ export default class AddItem extends Component {
 
               <li className="has-subnav">
                 <Link to="/addInventory">
-                  <i className="fa fa-user-plus fa-2x"></i>
+                  <i className="fa fa-table fa-2x"></i>
                   <span className="nav-text">Create Item Log</span>
                   <i className="fa fa-angle-right fa-2x"></i>
                 </Link>
               </li>
+
+              <li className="has-subnav">
+                <Link to="/inventReport">
+                  <i className="fa fa-file-pdf-o fa-2x"></i>
+                  <span className="nav-text">Reports</span>
+                  <i className="fa fa-angle-right fa-2x"></i>
+                </Link>
+              </li>
+
             </ul>
 
             <ul class="logout">

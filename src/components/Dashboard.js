@@ -53,15 +53,15 @@ function Dashboard(props) {
                 </Link>
               </div>
               <div class="col-sm">
+                <Link to ="/alltenders">
                 <button type="button" class="dbutton" id="btn-dash">
                   <i class="fa fb fa-cubes mr-4" id="fa fa-2x"></i>
                   <span class="lead align-top">Supply Management</span>
-                </button>
+                </button></Link>
               </div>
-            </div>
             <div class="row">
               <div class="col-sm">
-                <Link to="/inventory">
+                <Link to="/inventories">
                   <button type="button" class="dbutton" id="btn-dash">
                     <i class="fa fb fa-line-chart mr-4" id="fa fa-2x"></i>
                     <span class="lead align-top">Inventory Management</span>
@@ -89,6 +89,8 @@ function Dashboard(props) {
         </div>
       </div>
     </div>
+    </div>
+  
   );
 }
 
