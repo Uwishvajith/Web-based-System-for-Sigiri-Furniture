@@ -39,7 +39,7 @@ export default class CreateInventory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/items/").then((response) => {
+    axios.get("http://localhost:8060/items/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
           items: response.data.map((item) => item.itemname),
@@ -139,7 +139,7 @@ export default class CreateInventory extends Component {
     console.log(inventory);
 
     axios
-      .post("http://localhost:5000/inventories/add", inventory)
+      .post("http://localhost:8060/inventories/add", inventory)
       .then((res) => console.log(res.data));
 
     window.location = "./inventory";

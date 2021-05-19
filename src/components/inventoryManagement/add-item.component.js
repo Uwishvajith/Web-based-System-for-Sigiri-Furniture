@@ -48,7 +48,7 @@ export default class AddItem extends Component {
     console.log(items);
 
     axios
-      .post("http://localhost:5000/items/add", items)
+      .post("http://localhost:8060/items/add", items)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
 

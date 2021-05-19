@@ -40,7 +40,7 @@ export default class EditInventory extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/inventories" + this.props.match.params.id)
+      .get("http://localhost:8060/inventories" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           itemname: response.data.itemname,
@@ -61,7 +61,7 @@ export default class EditInventory extends Component {
         console.log(error);
       });
 
-    axios.get("http://localhost:5000/inventories/").then((response) => {
+    axios.get("http://localhost:8060/inventories/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
           items: response.data.map((item) => item.itemname),
@@ -159,7 +159,7 @@ export default class EditInventory extends Component {
 
     axios
       .post(
-        "http://localhost:5000/inventories/update" + this.props.match.params.id,
+        "http://localhost:8060/inventories/update" + this.props.match.params.id,
         inventory
       )
       .then((res) => console.log(res.data));

@@ -39,7 +39,7 @@ export default class InventoryDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/inventories/")
+      .get("http://localhost:8060/inventories/")
       .then((response) => {
         this.setState({ inventories: response.data });
       })
@@ -51,7 +51,7 @@ export default class InventoryDetails extends Component {
 
   deleteInventory(id) {
     axios
-      .delete("http://localhost:5000/inventories/" + id)
+      .delete("http://localhost:8060/inventories/" + id)
       .then((res) => console.log(res.data));
 
     this.setState({
