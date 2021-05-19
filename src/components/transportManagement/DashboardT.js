@@ -127,9 +127,9 @@ export default  function DashboardT(){
             <a href="/addVehicle" class="btn btn-primary active ml-5 " role="button" aria-pressed="true"> + Add Vehicle Details </a>
             <a href="/addT" class="btn btn-primary active ml-3 " role="button" aria-pressed="true"> + Add Transport Details </a>
            
-
+            {/* All Transport Details */}
             <div className="container-fluid mt-5">
-
+        
         <MaterialTable style={{background:"#E3ECFF"}}
                     title=" All Transport Details "
 
@@ -158,7 +158,7 @@ export default  function DashboardT(){
 
 
 
-                
+                {/* All Vehicle Details */}
             <div className="container-fluid">
                 <MaterialTable style={{background:"#E3ECFF"}}
                     title=" Vehicles Details"
