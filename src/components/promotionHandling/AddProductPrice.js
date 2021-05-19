@@ -40,8 +40,8 @@ export default function AddProductPrice(){
         window.location.replace("/getproductprice");
       }
       refreshPage();
-    }).catch((err)=>{
-      alert(err)
+    }).catch(()=>{
+      alert("Sales ID Cannot duplicate")
     })
  
   }
@@ -303,7 +303,7 @@ function addproductprice(){
         />
             
         </div>  
-          <div class="productiontable" style={{position:"absolute",left:710, top:400 , width:730}}>
+          <div class="productiontable" style={{position:"absolute",left:710, top:500 , width:730}}>
         <div class="productiontable" >
         <MaterialTable style={{backgroundColor:" #f5f5f0"}}
          title={"Promotion Details List" } 

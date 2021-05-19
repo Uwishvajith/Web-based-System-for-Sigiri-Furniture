@@ -135,11 +135,12 @@ export default function UpdatePromotionDetails() {
       </div>
 
       <div className="container" style={{ width: 800, marginTop: 120 }}>
-        <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia"}}>Update Product prices Details</h1><br></br>
-        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#ccccb3" }} >
+        
+        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#e7ebe8" }} >
 
 
-          <form onSubmit={onSubmit} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 850 }}>
+          <form onSubmit={onSubmit} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 910 }}>
+          <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia",textAlign:"center"}}>Update Product prices Details</h1><br></br>
             <div className="mb-3">
               <label for="salesid" >sales ID</label>
               <input type="text" className="form-control" id="salesid" value={salesid} onChange={(e) => {

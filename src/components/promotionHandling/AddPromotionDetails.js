@@ -35,8 +35,8 @@ export default function AddPromotionDetails() {
         window.location.replace("/allview");
       }
       refreshPage();
-    }).catch((err) => {
-      alert(err)
+    }).catch(() => {
+      alert("Promotion ID cannot duplicate")
     })
 
   }
