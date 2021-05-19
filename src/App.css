@@ -306,3 +306,7 @@ IT 19965550*/
   text-align: center;
 }
 
+.bgImage {
+  background-image: url(./components/bc-image.jpg);
+  background-repeat: no-repeat;
+}

@@ -51,7 +51,9 @@ export default function LoginUser() {
     }
 
     return (
-        <div style={{position: "absolute", top: "10%", left: "20%", width: "80%", height: "100%" }}>
+       
+
+        <div style={{position: "absolute", top: "10%", left: "20%", width: "80%", height: "100%" }} class = "bgImage">
 
         <div style={{position: "absolute", top: "30%", left: "20%", width: "50%", height: "50%"}}>
                 <form onSubmit={checkUser}>
@@ -79,5 +81,6 @@ export default function LoginUser() {
                 </form>
                 </div>
         </div>
+     
     )
 }
