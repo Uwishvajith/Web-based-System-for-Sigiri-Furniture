@@ -32,7 +32,7 @@ export default function AddLeave() {
 
   return (
     <div class="component-body">
-       <div>
+      <div>
         <div class="area"></div>
         <nav class="main-menu bg-primary fixed-top">
           <ul>
@@ -101,7 +101,7 @@ export default function AddLeave() {
         </nav>
       </div>
       <h2 className="text-center">Add leave details</h2>
-      <div className="border bg-secondary my-5 mx-5">
+      <div className="border my-5 mx-5" style={{ background: "#E3ECFF" }}>
         <div className="my-5 mx-5">
           <form onSubmit={sendData}>
             <div className="row">
