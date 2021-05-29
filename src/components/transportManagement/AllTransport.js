@@ -21,6 +21,7 @@ export default  function AllTransport(){
 
 
     useEffect(() => {
+        // view all Transports
 
         axios.get(HOST + "/ViewT")
             .then((res) => {
@@ -32,6 +33,7 @@ export default  function AllTransport(){
 
     }, []);
 
+    //delete trasport function
     function onDelete() {
         axios.delete(HOST + "/deleteT/" + TransportDelete)
             .then((res) => {
@@ -139,10 +141,10 @@ export default  function AllTransport(){
                     title=" All Transport Details "
 
                     columns={[
-                        { title: "Transport id", field: "TransportID", type: "string" },
+                        { title: "Transport ID", field: "TransportID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "DriverName", field: "DriverName", type: "string" },
+                        { title: "Driver Name", field: "DriverName", type: "string" },
                         { title: "Discription", field: "Discription", type: "string" },
                         { title: "Status", field: "Status", type: "string" },
                     ]}
@@ -175,13 +177,14 @@ export default  function AllTransport(){
                         
                     ]}
                     />
+                    {/* update modal */}
                     <Modal show={StateUpdate}>
                     <Modal.Body>
                         <UpdateTransport data={TransportUpdate} cl={() => setStateUpdate(false)} />
                     </Modal.Body>
                 </Modal>
 
-                
+                {/* delete modal */}
                 <Modal show={StateDelete}>
                     <Modal.Body>
                         <p>You Want to delete this Transpot details ?</p>

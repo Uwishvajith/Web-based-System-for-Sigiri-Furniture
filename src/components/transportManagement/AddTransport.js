@@ -168,7 +168,7 @@ export default function AddTransport(){
 
                     <div className="mb-3">
                         <label for="Transport ID" className="form-label">Transport ID:</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Transport ID"
+                        <input type="text" className="form-control" id="regNo" placeholder="ex: T001"
                         pattern="T[0-9]{3}" required
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
@@ -179,7 +179,7 @@ export default function AddTransport(){
 
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle Registration No:</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Registration Number"
+                        <input type="text" className="form-control" id="regNo" placeholder="Registration Number ABC-XXXX"
                             onChange={(e) => {
                                 setRegNo(e.target.value); // assign value
                             }}
@@ -239,7 +239,7 @@ export default function AddTransport(){
         
                                 >
                                 <option value="Pending">Pending</option>
-                                <option value="Completed">completed</option>
+                                <option value="Completed">Completed</option>
                                 </select>
                                 {/* <DropdownButton id="dropdown-basic-button" title="Select delivery Status"
                                 

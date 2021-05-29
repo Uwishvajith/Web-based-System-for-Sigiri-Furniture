@@ -26,11 +26,22 @@ export default function AllProductPriceDetails() {
     }
   }, [])
 
+
   const deleteProductPrice = async salesid => {
-    await axios.delete(`http://localhost:8060/productprice/deletedelete/${salesid}`);
-    alert("Product Price delete Successfully");
-    getPromotion();
-  }
+
+
+
+    const answer = window.confirm("Are you sure you want to delete product price?");
+
+    if (answer) {
+
+      await axios.delete(`http://localhost:8060/productprice/deletedelete/${salesid}`);
+      alert("Product Price delete Successfully");
+      getPromotion();
+        
+    }
+}
+
 
   function getPromotion() {
     axios.get("http://localhost:8060/productprice/getproductprice").then((res) => {

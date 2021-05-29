@@ -20,7 +20,7 @@ export default function ViewFinancialDetails () {
   //creting a method for retrieve data
   useEffect(() => {
     axios
-      .get(HOST + "/posts")
+      .get(HOST + "/order/displayOrders")
       .then((res) => {
         setState(res.data);
         console.log("Data has been received");
@@ -94,9 +94,9 @@ export default function ViewFinancialDetails () {
         <MaterialTable style={{background:"#E3ECFF"}}
           title="Daily Income"
           columns={[
-            { title: "Order ID", field: "OrderId", type: "string" },
-            { title: "Date", field: "Date", type: "string" },
-            { title: "Amount", field: "Amount", type: "number" }
+            { title: "Order ID", field: "orderId", type: "string" },
+            { title: "Date", field: "oDate", type: "string" },
+            { title: "Amount", field: "finalPrice", type: "number" }
 
           ]}
           data={income}

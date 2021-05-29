@@ -183,13 +183,13 @@ export default function AddMaintaince() {
 
 
             <div className="container mb-3" style={{ top: "500" }}>
-                <h1>Maintance Details</h1>
+                <h1>Maintenance Details</h1>
                 <form className="mt-5" onSubmit={sendData}>
 
 
                     <div className="mb-3">
                         <label for="Maintenance ID" className="form-label">Maintenance ID :</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Maintenance ID"
+                        <input type="text" className="form-control" id="regNo" placeholder="ex: M001"
                         pattern="M[0-9]{3}" required
                         
                             onChange={(e) => {
@@ -201,7 +201,7 @@ export default function AddMaintaince() {
 
                     <div className="mb-3">
                         <label for="regNo" className="form-label">Vehicle Registration No:</label>
-                        <input type="text" className="form-control" id="regNo" placeholder="Registration Number"
+                        <input type="text" className="form-control" id="regNo" placeholder="Registration Number ABC-XXXX"
                         
                             onChange={(e) => {
                                 setRegNo(e.target.value); // assign value
@@ -253,7 +253,7 @@ export default function AddMaintaince() {
                         title="Maintenance Details"
 
                         columns={[
-                            { title: "Vehicle id", field: "MaintainID", type: "string" },
+                            { title: "Maintenance id", field: "MaintainID", type: "string" },
                             { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                             { title: "Date", field: "Date", type: "string" },
                             { title: "Description", field: "Discription", type: "string" },
@@ -286,7 +286,7 @@ export default function AddMaintaince() {
 
                 <Modal show={StateDelete}>
                     <Modal.Body>
-                        <p>You Want to delete this Transpot details ?</p>
+                        <p>You Want to delete this Maintenace details ?</p>
                         <button type="button" class="btn btn-outline-danger mr-3 pl-3" onClick={onDelete}>Delete</button>
                         <button type="button" class="btn btn-outline-secondary pl-3" onClick={() => setStateDelete(false)}>Cancel</button>
                     </Modal.Body>

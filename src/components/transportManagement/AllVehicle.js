@@ -129,11 +129,11 @@ export default function AllVehicle() {
                     title=" Vehicles Details"
 
                     columns={[
-                        { title: "Vehicle id", field: "VehicleID", type: "string" },
+                        { title: "Vehicle ID", field: "VehicleID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "VehicleType", field: "VehicleType", type: "string" },
-                        { title: "VehicleBrand", field: "VehicleBrand", type: "string" },
+                        { title: "Vehicle Type", field: "VehicleType", type: "string" },
+                        { title: "Vehicle Brand", field: "VehicleBrand", type: "string" },
                         { title: "Mileage (km)", field: "Mileage", type: "numeric" },
                     ]}
 
@@ -161,13 +161,13 @@ export default function AllVehicle() {
                         },
                     ]}
                 />
-
+                {/*update modal */}
                 <Modal show={StateUpdate}>
                     <Modal.Body>
                         <UpdateVehicle data={VehicleUpdate} cl={() => setStateUpdate(false)} />
                     </Modal.Body>
                 </Modal>
-
+                    {/* delete modal */}
                 <Modal show={StateDelete}>
                     <Modal.Body>
                         <p>You Want to delete this vehicle details ?</p>
