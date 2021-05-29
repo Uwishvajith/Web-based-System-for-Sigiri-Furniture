@@ -3,6 +3,7 @@ import axios from "axios";
 import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
 import ProductUpdateForm from "./ProductUpdateForm";
+import { Link } from "react-router-dom";
 
 const HOST = "https://sigiri-furniture-app.herokuapp.com/products";
 
@@ -45,11 +46,11 @@ export default function ViewProducts() {
         <nav class="main-menu bg-primary">
           <ul>
             <li>
-              <a href="/add">
+              <Link to="/add">
                 <i class="fa fa-plus-square fa-2x"></i>
                 <span class="nav-text">Add New Product</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+                </Link>
             </li>
             <li class="has-subnav">
               <a href="/view">
