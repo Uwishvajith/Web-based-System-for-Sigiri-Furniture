@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import axios from 'axios'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Link } from 'react-router-dom';
 
 // import MaterialTable from 'material-table'
 
@@ -255,6 +256,7 @@ export default function AddTransport(){
                     </div>
 
                     <button type="submit" className="btn btn-primary mt-4" >Submit</button>
+                    <Link className="btn btn-primary ml-4 mt-4" role="button" to="/AllT">View Transport Details</Link>
                 </form>
             </div>
         </div>
