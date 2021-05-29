@@ -57,21 +57,21 @@ export default function AddProduct() {
             <nav class="main-menu bg-primary">
                 <ul>
                     <li>
-                        <a href="http://localhost:3000/add">
+                        <a href="/add">
                             <i class="fa fa-plus-square fa-2x"></i>
                             <span class="nav-text">Add New Product</span>
                             <i class="fa fa-angle-right fa-2x"></i>
                         </a>
                     </li>
                     <li class="has-subnav">
-                        <a href="http://localhost:3000/view">
+                        <a href="/view">
                             <i class="fa fa-search fa-2x"></i>
                             <span class="nav-text">Products</span>
                             <i class="fa fa-angle-right fa-2x"></i>
                         </a>
                     </li>
                     <li class="has-subnav">
-                        <a href="http://localhost:3000/rawMaterial">
+                        <a href="/rawMaterial">
                             <i class="fa fa-cogs fa-2x"></i>
                             <span class="nav-text">Raw Material</span>
                             <i class="fa fa-angle-right fa-2x"></i>
