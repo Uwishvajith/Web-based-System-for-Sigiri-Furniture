@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HOST = "http://localhost:8060";
+const HOST = "https://sigiri-furniture-app.herokuapp.com/";
 
 export const addLeave = async (leavePayload) => {
   //console.log(leavePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");

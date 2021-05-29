@@ -7,7 +7,7 @@ import React, { useState, useEffect, Component } from "react"
 import axios from 'axios'
 
 //create constant for path
-const HOST = "https://sigiri-furniture-app.herokuapp.com/payments"
+const HOST = "https://sigiri-furniture-app.herokuapp.compayments"
 
 export default function ProductUpdateForm({data, data01}) {
 

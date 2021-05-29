@@ -31,7 +31,7 @@ export default function UpdatePromotionDetails() {
 
     }
 
-    await axios.put(`https://sigiri-furniture-app.herokuapp.com/promotion/update/${promotionid}`, newPromotion).then(() => {
+    await axios.put(`https://sigiri-furniture-app.herokuapp.compromotion/update/${promotionid}`, newPromotion).then(() => {
       alert("Promotion details update Successfully")
     }).catch((err) => {
       alert(err);
@@ -40,7 +40,7 @@ export default function UpdatePromotionDetails() {
   }
 
   const loadPromotionDetails = async () => {
-    await axios.get(`https://sigiri-furniture-app.herokuapp.com/promotion/get/${promotionid}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.compromotion/get/${promotionid}`).then((res) => {
       console.log(res.data);
       setPromoid(res.data.promotions.promotionid);
       setProductid(res.data.promotions.productid);

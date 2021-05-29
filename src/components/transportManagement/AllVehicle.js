@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap"
 import UpdateVehicle from "./UpdateVehicle"
 
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/vehicle"
+const HOST = "https://sigiri-furniture-app.herokuapp.comvehicle"
 
 export default function AllVehicle() {
 

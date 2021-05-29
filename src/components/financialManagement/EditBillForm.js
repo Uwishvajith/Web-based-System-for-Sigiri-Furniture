@@ -9,7 +9,7 @@ import axios from 'axios'
 
 
 //create constant for path
-const HOST = "https://sigiri-furniture-app.herokuapp.com/bills"
+const HOST = "https://sigiri-furniture-app.herokuapp.combills"
 
 export default function ProductUpdateForm({data, data01}) {
 

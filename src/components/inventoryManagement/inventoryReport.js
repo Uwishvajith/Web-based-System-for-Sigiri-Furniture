@@ -10,7 +10,7 @@ export default function InventoryReport() {
   
   useEffect(() => {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.com/inventories/")
+      .get("https://sigiri-furniture-app.herokuapp.cominventories/")
       .then((res) => {
         setInventory(res.data);
         console.log(res.data);

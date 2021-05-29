@@ -33,7 +33,7 @@ function UpdateOrderItems() {
       const newOrderItems = {
         orderId, productId1, qty1, feature1, productId2, qty2, feature2, productId3, qty3, feature3
       }
-      await axios.put(`https://sigiri-furniture-app.herokuapp.com/orderItem/updatesOrderItem/${oID}`, newOrderItems).then(() => {
+      await axios.put(`https://sigiri-furniture-app.herokuapp.comorderItem/updatesOrderItem/${oID}`, newOrderItems).then(() => {
         alert("Order Product List details successfully Updated");
 
 
@@ -50,7 +50,7 @@ function UpdateOrderItems() {
 
 
   const loadOrderItems = async () => {
-    await axios.get(`https://sigiri-furniture-app.herokuapp.com/orderItem/getOrderItem/${oID}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.comorderItem/getOrderItem/${oID}`).then((res) => {
       console.log(res.data.orderItem)
       setOrderId(res.data.orderItem.orderId);
       setProductId1(res.data.orderItem.productId1);

@@ -43,7 +43,7 @@ export default class EditInventory extends Component {
   // begin anything right above the code
   componentDidMount() {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.com/inventories/" + this.props.match.params.id)  // get method for editing inventory
+      .get("https://sigiri-furniture-app.herokuapp.cominventories/" + this.props.match.params.id)  // get method for editing inventory
       .then(response => {
         this.setState({
           itemname:response.data.itemname,
@@ -65,7 +65,7 @@ export default class EditInventory extends Component {
         console.log(error);
       });
 
-        axios.get("https://sigiri-furniture-app.herokuapp.com/items/").then(response => {
+        axios.get("https://sigiri-furniture-app.herokuapp.comitems/").then(response => {
           if (response.data.length > 0) {
             this.setState({
               itemnames: response.data.map((item) => item.itemname),
@@ -184,7 +184,7 @@ export default class EditInventory extends Component {
     else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0) */{
 
 
-    axios.post("https://sigiri-furniture-app.herokuapp.com/inventories/update/" + this.props.match.params.id,inventory)
+    axios.post("https://sigiri-furniture-app.herokuapp.cominventories/update/" + this.props.match.params.id,inventory)
         .then(res => console.log(res.data));
 
         window.alert("Update success!")  // show update successful

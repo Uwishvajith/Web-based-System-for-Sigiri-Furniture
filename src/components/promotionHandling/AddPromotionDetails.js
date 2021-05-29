@@ -33,7 +33,7 @@ export default function AddPromotionDetails() {
       status
     }
 
-    axios.post("https://sigiri-furniture-app.herokuapp.com/promotion/add", newPromotion).then(() => {
+    axios.post("https://sigiri-furniture-app.herokuapp.compromotion/add", newPromotion).then(() => {
       alert("New Promotion Added");
       function refreshPage() {
         window.location.replace("/allview");

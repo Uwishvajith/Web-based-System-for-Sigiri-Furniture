@@ -6,14 +6,14 @@ export default function AllTenderRestock() {
   const [Tenders, setTenders] = useState([]);
 
   const deleteTender = async (tenderid) => {
-    await axios.delete(`https://sigiri-furniture-app.herokuapp.com/Tender/delete/${tenderid}`);
+    await axios.delete(`https://sigiri-furniture-app.herokuapp.comTender/delete/${tenderid}`);
     alert("deleted");
     getTenders();
   };
 
   function getTenders() {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.com/Tender/")
+      .get("https://sigiri-furniture-app.herokuapp.comTender/")
       .then((res) => {
         console.log(res.data);
         setTenders(res.data);

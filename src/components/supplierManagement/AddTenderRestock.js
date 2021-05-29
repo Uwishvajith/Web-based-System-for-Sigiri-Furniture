@@ -28,7 +28,7 @@ export default function AddTenderRestock() {
     };
 
     axios
-      .post("https://sigiri-furniture-app.herokuapp.com/Tender/add", newTender)
+      .post("https://sigiri-furniture-app.herokuapp.comTender/add", newTender)
       .then(() => {
         alert("New Tender added");
         function refreshPage() {
@@ -42,7 +42,7 @@ export default function AddTenderRestock() {
   }
   useEffect(() => {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.com/inventories/")
+      .get("https://sigiri-furniture-app.herokuapp.cominventories/")
       .then((res) => {
         console.log(res.data);
         setItems(res.data);

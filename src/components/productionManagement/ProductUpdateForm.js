@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react"
 import axios from 'axios'
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/products"
+const HOST = "https://sigiri-furniture-app.herokuapp.comproducts"
 
 export default function ProductUpdateForm({ data, cl }) {
 

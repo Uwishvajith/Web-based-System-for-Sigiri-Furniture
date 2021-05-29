@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap"
 
 
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/Driver"
+const HOST = "https://sigiri-furniture-app.herokuapp.comDriver"
 
 export default function Drivers() {
 

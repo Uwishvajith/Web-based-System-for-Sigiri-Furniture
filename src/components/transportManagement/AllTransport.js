@@ -6,7 +6,7 @@ import UpdateTransport from "./UpdateTransport"
 
 
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/TransportDetail"
+const HOST = "https://sigiri-furniture-app.herokuapp.comTransportDetail"
 
 
 export default  function AllTransport(){

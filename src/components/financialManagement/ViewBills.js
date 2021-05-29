@@ -11,7 +11,7 @@ import axios from "axios";
 import EditBillForm from "./EditBillForm";
 
 //create constant for path
-const HOST = "http://localhost:8060";
+const HOST = "https://sigiri-furniture-app.herokuapp.com";
 
 export default function ViewBills() {
  

@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 //create contant for path
-const HOST = "http://localhost:8060";
+const HOST = "https://sigiri-furniture-app.herokuapp.com";
 
 export default class EditPayment extends Component {
   //creating constructor for get values

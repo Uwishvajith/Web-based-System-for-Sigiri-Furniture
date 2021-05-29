@@ -21,7 +21,7 @@ export default function AddCustomer() {
 
       const newCustomer = { NIC, name, organization, address, contactNo, email, regDate, empId }
 
-      axios.post("https://sigiri-furniture-app.herokuapp.com/customer/add", newCustomer).then(() => {
+      axios.post("https://sigiri-furniture-app.herokuapp.comcustomer/add", newCustomer).then(() => {
         alert("Customer added successfully")
         function refreshPage() {
           window.location.reload();
