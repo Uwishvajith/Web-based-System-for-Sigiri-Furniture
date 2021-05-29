@@ -129,7 +129,7 @@ export default function UpdateTenderRestock() {
           style={{
             marginBottom: 60,
             borderRadius: 20,
-            backgroundColor: "#98AFC7",
+            backgroundColor: "#e7ebe8",
           }}
         >
           <form
@@ -159,6 +159,7 @@ export default function UpdateTenderRestock() {
                 type="text"
                 className="form-control"
                 id="tenderid"
+                pattern="TI[0-9]{3}"
                 value={tenderid}
                 onChange={(e) => {
                   setTid(e.target.value);
@@ -172,6 +173,7 @@ export default function UpdateTenderRestock() {
                 type="text"
                 className="form-control"
                 id="supp_id"
+                pattern="SM[0-9]{3}"
                 value={supp_id}
                 onChange={(e) => {
                   setSuppid(e.target.value);

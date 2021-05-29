@@ -79,7 +79,7 @@ function Dashboard(props) {
               <div class="col-sm">
                 <a href="/">
                   <button type="button" class=" dbutton" id="btn-dash">
-                    <i class="fa fb fa-sign-out pr-5"></i>
+                    <i class="fa fb fa-sign-out mr-4"></i>
                     <span class="lead align-top">Exit</span>
                   </button>
                 </a>

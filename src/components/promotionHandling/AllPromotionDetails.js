@@ -30,11 +30,21 @@ export default function AllPromotionDetails() {
   }, [])
 
   const deletePromotion = async promotionid => {
-    await axios.delete(`http://localhost:8060/promotion/delete/${promotionid}`);
+
+
+
+    const answer = window.confirm("Are you sure you want to delete promotion?");
+
+    if (answer) {
+
+      await axios.delete(`http://localhost:8060/promotion/delete/${promotionid}`);
     alert("Promotion delete Successfully");
     getPromotion();
-  }
+        
+    }
+}
 
+ 
   function getPromotion() {
     axios.get("http://localhost:8060/promotion/").then((res) => {
       setPromotions(res.data);
