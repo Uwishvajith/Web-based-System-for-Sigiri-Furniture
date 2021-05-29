@@ -110,8 +110,8 @@ export default function Drivers() {
                     </ul>
                 </nav>
             </div>
-            
-
+           
+            {/* driver details tabe  */}
             <div className="container-fluid mt-3">
                 <MaterialTable  style={{background:"#E3ECFF"}}
                     title=" Driver  Details"
