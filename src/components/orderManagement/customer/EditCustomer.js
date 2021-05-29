@@ -33,7 +33,7 @@ function EditCustomer() {
             const newCustomer = {
                 NIC, name, organization, address, contactNo, email, regDate, empId
             }
-            await axios.put(`https://sigiri-furniture-app.herokuapp.comcustomer/updates/${nic}`, newCustomer).then(() => {
+            await axios.put(`https://sigiri-furniture-app.herokuapp.com/customer/updates/${nic}`, newCustomer).then(() => {
                 alert("Customer successfully Updated");
 
 
@@ -48,7 +48,7 @@ function EditCustomer() {
     }
 
     const loadCustomer = async () => {
-        await axios.get(`https://sigiri-furniture-app.herokuapp.comcustomer/get/${nic}`).then((res) => {
+        await axios.get(`https://sigiri-furniture-app.herokuapp.com/customer/get/${nic}`).then((res) => {
             console.log(res.data)
             setNIC(res.data.customer.NIC);
             setName(res.data.customer.name);

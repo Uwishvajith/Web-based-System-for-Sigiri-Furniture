@@ -35,7 +35,7 @@ export default class InventoryDetails extends Component {
   // anything right before this code
   componentDidMount() {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.cominventories/")
+      .get("https://sigiri-furniture-app.herokuapp.com/inventories/")
       .then((response) => {
         this.setState({ inventories: response.data });
       })
@@ -47,7 +47,7 @@ export default class InventoryDetails extends Component {
 
   deleteInventory(id) {
     axios
-      .delete("https://sigiri-furniture-app.herokuapp.cominventories/" + id)
+      .delete("https://sigiri-furniture-app.herokuapp.com/inventories/" + id)
       .then((res) => console.log(res.data));
 
     this.setState({
@@ -184,11 +184,11 @@ export default class InventoryDetails extends Component {
                       <button className="delete btn m-2 p-1 w-75" style={{background:"#d5d9e0"}}
 
                           onClick={()=>{
-                          axios.delete("https://sigiri-furniture-app.herokuapp.cominventories/"+ inventory._id)
+                          axios.delete("https://sigiri-furniture-app.herokuapp.com/inventories/"+ inventory._id)
                           .then(()=>{
        
                       });
-                          axios.get("https://sigiri-furniture-app.herokuapp.cominventories/")
+                          axios.get("https://sigiri-furniture-app.herokuapp.com/inventories/")
                           .then((Response)=>{
                             console.log(Response.data);
                             this.setState({

@@ -41,7 +41,7 @@ export default class CreateInventory extends Component {
   }
 
   componentDidMount() {
-    axios.get("https://sigiri-furniture-app.herokuapp.comitems/").then((response) => {
+    axios.get("https://sigiri-furniture-app.herokuapp.com/items/").then((response) => {
       if (response.data.length > 0) {
         this.setState({
           items: response.data.map((item) => item.itemname),
@@ -185,7 +185,7 @@ export default class CreateInventory extends Component {
        }
      
       axios
-        .post("https://sigiri-furniture-app.herokuapp.cominventories/add", inventory)
+        .post("https://sigiri-furniture-app.herokuapp.com/inventories/add", inventory)
         .then((res) => console.log(res.data));
         
         window.alert("Create success!")  // show create successful

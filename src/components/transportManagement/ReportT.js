@@ -5,9 +5,9 @@ import MaterialTable from 'material-table'
 
 
 
-const HOST1 = "https://sigiri-furniture-app.herokuapp.comTransportDetail"
-const HOST2 = "https://sigiri-furniture-app.herokuapp.comvehicle"
-const HOST3 = "https://sigiri-furniture-app.herokuapp.comMaintenance"
+const HOST1 = "https://sigiri-furniture-app.herokuapp.com/TransportDetail"
+const HOST2 = "https://sigiri-furniture-app.herokuapp.com/vehicle"
+const HOST3 = "https://sigiri-furniture-app.herokuapp.com/Maintenance"
 
 
 export default  function ReportT(){

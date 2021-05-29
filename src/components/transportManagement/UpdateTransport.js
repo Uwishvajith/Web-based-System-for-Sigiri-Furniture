@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HOST = "https://sigiri-furniture-app.herokuapp.comTransportDetail";
+const HOST = "https://sigiri-furniture-app.herokuapp.com/TransportDetail";
 
 export default function UpdateTransport({ data, cl }) {
 

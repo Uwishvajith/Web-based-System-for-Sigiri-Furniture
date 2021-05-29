@@ -8,7 +8,7 @@ export default function GenerateOrderReport() {
 
   useEffect(() => {
     function getOrders() {
-      axios.get("https://sigiri-furniture-app.herokuapp.comorder/displayOrders").then((res) => {
+      axios.get("https://sigiri-furniture-app.herokuapp.com/order/displayOrders").then((res) => {
         setOrders(res.data.reverse());
       }).catch((error) => {
         alert(error.message);

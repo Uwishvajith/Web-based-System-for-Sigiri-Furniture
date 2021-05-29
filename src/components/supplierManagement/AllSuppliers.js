@@ -6,14 +6,14 @@ export default function AllSuppliers() {
   const [Suppliers, setSuppliers] = useState([]);
 
   const deleteSupplier = async (supp_id) => {
-    await axios.delete(`https://sigiri-furniture-app.herokuapp.comSupplier/delete/${supp_id}`);
+    await axios.delete(`https://sigiri-furniture-app.herokuapp.com/Supplier/delete/${supp_id}`);
     alert("deleted");
     getSuppliers();
   };
 
   function getSuppliers() {
     axios
-      .get("https://sigiri-furniture-app.herokuapp.comSupplier/")
+      .get("https://sigiri-furniture-app.herokuapp.com/Supplier/")
       .then((res) => {
         console.log(res.data);
         setSuppliers(res.data);

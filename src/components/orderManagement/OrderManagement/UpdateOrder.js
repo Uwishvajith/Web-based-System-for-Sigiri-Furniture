@@ -34,7 +34,7 @@ function UpdateOrder() {
             const newOrder = {
                 orderId, cNIC, type, oDate, dAddress, additonalCharge, finalPrice, oStatus, oEmpId
             }
-            await axios.put(`https://sigiri-furniture-app.herokuapp.comorder/updates/${oID}`, newOrder).then(() => {
+            await axios.put(`https://sigiri-furniture-app.herokuapp.com/order/updates/${oID}`, newOrder).then(() => {
                 alert("Order details successfully Updated");
 
 
@@ -49,7 +49,7 @@ function UpdateOrder() {
     }
 
     const loadOrder = async () => {
-        await axios.get(`https://sigiri-furniture-app.herokuapp.comorder/getOrder/${oID}`).then((res) => {
+        await axios.get(`https://sigiri-furniture-app.herokuapp.com/order/getOrder/${oID}`).then((res) => {
             console.log(res.data)
             setOrderId(res.data.order.orderId);
             setCnic(res.data.order.cNIC);
