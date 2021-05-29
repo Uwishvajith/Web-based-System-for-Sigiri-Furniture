@@ -114,7 +114,7 @@ export default function ViewProducts() {
             },
           ]}
         />
-        <a href="http://localhost:3000/add">
+        <a href="https://sigiri-furniture-app.herokuapp.com/add">
         <button class="btn btn-primary">+ Add New Product</button>
         </a>
       </div>
