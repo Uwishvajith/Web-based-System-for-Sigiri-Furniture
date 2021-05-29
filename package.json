@@ -2,7 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "engines": {
-    "node": "12.X"
+    "node": "12.X",
+    "npm": "6.X"
   },
   "private": true,
   "dependencies": {
