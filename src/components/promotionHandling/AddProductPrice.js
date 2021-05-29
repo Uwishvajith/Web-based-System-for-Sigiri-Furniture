@@ -1,23 +1,29 @@
-import React,{useState} from "react"
+import React,{useState , useEffect} from "react"
 import axios from "axios"
+import MaterialTable from "material-table";
 import { Link } from 'react-router-dom';
+import { Button } from "@material-ui/core";
 
 
 export default function AddProductPrice(){
 
-  const[salesid, setSalesid] = useState("");//initial values
-  const[productid, setProductid] = useState("");
-  const[category, setCategory] = useState("");
-  const[starting_date, setStarting_date] = useState("");
-  const[clossing_date, setClossing_date] = useState("");
-  const[discount, setDiscount] = useState("");
-  const[price, setPrice] = useState("");
-  const[discountprice, setDiscountPrice] = useState("");
-  const[newprice, setNewPrice] = useState("");
-  const[quentity, setQuentity] = useState("");
+  var[salesid, setSalesid] = useState("");//initial values
+  var[productid, setProductid] = useState("");
+  var[category, setCategory] = useState("");
+  var[starting_date, setStarting_date] = useState("");
+  var[clossing_date, setClossing_date] = useState("");
+  var[discount, setDiscount] = useState("");
+  var[price, setPrice] = useState("");
+  var[discountprice, setDiscountPrice] = useState("");
+  var[newprice, setNewPrice] = useState("");
+  var[quentity, setQuentity] = useState("");
 
   function sendData(e){
-    e.preventDefault();
+    e.preventDefault();//to prevent the default submission by add product button
+
+    if(salesid=== ""){
+      ppricedemo();
+    }
 
     const  newProductPrice = {
         salesid,
@@ -38,15 +44,78 @@ export default function AddProductPrice(){
         window.location.replace("/getproductprice");
       }
       refreshPage();
-    }).catch((err)=>{
-      alert(err)
+    }).catch(()=>{
+      alert("Please re-check your form details")
     })
  
   }
 
-  function refreshPage(){ 
-    window.location.reload(); 
+//view product table
+  const [products, setProducts] = useState([]);
+  const [promotions, setPromotions] = useState([]);
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8060/products/view")
+      .then((res) => {
+        setProducts(res.data);
+        console.log("Data has been received");
+      })
+      .catch(() => {
+        alert("Error while fetching data");
+      });
+
+      axios.get("http://localhost:8060/promotion/").then((res) => {
+      console.log(res.data);
+      setPromotions(res.data);
+    }).catch((err) => {
+      alert(err.message);
+    })
+    
+  }, []);
+
+
+function calcnewprice(){
+  newprice = price -( price*(discount/100));
+  document.getElementById('newprice').value = newprice
+  discountprice = price * (discount/100)
+  document.getElementById('discountprice').value=discountprice
 }
+
+
+function addproductprice(){
+  if(salesid === "" && productid === ""){
+    alert("Fill out the form")
+
+  }
+}
+
+function ppricedemo(e){
+  e.preventDefault();
+  salesid = "SI004";
+  document.getElementById('salesid').value = salesid;
+  productid = "PI015";
+  document.getElementById('productid').value = productid;
+  category = "Library Cupboard";
+  document.getElementById('category').value = category;
+  starting_date = "2021-04-01";
+  document.getElementById('starting_date').value = starting_date;
+  clossing_date = "2021-05-01";
+  document.getElementById('clossing_date').value = clossing_date;
+  discount = 8;
+  document.getElementById('discount').value = discount;
+  price = 24000;
+  document.getElementById('price').value = price;
+  discountprice = 1920;
+  document.getElementById('discountprice').value = discountprice;
+  newprice = 22080;
+  document.getElementById('newprice').value = newprice;
+  quentity = 5;
+  document.getElementById('quentity').value = quentity;
+  
+}
+
     
     return(
       <div>
@@ -91,7 +160,7 @@ export default function AddProductPrice(){
                   <i class="fa fa-angle-right fa-2x"></i>
                 </a>
               </li>
-            <hr></hr>
+              <hr></hr>
     
               <li>
                 <a href="/promotion/report">
@@ -111,7 +180,7 @@ export default function AddProductPrice(){
 
           <ul class="logout">
           <li>
-            <a href="#">
+            <a href="/">
               <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text" >Logout</span>
               <i class="fa fa-angle-right fa-2x"></i>
@@ -121,15 +190,16 @@ export default function AddProductPrice(){
        </nav>
     </div>
     </div>
-      <div className="container" style={{width : 800 , paddingTop:120}}>
-
-      <div className="border border-info" style={{marginBottom:60 , backgroundColor:"#ccccb3"}} >
    
-        <form onSubmit={sendData} style={{ marginTop:50, marginLeft:30, marginRight:30, height:900}}>
+    <div style={{position: "absolute" , marginLeft: 60 }}>
+      <div className="container" style={{width : 800 , paddingTop:120 }}>
+      <div className="border border-info" style={{marginBottom:60 , backgroundColor:"#e7ebe8"}} >
+   
+        <form onSubmit={sendData} style={{ marginTop:50, marginLeft:30, marginRight:30, height:930}}>
           <h1 style ={{fontSize:30, top :70,textAlign:"center",fontFamily:"Georgia"}}>Add Product Price Details</h1><br></br><br></br>
             <div className="mb-3">
               <label for="salesid" >Sales ID</label>
-                <input type="text" className="form-control" id="salesid" 
+                <input type="text" className="form-control" id="salesid" pattern="SI[0-9]{3}" required
                 onChange={(e)=>{
                     setSalesid(e.target.value);//when we enter value to input field this value asing to this variable using setSalesId function(salesid)
                 }} /> 
@@ -138,7 +208,7 @@ export default function AddProductPrice(){
 
             <div className="mb-3">
               <label for="productid" >Product ID</label>
-                <input type="text" className="form-control" id="productid" 
+                <input type="text" className="form-control" id="productid" pattern="PI[0-9]{3}"
                 onChange={(e)=>{
                     setProductid(e.target.value);
                 }} />
@@ -175,6 +245,15 @@ export default function AddProductPrice(){
             </div>
 
             <br></br>
+
+            <div className="mb-3">
+            <label for="quentity" >Quentity</label>
+              <input type="number" className="form-control" id="quentity" 
+              onChange={(e)=>{
+                setQuentity(e.target.value);
+              }}/>
+    
+            </div>
   
             <div className="mb-3">
               <label for="discount" >Discount</label>
@@ -196,11 +275,10 @@ export default function AddProductPrice(){
 
             <div className="mb-3">
               <label for="discountprice" >Discount Price</label>
-                <input type="text" className="form-control" id="discountprice" 
-                onChange={(e)=>{
-                setDiscountPrice(e.target.value);
-                }}/>
-    
+                  <input type="text" className="form-control" id="discountprice" 
+                   onChange={(e)=>{
+                    setDiscountPrice(e.target.value);
+                    }}/>           
             </div>
 
             <div className="mb-3">
@@ -208,30 +286,75 @@ export default function AddProductPrice(){
               <input type="text" className="form-control" id="newprice" 
               onChange={(e)=>{
                setNewPrice(e.target.value);
-              }}/>
+              }}/><br></br>
+              <button  type="button" class="fa fa-dollar fa-2x btn btn-info" onClick={calcnewprice}></button>
             </div>
-
-            <div className="mb-3">
-            <label for="quentity" >Quentity</label>
-              <input type="number" className="form-control" id="quentity" 
-              onChange={(e)=>{
-                setQuentity(e.target.value);
-              }}/>
-    
-            </div>
-    
-            <br></br>
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" className="btn btn-outline-info mr-10" >Add Product Price</button>
+            <button type="button" className="btn btn-outline-info mr-2" onClick={ppricedemo}>Fill data</button>
+            <button type="submit" className="btn btn-outline-info mr-10" onClick={addproductprice} >Add Product Price</button>
             <Link className="btn btn-outline-info  ml-2 " role="button" to="/getproductprice">View All Product Prices List </Link>
-            <button className="btn btn-outline-info ml-2 " name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+           
           </div>
         </form>
         
         <br></br><br></br><br></br>
       </div>
-    </div>
+
+      </div>
+ 
+      
+  </div>
+
+  <div class="productiontable" style={{position:"absolute",left:800 , width:630}}>
+        <MaterialTable style={{backgroundColor:" #f5f5f0"}}
+          title="Products Table"
+          columns={[
+            { title: "ID", field: "id", type: "string" },
+            { title: "Name", field: "name", type: "string" },
+            { title: "Type", field: "type", type: "string" },
+            { title: "Price", field: "price", type: "numeric" },
+            { title: "Quantity", field: "qty", type: "numeric" },
+          ]}
+          data={products}
+          options={{
+            sorting: true,
+            actionsColumnIndex: -1,
+            exportButton: true,
+          }}
+   
+        />
+            
+        </div>  
+          <div class="productiontable" style={{position:"absolute",left:710, top:500 , width:730}}>
+        <div class="productiontable" >
+        <MaterialTable style={{backgroundColor:" #f5f5f0"}}
+         title={"Promotion Details List" } 
+         columns={[
+          
+           { title: "Product ID", field: "productid", type: "text" },
+           { title: "Category", field: "category", type: "text" },
+           { title: "Starting Date", field: "starting_date", type: "text" },
+           { title: "Closing Date", field: "clossing_date", type: "text" },
+           { title: "Description", field: "description", type: "text" },
+           
+
+         ]}
+
+         data={promotions}
+
+         options={{
+           sorting: true,
+           actionsColumnIndex: -1,
+           exportButton: true
+         }}
+   
+        />
+            
+        </div>   
+        </div>     
+
+
   </div>
 
 

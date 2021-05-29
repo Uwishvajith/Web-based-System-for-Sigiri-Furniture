@@ -30,11 +30,21 @@ export default function AllPromotionDetails() {
   }, [])
 
   const deletePromotion = async promotionid => {
-    await axios.delete(`http://localhost:8060/promotion/delete/${promotionid}`);
+
+
+
+    const answer = window.confirm("Are you sure you want to delete promotion?");
+
+    if (answer) {
+
+      await axios.delete(`http://localhost:8060/promotion/delete/${promotionid}`);
     alert("Promotion delete Successfully");
     getPromotion();
-  }
+        
+    }
+}
 
+ 
   function getPromotion() {
     axios.get("http://localhost:8060/promotion/").then((res) => {
       setPromotions(res.data);
@@ -69,7 +79,7 @@ export default function AllPromotionDetails() {
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
             value={searchproid} onChange={(e) => { setsearchproid(e.target.value); }} />
           <button class="btn btn-outline-success mr-2" id="searchid" type="submit" value="submit">Search</button>
-          <button class="btn btn-success" name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+          <button class="btn btn-success fa fa-refresh " name="refresh" id="refresh" onClick={refreshPage}></button>
         </form>
 
       </div>
@@ -143,7 +153,7 @@ export default function AllPromotionDetails() {
 
               <ul class="logout">
                 <li>
-                  <a href="#">
+                  <a href="/">
                     <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text" >Logout</span>
                     <i class="fa fa-angle-right fa-2x"></i>
@@ -182,12 +192,9 @@ export default function AllPromotionDetails() {
                   <td class="text-center">{promotions.media}</td>
                   <td class="text-center">{promotions.budget}</td>
                   <td class="text-center">{promotions.status}</td>
-                  <td class="text-center"><Link class="btn btn-info mr-2" role="button" to={`/get/viewpromotion/${promotions.promotionid}`}> View </Link>
-                    <Link class="btn btn-outline-primary mr-2" role="button" to={`/update/promotion/${promotions.promotionid}`}>Update</Link>
-                    <Link class="btn btn-danger" role="button" onClick={() => deletePromotion(promotions.promotionid)} >Delete</Link></td>
-
-
-
+                  <td class="text-center"><Link class="fa fa-arrow-right  btn btn-info " role="button" to={`/get/viewpromotion/${promotions.promotionid}`}>  </Link>
+                    <Link class="fa fa-pencil-square-o  btn btn-warning " role="button" to={`/update/promotion/${promotions.promotionid}`}></Link>
+                    <Link class="btn btn-danger fa fa-trash" role="button" onClick={() => deletePromotion(promotions.promotionid)} ></Link></td>
 
                 </tr>
               )

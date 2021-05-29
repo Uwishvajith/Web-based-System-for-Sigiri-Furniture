@@ -39,7 +39,7 @@ export default class ViewSalary extends Component {
 
   //function declarion for delete
   onDelete = (id) => {
-    axios.delete(`http://localhost:8000/sals/delete/${id}`).then((res) => {
+    axios.delete(`http://localhost:8060/sals/delete/${id}`).then((res) => {
       alert("Deleted Successfully");
       this.getData();
     });

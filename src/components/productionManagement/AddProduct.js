@@ -3,15 +3,18 @@ import axios from "axios"
 
 export default function AddProduct() {
 
-    const [id, setId] = useState("");
-    const [name, setName] = useState("");
-    const [type, setType] = useState("");
-    const [price, setPrice] = useState("");
-    const [qty, setQty] = useState("");
+    var [id, setId] = useState("");
+    var [name, setName] = useState("");
+    var [type, setType] = useState("");
+    var [price, setPrice] = useState("");
+    var [qty, setQty] = useState("");
 
     function addProduct(e) {
         e.preventDefault();
 
+        if(id=== ""){
+            productdemo();
+          }
 
         const newProduct = {
             id,
@@ -21,7 +24,7 @@ export default function AddProduct() {
             qty
         }
 
-        axios.post("http://localhost:8060/products/add", newProduct).then(() => {
+        axios.post("http://localhost:8060/products/addProduct", newProduct).then(() => {
             alert("Product Added Successfully")
             e.target.reset();
 
@@ -32,6 +35,21 @@ export default function AddProduct() {
 
     }
 
+    function productdemo(e){
+        e.preventDefault();
+        id = "PI010";
+        document.getElementById('pId').value = id;
+        name = "Wardrobe";
+        document.getElementById('name').value = name;
+        type = "steel";
+        document.getElementById('ptype').value = type;
+        price = 75000;
+        document.getElementById('price').value = price;
+        qty = 5;
+        document.getElementById('qty').value = qty;
+
+
+    }
 
     return (
 
@@ -81,7 +99,7 @@ export default function AddProduct() {
                 <div class="form-row">
                     <div class="form_content">
                         <label for="pId">Product ID : </label>
-                        <input type="text" class="form-control" id="pId" placeholder="Product ID" pattern="PI[0-9]{3}"
+                        <input type="text" class="form-control" id="pId" placeholder="Product ID" pattern="PI[0-9]{3}" required
                             onChange={(e) => {
 
                                 setId(e.target.value);
@@ -117,7 +135,7 @@ export default function AddProduct() {
                 <div class="form-row">
                     <div class="form_content">
                         <label for="ptype">Product Price : Rs.</label>
-                        <input type="text" class="form-control" id="ptype" placeholder="Price Rs."
+                        <input type="text" class="form-control" id="price" placeholder="Price Rs."
                             onChange={(e) => {
 
                                 setPrice(e.target.value);
@@ -138,6 +156,7 @@ export default function AddProduct() {
                     </div>
                 </div>
                 <br></br>
+                <button type="button" className="btn btn-primary mr-2" onClick={productdemo}>Data Fill</button>
                 <button type="submit" class="btn btn-primary">Add Product</button>
             </form>
             </center>

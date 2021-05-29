@@ -218,6 +218,19 @@ IT 19965550*/
   text-align: center;
 }
 
+.DailyIncomeTable{
+  margin-top: 125px;
+  margin-left: 70px;
+  max-width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
 .productform {
   margin-top: 125px;
   margin-left: 30%;
@@ -289,3 +302,32 @@ IT 19965550*/
 
 }
 
+#ledger{
+  text-align: center;
+}
+
+.bgImg {
+  background-image: url(./components/bc-image.jpg);
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: left;
+  margin-top: 95px;
+  float: left;
+}
+
+.login {
+  margin-left: 1020px;
+  padding-top: 150px;
+  padding-left: 50px;
+  width: 500px;
+  height: 635px;
+  float: right;
+  background-color: #E3ECFF;
+  
+}
+
+.login-topic {
+  color: black;
+  font-size: 50px;
+  padding-left: 150px;
+}

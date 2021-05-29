@@ -55,6 +55,12 @@ import AddVehicle from "./transportManagement/AddVehicle";
 import AllVehicle from "./transportManagement/AllVehicle";
 import UpdateVehicle from "./transportManagement/UpdateVehicle";
 import AddMaintaince from "./transportManagement/AddMaintenance";
+import AddTransport from "./transportManagement/AddTransport";
+import AllTransport from "./transportManagement/AllTransport";
+import UpdateTransport from "./transportManagement/UpdateTransport";
+import DashboardT from "./transportManagement/DashboardT";
+import ReportT from "./transportManagement/ReportT";
+import Drivers from "./transportManagement/Drivers";
 
 import ViewFinancialDetails from "./financialManagement/ViewFinancialDetails";
 import ViewBill from "./financialManagement/ViewBills";
@@ -71,6 +77,7 @@ import InventoryDetails from "./inventoryManagement/inventory-details.component"
 import EditInventory from "./inventoryManagement/edit-inventory.component";
 import CreateInventory from "./inventoryManagement/create-inventory.component";
 import AddItem from "./inventoryManagement/add-item.component";
+import InventReport from "./inventoryManagement/inventoryReport";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -165,6 +172,14 @@ function Home() {
       <Route exact path="/viewVehicle" component={AllVehicle} />
       <Route exact path="/updateVehicle" component={UpdateVehicle} />
       <Route exact path="/addM" component={AddMaintaince} />
+      <Route exact path="/addT" component={AddTransport} />
+      <Route exact path="/ViewT" component={AllTransport} />
+      <Route exact path="/updateT" component={UpdateTransport} />
+      <Route exact path="/AllT" component={DashboardT} />
+      <Route exact path="/ReportT" component={ReportT} />
+      <Route exact path="/viewD" component={Drivers} />
+      <Route exact path="/DashboardT" component={DashboardT} />
+
 
       {/*senal*/}
       <Route path="/ViewFinancial" exact component={ViewFinancialDetails} />
@@ -175,14 +190,15 @@ function Home() {
       <Route path="/AddBillDetails" exact component={AddBillDetails} />
       <Route path="/AddPayment" exact component={AddPaymentsDetails} />
       <Route path="/add/:id" exact component={AddSalary} />
-      <Route path="/edit/:id" exact component={EditBill} />
+      <Route path="/editBill/:id" exact component={EditBill} />
       <Route path="/update/:id" exact component={EditPayment} />
 
       {/*hiruni*/}
-      <Route path="/inventory" exact component={InventoryDetails} />
+      <Route path="/inventories" exact component={InventoryDetails} />
       <Route path="/edit/:id" exact component={EditInventory} />
       <Route path="/addInventory" exact component={CreateInventory} />
       <Route path="/item" exact component={AddItem} />
+      <Route path="/inventReport" exact component={InventReport}/>
     </Router>
   );
 }

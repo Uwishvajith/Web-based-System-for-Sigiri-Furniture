@@ -1,47 +1,45 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HOST = "http://localhost:8060/vehicle";
+const HOST = "http://localhost:8060/TransportDetail";
 
-export default function UpdateVehicle({ data, cl }) {
+export default function UpdateTransport({ data, cl }) {
 
+   
   const [formDetails, setFormDetails] = useState({
-    VehicleID: data.VehicleID,
+    TransportID: data.TransportID,
     VehicleRegNo: data.VehicleRegNo,
     Date: data.Date,
-    VehicleType: data.VehicleType,
-    VehicleBrand: data.VehicleBrand,
-    Mileage: data.Mileage,
+    DriverName: data.DriverName,
+    Discription: data.Discription,
+    Status: data.Status,
   });
   const [RegNoErr, setRegNoErr] = useState("");
-  
-  
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    
     const isValid =formValidation();
 
     if(isValid){//send data after validate
 
-    
+
 
     axios
       .put(
-        `${HOST}/update/${formDetails.VehicleID}`,
+        `${HOST}/updateT/${formDetails.TransportID}`,
         {
-          VehicleID: formDetails.VehicleID,
+          TransportID: formDetails.TransportID,
           VehicleRegNo: formDetails.VehicleRegNo,
           Date: formDetails.Date,
-          VehicleType: formDetails.VehicleType,
-          VehicleBrand: formDetails.VehicleBrand,
-          Mileage: parseInt(formDetails.Mileage, 10),
+          DriverName: formDetails.DriverName,
+          Discription: formDetails.Discription,
+          Status: formDetails.Status,
         },
         {}
       )
       .then((response) => {
-        alert("Vehicle updated Successfully !");
+        alert("Transport Details updated Successfully !");
         window.location.reload(true);
       })
       .catch((err) => {
@@ -75,21 +73,22 @@ export default function UpdateVehicle({ data, cl }) {
 
 }
 
+
   return (
     <div class="area">
       <div className="container">
         <form onSubmit={onSubmit}>
           <div className="mb-3">
-            <label for="VehcleID" className="form-label">
-              Vehicle ID :
+            <label for="TransportID" className="form-label">
+              Transport ID :
             </label>
             <input
               type="text"
               className="form-control"
-              name="VehicleID"
+              name="TransportID"
               placeholder="Vehicle ID"
               onChange={handleChange}
-              value={formDetails.VehicleID}
+              value={formDetails.TransportID}
               disabled
             ></input>
           </div>
@@ -127,48 +126,97 @@ export default function UpdateVehicle({ data, cl }) {
             ></input>
           </div>
           <div className="mb-3">
-            <label for="VehicleType" className="form-label">
-              Vehicle Type :
+            <label for="DriverName" className="form-label">
+              Driver Name :
             </label>
             <input
-              type="VehicleType"
+              type="DriverName"
               className="form-control"
-              name="VehicleType"
-              placeholder="Vehicle Type"
+              name="DriverName"
+              placeholder="Driver Name"
               onChange={handleChange}
-              value={formDetails.VehicleType}
+              value={formDetails.DriverName}
             ></input>
           </div>
           <div className="mb-3">
-            <label for="VehicleBrand" className="form-label">
-              Vehicle Brand :
+            <label for="Discription" className="form-label">
+              Description :
             </label>
             <input
-              type="VehicleBrand"
+              type="text"
               className="form-control"
-              name="VehicleBrand"
-              placeholder="Vehicle Brand"
+              name="Discription"
+              placeholder="Description"
               onChange={handleChange}
-              value={formDetails.VehicleBrand}
+              value={formDetails.Discription}
             ></input>
           </div>
           <div className="mb-3">
-            <label for="Mileage" className="form-label">
-              Mileage :
+            <label for="Discription" className="form-label">
+              Current Status :
             </label>
             <input
-              type="Mileage"
+              type="text"
               className="form-control"
-              name="Mileage"
-              placeholder="Mileage"
-              onChange={handleChange}
-              value={formDetails.Mileage}
+              name="Discription"
+              placeholder="Description"
+              value={formDetails.Status}
+              disabled
             ></input>
           </div>
+          <div className =" mb-3 form-check">
+            <label for="Status" className="form-label">
+              Mark As Completed :
+            </label>
+            
+            <input class="form-check-input position-absolute ml-3 mt-2"
+              type="Checkbox"
+              name="Status"
+              placeholder="Status"
+              onChange={handleChange}
+              value="completed"
+              
+            ></input>
+            
+          </div>
+          
+
+
+
+          {/* <div className="mb-3">
+            <label for="Status" className="form-label">
+              Status :
+            </label>
+            <select  className="w-50 h-25 ml-5 btn  dropdown" value = {formDetails.Status}
+                                      onchange={handleChange}  // assign value
+                                    
+        
+                                >
+                                
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">completed</option>
+                                </select>
+
+            
+          </div> */}
+
+          {/* <div className="mb-3">
+              <label for="maritalStatus">Marital Status:</label>
+              <select
+                value={formDetails.Status}
+                id="maritalStatus"
+                className="form-control"
+                onChange={ handleChange
+                }
+              >
+                <option id="pending">Pending</option>
+                <option id="completed">Completed</option>
+              </select>
+            </div> */}
 
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-success"
             style={{ margin: "5px" }}
           >
             Update
