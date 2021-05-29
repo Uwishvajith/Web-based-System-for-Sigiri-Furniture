@@ -12,9 +12,9 @@ export default function AddProduct() {
     function addProduct(e) {
         e.preventDefault();
 
-        if(id=== ""){
+        if (id === "") {
             productdemo();
-          }
+        }
 
         const newProduct = {
             id,
@@ -35,7 +35,7 @@ export default function AddProduct() {
 
     }
 
-    function productdemo(e){
+    function productdemo(e) {
         e.preventDefault();
         id = "PI010";
         document.getElementById('pId').value = id;
@@ -54,116 +54,116 @@ export default function AddProduct() {
     return (
 
         <div>
-        <nav class="main-menu bg-primary">
-              <ul>
-                <li>
-                  <a href="http://localhost:3000/add">
-                    <i class="fa fa-plus-square fa-2x"></i>
-                    <span class="nav-text">Add New Product</span>
-                    <i class="fa fa-angle-right fa-2x"></i>
-                  </a>
-                </li>
-                <li class="has-subnav">
-                  <a href="http://localhost:3000/view">
-                    <i class="fa fa-search fa-2x"></i>
-                    <span class="nav-text">Products</span>
-                    <i class="fa fa-angle-right fa-2x"></i>
-                  </a>
-                </li>
-                <li class="has-subnav">
-                  <a href="http://localhost:3000/rawMaterial">
-                    <i class="fa fa-cogs fa-2x"></i>
-                    <span class="nav-text">Raw Material</span>
-                    <i class="fa fa-angle-right fa-2x"></i>
-                  </a>
-                </li>
-              </ul>
-      
-              <ul class="logout">
-                <li>
-                  <a href="/">
-                    <i class="fa fa-power-off fa-2x"></i>
-                    <span class="nav-text">Logout</span>
-                    <i class="fa fa-angle-right fa-2x"></i>
-                  </a>
-                </li>
-              </ul>
+            <nav class="main-menu bg-primary">
+                <ul>
+                    <li>
+                        <a href="http://localhost:3000/add">
+                            <i class="fa fa-plus-square fa-2x"></i>
+                            <span class="nav-text">Add New Product</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="has-subnav">
+                        <a href="http://localhost:3000/view">
+                            <i class="fa fa-search fa-2x"></i>
+                            <span class="nav-text">Products</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="has-subnav">
+                        <a href="http://localhost:3000/rawMaterial">
+                            <i class="fa fa-cogs fa-2x"></i>
+                            <span class="nav-text">Raw Material</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="logout">
+                    <li>
+                        <a href="/">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">Logout</span>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
             </nav>
-       
-        <div className="add_form">
-        <div className="productform">
-            <center>
-            <div class="topic"><h2>Add New Product</h2> <br></br>
-            <br></br></div>
-            <form onSubmit={addProduct}>
-                <div class="form-row">
-                    <div class="form_content">
-                        <label for="pId">Product ID : </label>
-                        <input type="text" class="form-control" id="pId" placeholder="Product ID" pattern="PI[0-9]{3}" required
-                            onChange={(e) => {
 
-                                setId(e.target.value);
+            <div className="add_form card">
+                <div className="productform card">
+                    <center>
+                        <div class="topic"><h2>Add New Product</h2> <br></br>
+                            <br></br></div>
+                        <form onSubmit={addProduct}>
+                            <div class="form-row">
+                                <div class="form_content">
+                                    <label for="pId">Product ID : </label>
+                                    <input type="text" class="form-control" id="pId" placeholder="Product ID" pattern="PI[0-9]{3}" required
+                                        onChange={(e) => {
 
-                            }} />
-                    </div>
-                </div>
+                                            setId(e.target.value);
 
-                <div class="form-row">
-                    <div class="form_content">
-                        <label for="name">Product Name : </label>
-                        <input type="text" class="form-control" id="name" placeholder="Product name"
-                            onChange={(e) => {
+                                        }} />
+                                </div>
+                            </div>
 
-                                setName(e.target.value);
+                            <div class="form-row">
+                                <div class="form_content">
+                                    <label for="name">Product Name : </label>
+                                    <input type="text" class="form-control" id="name" placeholder="Product name"
+                                        onChange={(e) => {
 
-                            }} />
-                    </div>
-                </div>
+                                            setName(e.target.value);
 
-                <div class="form-row">
-                    <div class="form_content">
-                        <label for="ptype">Product Type : </label>
-                        <input type="text" class="form-control" id="ptype" placeholder="Steel/Wooden etc"
-                            onChange={(e) => {
+                                        }} />
+                                </div>
+                            </div>
 
-                                setType(e.target.value);
+                            <div class="form-row">
+                                <div class="form_content">
+                                    <label for="ptype">Product Type : </label>
+                                    <input type="text" class="form-control" id="ptype" placeholder="Steel/Wooden etc"
+                                        onChange={(e) => {
 
-                            }} />
-                    </div>
-                </div>
+                                            setType(e.target.value);
 
-                <div class="form-row">
-                    <div class="form_content">
-                        <label for="ptype">Product Price : Rs.</label>
-                        <input type="text" class="form-control" id="price" placeholder="Price Rs."
-                            onChange={(e) => {
+                                        }} />
+                                </div>
+                            </div>
 
-                                setPrice(e.target.value);
+                            <div class="form-row">
+                                <div class="form_content">
+                                    <label for="ptype">Product Price : Rs.</label>
+                                    <input type="text" class="form-control" id="price" placeholder="Price Rs."
+                                        onChange={(e) => {
 
-                            }} />
-                    </div>
-                </div>
+                                            setPrice(e.target.value);
 
-                <div class="form-row">
-                    <div class="form_content">
-                        <label for="qty">Quantity : </label>
-                        <input type="text" class="form-control" id="qty" placeholder="Qty"
-                            onChange={(e) => {
+                                        }} />
+                                </div>
+                            </div>
 
-                                setQty(e.target.value);
+                            <div class="form-row">
+                                <div class="form_content">
+                                    <label for="qty">Quantity : </label>
+                                    <input type="text" class="form-control" id="qty" placeholder="Qty"
+                                        onChange={(e) => {
 
-                            }} />
-                    </div>
+                                            setQty(e.target.value);
+
+                                        }} />
+                                </div>
+                            </div>
+                            <br></br>
+                            <button type="button" className="btn btn-primary mr-2" onClick={productdemo}>Data Fill</button>
+                            <button type="submit" class="btn btn-primary">Add Product</button>
+                        </form>
+                    </center>
                 </div>
                 <br></br>
-                <button type="button" className="btn btn-primary mr-2" onClick={productdemo}>Data Fill</button>
-                <button type="submit" class="btn btn-primary">Add Product</button>
-            </form>
-            </center>
             </div>
-            <br></br>
         </div>
-        </div>
-        
+
     )
 }
