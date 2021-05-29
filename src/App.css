@@ -307,7 +307,7 @@ IT 19965550*/
 }
 
 .bgImg {
-  background-image: url(./components/bc-image.jpg);
+  /* background-image: url(./components/bc-image.jpg); */
   background-repeat: no-repeat;
   background-size: 70%;
   background-position: left;
