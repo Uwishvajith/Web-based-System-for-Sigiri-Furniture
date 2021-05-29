@@ -53,28 +53,28 @@ export default function ViewProducts() {
                 </Link>
             </li>
             <li class="has-subnav">
-              <a href="/view">
+              <Link to="/view">
                 <i class="fa fa-search fa-2x"></i>
                 <span class="nav-text">Products</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
             <li class="has-subnav">
-              <a href="/rawMaterial">
+              <Link to="/rawMaterial">
                 <i class="fa fa-cogs fa-2x"></i>
                 <span class="nav-text">Raw Material</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
 
           <ul class="logout">
             <li>
-              <a href="/">
+              <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -115,9 +115,9 @@ export default function ViewProducts() {
             },
           ]}
         />
-        <a href="/add">
+        <Link to="/add">
         <button class="btn btn-primary">+ Add New Product</button>
-        </a>
+        </Link>
       </div>
       <Modal show={modalStateUpdate}>
         <Modal.Body>

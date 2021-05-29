@@ -26,35 +26,35 @@ export default function InventoryReport() {
         <nav class="main-menu bg-primary">
           <ul>
             <li>
-              <a href="/add">
+              <Link to="/add">
                 <i class="fa fa-plus-square fa-2x"></i>
                 <span class="nav-text">Add New Product</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
             <li class="has-subnav">
-              <a href="/view">
+              <Link to="/view">
                 <i class="fa fa-search fa-2x"></i>
                 <span class="nav-text">Products</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
             <li class="has-subnav">
-              <a href="/rawMaterial">
+              <Link to="/rawMaterial">
                 <i class="fa fa-cogs fa-2x"></i>
                 <span class="nav-text">Raw Material</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
 
           <ul class="logout">
             <li>
-              <a href="/">
+              <Link to="/">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">Logout</span>
                 <i class="fa fa-angle-right fa-2x"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
