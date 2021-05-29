@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 
 
@@ -221,6 +222,7 @@ export default function AddVehicle() {
                     </div>
                     
                     <button type="submit" className="btn btn-primary" >Submit</button>
+                    <Link className="btn btn-primary ml-4" role="button" to="/viewVehicle">View Vehicle Details </Link>
                 </form>
             </div>
         </div>
