@@ -289,10 +289,6 @@ function ppricedemo(e){
               }}/><br></br>
               <button  type="button" class="fa fa-dollar fa-2x btn btn-info" onClick={calcnewprice}></button>
             </div>
-
-           
-    
-            
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="button" className="btn btn-outline-info mr-2" onClick={ppricedemo}>Fill data</button>
