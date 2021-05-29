@@ -31,11 +31,11 @@ export default function ViewProducts() {
     axios
       .delete(HOST + "/delete/" + currentProductDelete)
       .then((res) => {
-        alert("Data has been deleted");
+        alert(res.data.status);
         window.location.reload(true);
       })
       .catch(() => {
-        alert("Error while deleting item");
+        alert("Error while deleting product");
       });
   }
 

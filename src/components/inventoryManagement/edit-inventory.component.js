@@ -5,6 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class EditInventory extends Component {
+
+  //constructor creation
   constructor(props) {
     super(props);
     this.onChangeItemname = this.onChangeItemname.bind(this);
@@ -19,7 +21,8 @@ export default class EditInventory extends Component {
     this.onChangeDateofmanufactured = this.onChangeDateofmanufactured.bind(this);
     this.onChangeLastupdated = this.onChangeLastupdated.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
+ 
+    //setting initial states
     this.state = {
       
       quantity: '',
@@ -36,9 +39,11 @@ export default class EditInventory extends Component {
     };
   }
 
+
+  // begin anything right above the code
   componentDidMount() {
     axios
-      .get("http://localhost:8060/inventories/" + this.props.match.params.id)
+      .get("http://localhost:8060/inventories/" + this.props.match.params.id)  // get method for editing inventory
       .then(response => {
         this.setState({
           itemname:response.data.itemname,
@@ -56,7 +61,7 @@ export default class EditInventory extends Component {
         });
       })
 
-      .catch(function (error) {
+      .catch(function (error) {  // if editing is not succesful show an error
         console.log(error);
       });
 
@@ -71,6 +76,9 @@ export default class EditInventory extends Component {
           }
         });
   }
+
+
+  //when the components are  change, set item going to change
 
   onChangeItemname(e) {
     this.setState({
@@ -179,15 +187,16 @@ export default class EditInventory extends Component {
     axios.post("http://localhost:8060/inventories/update/" + this.props.match.params.id,inventory)
         .then(res => console.log(res.data));
 
-        window.alert("Update success!")
-        window.location = '/inventories';
-   
+        window.alert("Update success!")  // show update successful
+        window.location = '/inventories';  // go back to inventories after submitting 
+    
   }
 
 }
 
   render() {
     return (
+      // navigation bar
       <div class="component-body">
         <div>
           <div className="area"></div>
@@ -245,7 +254,15 @@ export default class EditInventory extends Component {
           </ul>
           </nav>
         </div>
+
+        {
+
+          // navigation bar ended and form started
+        }
+
+
         <h3>Edit Item Log</h3>
+
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Item name: </label>
@@ -396,6 +413,9 @@ export default class EditInventory extends Component {
           </div>
 
           <div className="form-group">
+            {//Edit item button
+
+            }
             <input
               type="submit"
               value="Edit Item Log"

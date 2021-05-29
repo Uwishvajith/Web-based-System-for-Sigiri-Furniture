@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import MaterialTable from "material-table";
 
 export default function InventoryReport() {
+
+  // set initalstate
   const [inventory, setInventory] = useState([]);
   
-
   useEffect(() => {
     axios
       .get("http://localhost:8060/inventories/")
@@ -21,6 +22,8 @@ export default function InventoryReport() {
   }, []);
 
   return (
+
+    // navigation bar begin
     <div class="component-body">
       <div>
           <div className="area"></div>
@@ -79,6 +82,12 @@ export default function InventoryReport() {
           </nav>
         </div>  
 
+        {
+
+          // report tabel
+        }
+
+
       <div className="container-fluid">
         <div class = "d-flex justify-content-center px-auto">
         <MaterialTable style={{background:"#E3ECFF"}}
@@ -101,7 +110,7 @@ export default function InventoryReport() {
             },
             { title: "NewStock", field: "newstock", type: "number" },
             { title: "Minimum", field: "minrequired", type: "number" },
-            { title: "Dateofmanufactured", field: "dateofmanufactured", type: "substring(0, 15)" },
+         
           
           
           ]}

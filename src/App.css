@@ -237,11 +237,11 @@ IT 19965550*/
   padding: 50px;
   width: 700px;
   border-collapse: collapse;
-  background-color:#888888;
+  background-color:#e0e0e0;
   border-width: 2px;
-  border-color: black;
+  border-radius: 15px;
   border-style: inset; 
-  box-shadow: 5px 5px #000000ce; 
+  box-shadow: 10px -8px 6px #007bff!important; 
   overflow: visible;
 }
 
