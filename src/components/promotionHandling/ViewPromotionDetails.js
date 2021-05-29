@@ -13,7 +13,7 @@ export default function ViewPromotionDetails() {
   }, []);
 
   const loadPromotionDetails = async () => {
-    await axios.get(`http://localhost:8060/promotion/get/${promotionid}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.com/promotion/get/${promotionid}`).then((res) => {
       console.log(res.data);
       setPromotions(res.data.promotions);
     }).catch((err) => {

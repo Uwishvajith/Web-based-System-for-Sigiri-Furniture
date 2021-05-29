@@ -37,7 +37,7 @@ export default function AddVehicle() {
 
 
         
-        axios.post("http://localhost:8060/vehicle/add", newVehicle)
+        axios.post("https://sigiri-furniture-app.herokuapp.com/vehicle/add", newVehicle)
 
             .then(() => {
                 alert("Vehicle added")

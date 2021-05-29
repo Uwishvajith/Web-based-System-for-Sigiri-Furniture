@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { Modal } from "react-bootstrap";
 import ProductUpdateForm from "./ProductUpdateForm";
 
-const HOST = "http://localhost:8060/products";
+const HOST = "https://sigiri-furniture-app.herokuapp.com/products";
 
 export default function ViewProducts() {
   const [products, setProducts] = useState([]);

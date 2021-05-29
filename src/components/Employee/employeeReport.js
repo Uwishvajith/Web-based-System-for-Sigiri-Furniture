@@ -7,7 +7,7 @@ export default function EmpListReport() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8060/api/employeeData")
+      .get("https://sigiri-furniture-app.herokuapp.com/api/employeeData")
       .then((res) => {
         setEmployee(res.data);
         console.log("Data has been received");

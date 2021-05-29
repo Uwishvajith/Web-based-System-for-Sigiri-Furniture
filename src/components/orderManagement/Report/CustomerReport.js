@@ -9,7 +9,7 @@ export default function GenerateCustomerReport() {
   useEffect(() => {
     function getCustomers() {
       axios
-        .get("http://localhost:8060/customer/")
+        .get("https://sigiri-furniture-app.herokuapp.com/customer/")
         .then((res) => {
           setCustomers(res.data.reverse());
         })

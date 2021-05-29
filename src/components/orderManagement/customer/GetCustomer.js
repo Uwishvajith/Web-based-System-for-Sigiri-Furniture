@@ -15,7 +15,7 @@ function DisplayCustomer() {
 
 
   const loadCustomer = async () => {
-    await axios.get(`http://localhost:8060/customer/get/${nic}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.com/customer/get/${nic}`).then((res) => {
       console.log(res.data);
       setCustomerProfile(res.data.customer)
 

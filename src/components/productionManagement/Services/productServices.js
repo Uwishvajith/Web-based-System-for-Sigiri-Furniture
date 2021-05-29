@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HOST = "http://localhost:8060/products";
+const HOST = "https://sigiri-furniture-app.herokuapp.com/products";
 
 
 export const getAllProducts = async () => {

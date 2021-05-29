@@ -28,7 +28,7 @@ export default function AddSupplier() {
     };
 
     axios
-      .post("http://localhost:8060/Supplier/adds", newSupplier)
+      .post("https://sigiri-furniture-app.herokuapp.com/Supplier/adds", newSupplier)
       .then(() => {
         alert("New Supplier added");
         function refreshPage() {

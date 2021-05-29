@@ -6,7 +6,7 @@ import UpdateTransport from "./UpdateTransport"
 
 
 
-const HOST = "http://localhost:8060/TransportDetail"
+const HOST = "https://sigiri-furniture-app.herokuapp.com/TransportDetail"
 
 
 export default  function AllTransport(){

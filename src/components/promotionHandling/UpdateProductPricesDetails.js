@@ -30,7 +30,7 @@ export default function UpdatePromotionDetails() {
 
     }
 
-    await axios.put(`http://localhost:8060/productprice/updateupdate/${salesid}`, newProductPrices).then(() => {
+    await axios.put(`https://sigiri-furniture-app.herokuapp.com/productprice/updateupdate/${salesid}`, newProductPrices).then(() => {
       alert("Product Price details update Successfully")
     }).catch((err) => {
       alert(err);
@@ -39,7 +39,7 @@ export default function UpdatePromotionDetails() {
   }
 
   const loadProductPricesDetails = async () => {
-    await axios.get(`http://localhost:8060/productprice/getget/${salesid}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.com/productprice/getget/${salesid}`).then((res) => {
       console.log(res.data);
       setsalesID(res.data.productprices.salesid);
       setProductid(res.data.productprices.productid);
