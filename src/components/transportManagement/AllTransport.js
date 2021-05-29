@@ -141,10 +141,10 @@ export default  function AllTransport(){
                     title=" All Transport Details "
 
                     columns={[
-                        { title: "Transport id", field: "TransportID", type: "string" },
+                        { title: "Transport ID", field: "TransportID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "DriverName", field: "DriverName", type: "string" },
+                        { title: "Driver Name", field: "DriverName", type: "string" },
                         { title: "Discription", field: "Discription", type: "string" },
                         { title: "Status", field: "Status", type: "string" },
                     ]}

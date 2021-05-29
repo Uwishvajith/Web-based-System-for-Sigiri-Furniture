@@ -101,7 +101,7 @@ export default function UpdateTransport({ data, cl }) {
               type="text"
               className="form-control"
               name="VehicleRegNo"
-              placeholder="Registration Number"
+              placeholder="Registration Number ABC-XXXX"
               onChange={handleChange}
               value={formDetails.VehicleRegNo}
             ></input>
@@ -174,45 +174,12 @@ export default function UpdateTransport({ data, cl }) {
               name="Status"
               placeholder="Status"
               onChange={handleChange}
-              value="completed"
+              value="Completed"
               
             ></input>
             
           </div>
-          
-
-
-
-          {/* <div className="mb-3">
-            <label for="Status" className="form-label">
-              Status :
-            </label>
-            <select  className="w-50 h-25 ml-5 btn  dropdown" value = {formDetails.Status}
-                                      onchange={handleChange}  // assign value
-                                    
         
-                                >
-                                
-                                <option value="Pending">Pending</option>
-                                <option value="Completed">completed</option>
-                                </select>
-
-            
-          </div> */}
-
-          {/* <div className="mb-3">
-              <label for="maritalStatus">Marital Status:</label>
-              <select
-                value={formDetails.Status}
-                id="maritalStatus"
-                className="form-control"
-                onChange={ handleChange
-                }
-              >
-                <option id="pending">Pending</option>
-                <option id="completed">Completed</option>
-              </select>
-            </div> */}
 
           <button
             type="submit"

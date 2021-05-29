@@ -15,6 +15,7 @@ export default  function DashboardT(){
     const [Vehicles, setVehicles] = useState([]);
    
 
+    //view Transport table
     useEffect(() => {
 
         axios.get(HOST1 + "/ViewT")
@@ -26,6 +27,8 @@ export default  function DashboardT(){
             })
 
     }, []);
+
+    //view Vehicle table
     useEffect(() => {
 
         axios.get(HOST2 + "/")
@@ -134,10 +137,10 @@ export default  function DashboardT(){
                     title=" All Transport Details "
 
                     columns={[
-                        { title: "Transport id", field: "TransportID", type: "string" },
+                        { title: "Transport ID", field: "TransportID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "DriverName", field: "DriverName", type: "string" },
+                        { title: "Driver Name", field: "DriverName", type: "string" },
                         { title: "Discription", field: "Discription", type: "string" },
                         { title: "Status", field: "Status", type: "string" },
                     ]}
@@ -164,11 +167,11 @@ export default  function DashboardT(){
                     title=" Vehicles Details"
 
                     columns={[
-                        { title: "Vehicle id", field: "VehicleID", type: "string" },
+                        { title: "Vehicle ID", field: "VehicleID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "VehicleType", field: "VehicleType", type: "string" },
-                        { title: "VehicleBrand", field: "VehicleBrand", type: "string" },
+                        { title: "Vehicle Type", field: "VehicleType", type: "string" },
+                        { title: "Vehicle Brand", field: "VehicleBrand", type: "string" },
                         { title: "Mileage (km)", field: "Mileage", type: "numeric" },
                     ]}
 

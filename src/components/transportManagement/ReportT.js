@@ -148,10 +148,10 @@ export default  function ReportT(){
                     title="  Transport Details Report"
 
                     columns={[
-                        { title: "Transport id", field: "TransportID", type: "string" },
+                        { title: "Transport ID", field: "TransportID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "DriverName", field: "DriverName", type: "string" },
+                        { title: "Driver Name", field: "DriverName", type: "string" },
                         { title: "Discription", field: "Discription", type: "string" },
                         { title: "Status", field: "Status", type: "string" },
                     ]}
@@ -179,11 +179,11 @@ export default  function ReportT(){
                     title=" Vehicles Details Report"
 
                     columns={[
-                        { title: "Vehicle id", field: "VehicleID", type: "string" },
+                        { title: "Vehicle ID", field: "VehicleID", type: "string" },
                         { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                         { title: "Date", field: "Date", type: "string" },
-                        { title: "VehicleType", field: "VehicleType", type: "string" },
-                        { title: "VehicleBrand", field: "VehicleBrand", type: "string" },
+                        { title: "Vehicle Type", field: "VehicleType", type: "string" },
+                        { title: "Vehicle Brand", field: "VehicleBrand", type: "string" },
                         { title: "Mileage (km)", field: "Mileage", type: "numeric" },
                     ]}
 
@@ -210,7 +210,7 @@ export default  function ReportT(){
                         title="Maintenance Details Report"
 
                         columns={[
-                            { title: "Vehicle id", field: "MaintainID", type: "string" },
+                            { title: "Maintenance ID", field: "MaintainID", type: "string" },
                             { title: "Vehicle RegNo", field: "VehicleRegNo", type: "string" },
                             { title: "Date", field: "Date", type: "string" },
                             { title: "Description", field: "Discription", type: "string" },
