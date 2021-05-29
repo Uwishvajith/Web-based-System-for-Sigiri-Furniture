@@ -102,7 +102,7 @@ export default function UpdateVehicle({ data, cl }) {
               type="text"
               className="form-control"
               name="VehicleRegNo"
-              placeholder="Registration Number"
+              placeholder="Registration Number ABC-XXXX"
               onChange={handleChange}
               value={formDetails.VehicleRegNo}
             ></input>

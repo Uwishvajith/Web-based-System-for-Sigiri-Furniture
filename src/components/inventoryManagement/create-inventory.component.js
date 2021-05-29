@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker"; // importing react date picker
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateInventory extends Component {
+
+  //constructor for craeting inventory
   constructor(props) {
     super(props);
 
@@ -17,12 +19,12 @@ export default class CreateInventory extends Component {
     this.onChangeCurrentstock = this.onChangeCurrentstock.bind(this);
     this.onChangeNewstock = this.onChangeNewstock.bind(this);
     this.onChangeMinrequired = this.onChangeMinrequired.bind(this);
-    this.onChangeDateofmanufactured = this.onChangeDateofmanufactured.bind(
-      this
-    );
+    this.onChangeDateofmanufactured = this.onChangeDateofmanufactured.bind(this);
     this.onChangeLastupdated = this.onChangeLastupdated.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
+
+    //intial state of a component
     this.state = {
       items: [],
       itemcodes: [],
@@ -53,6 +55,8 @@ export default class CreateInventory extends Component {
     });
   }
 
+
+  //when the components are  change, set item going to change
   onChangeItemname(e) {
     this.setState({
       itemname: e.target.value,
@@ -119,6 +123,8 @@ export default class CreateInventory extends Component {
     });
   }
 
+
+  //submit all the details
   onSubmit(e) {
     e.preventDefault();
 
@@ -138,33 +144,59 @@ export default class CreateInventory extends Component {
 
     console.log(inventory);
 
+     {
+      //category should be greater than longer than 3
+     }    
     if(this.state.category.length <= 3){
       this.setState({categoryError:"Category Length must be longer than 3"})
     }
+  
     else if(this.state.quantity <= 0){
+       {
+         //category should be greater than longer than 3
+        }
       this.setState({quantityError:"Quantity must be more than 0"})
     }
+    
     else if(this.state.currentstock <= 0 ){
+      {
+        //current stock should be greater than longer than 3
+       }
       this.setState({currentstockError:"Current stock must be more than 0"})
     }
     else if(this.state.newstock <= 0 ){
+      {
+        //new stock should be greater than longer than 3
+       }
       this.setState({newstockError:"New stock must be more than 0"})
     }
-    else if(this.state.minrequired <= 0 ){
+    else if(this.state.minrequired <= 0){
+      {
+        //min required  should be greater than longer than 3
+       }
       this.setState({minrequiredError:"Minimum Required must be more than 0"})
     }
-    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0){
+    
+    else if(this.state.category.length > 3 && this.state.quantity.length > 0 && this.state.currentstock.length > 0 && this.state.newstock.length > 0 && this.state.minrequired.length > 0)
+    {
+      
+      {
+        //otherwise input is valid
+       }
      
       axios
         .post("http://localhost:8060/inventories/add", inventory)
         .then((res) => console.log(res.data));
-
-        window.location = "/inventories";
+        
+        window.alert("Create success!")  // show create successful
+        window.location = "/inventories"; // go back to the inventory details page after submitting
     }
   }
 
   render() {
     return (
+
+      //navigation bar
       <div class="component-body">
         <div>
           <div className="area"></div>
@@ -222,6 +254,10 @@ export default class CreateInventory extends Component {
           </ul>
           </nav>
         </div>
+
+        { 
+        // navigation bar ended
+        }
         <h3>Create new Item Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -372,6 +408,10 @@ export default class CreateInventory extends Component {
               />
             </div>
           </div>
+
+         {
+         //submit button
+         } 
 
           <div className="form-group">
             <input
