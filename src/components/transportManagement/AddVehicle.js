@@ -219,7 +219,7 @@ export default function AddVehicle() {
 
                         </input>
                     </div>
-
+                    
                     <button type="submit" className="btn btn-primary" >Submit</button>
                 </form>
             </div>
