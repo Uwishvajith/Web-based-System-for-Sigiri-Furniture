@@ -31,6 +31,8 @@ export default class InventoryDetails extends Component {
     this.state = { inventories: [] };
   }
 
+
+  // anything right before this code
   componentDidMount() {
     axios
       .get("http://localhost:8060/inventories/")
@@ -129,6 +131,11 @@ export default class InventoryDetails extends Component {
             </button>
           </a> 
 
+          {
+
+            // adding inventory details 
+          }
+
         <h3>Inventory Details</h3>
         <table className="table" style={{background:"#E3ECFF"}}>
           <thead className="thead-light">
@@ -188,8 +195,8 @@ export default class InventoryDetails extends Component {
                               inventory:Response.data,
                             });
                           })
-                              window.alert("Delete success!")
-                              window.location="/inventories";
+                              window.alert("Delete success!") // deleting successful message
+                              window.location="/inventories"; // go back to the inventory details page
                         }}>
 
                        Delete</button> 

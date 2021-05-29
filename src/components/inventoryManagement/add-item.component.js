@@ -51,7 +51,8 @@ export default class AddItem extends Component {
       .post("http://localhost:8060/items/add", items)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
-
+      
+    window.alert("Item added successfully!")
     window.location = "./addInventory";
 
     this.setState({
