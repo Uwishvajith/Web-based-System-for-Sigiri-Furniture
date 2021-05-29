@@ -7,19 +7,23 @@ import { Button } from "@material-ui/core";
 
 export default function AddProductPrice(){
 
-  const[salesid, setSalesid] = useState("");//initial values
-  const[productid, setProductid] = useState("");
-  const[category, setCategory] = useState("");
-  const[starting_date, setStarting_date] = useState("");
-  const[clossing_date, setClossing_date] = useState("");
+  var[salesid, setSalesid] = useState("");//initial values
+  var[productid, setProductid] = useState("");
+  var[category, setCategory] = useState("");
+  var[starting_date, setStarting_date] = useState("");
+  var[clossing_date, setClossing_date] = useState("");
   var[discount, setDiscount] = useState("");
   var[price, setPrice] = useState("");
   var[discountprice, setDiscountPrice] = useState("");
   var[newprice, setNewPrice] = useState("");
-  const[quentity, setQuentity] = useState("");
+  var[quentity, setQuentity] = useState("");
 
   function sendData(e){
     e.preventDefault();//to prevent the default submission by add product button
+
+    if(salesid=== ""){
+      ppricedemo();
+    }
 
     const  newProductPrice = {
         salesid,
@@ -40,15 +44,11 @@ export default function AddProductPrice(){
         window.location.replace("/getproductprice");
       }
       refreshPage();
-    }).catch((err)=>{
-      alert(err)
+    }).catch(()=>{
+      alert("Please re-check your form details")
     })
  
   }
-
-  function refreshPage(){ 
-    window.location.reload(); 
-}
 
 //view product table
   const [products, setProducts] = useState([]);
@@ -90,6 +90,32 @@ function addproductprice(){
 
   }
 }
+
+function ppricedemo(e){
+  e.preventDefault();
+  salesid = "SI004";
+  document.getElementById('salesid').value = salesid;
+  productid = "PI015";
+  document.getElementById('productid').value = productid;
+  category = "Library Cupboard";
+  document.getElementById('category').value = category;
+  starting_date = "2021-04-01";
+  document.getElementById('starting_date').value = starting_date;
+  clossing_date = "2021-05-01";
+  document.getElementById('clossing_date').value = clossing_date;
+  discount = 8;
+  document.getElementById('discount').value = discount;
+  price = 24000;
+  document.getElementById('price').value = price;
+  discountprice = 1920;
+  document.getElementById('discountprice').value = discountprice;
+  newprice = 22080;
+  document.getElementById('newprice').value = newprice;
+  quentity = 5;
+  document.getElementById('quentity').value = quentity;
+  
+}
+
     
     return(
       <div>
@@ -173,7 +199,7 @@ function addproductprice(){
           <h1 style ={{fontSize:30, top :70,textAlign:"center",fontFamily:"Georgia"}}>Add Product Price Details</h1><br></br><br></br>
             <div className="mb-3">
               <label for="salesid" >Sales ID</label>
-                <input type="text" className="form-control" id="salesid" pattern="SI[0-9]{3}"
+                <input type="text" className="form-control" id="salesid" pattern="SI[0-9]{3}" required
                 onChange={(e)=>{
                     setSalesid(e.target.value);//when we enter value to input field this value asing to this variable using setSalesId function(salesid)
                 }} /> 
@@ -263,15 +289,12 @@ function addproductprice(){
               }}/><br></br>
               <button  type="button" class="fa fa-dollar fa-2x btn btn-info" onClick={calcnewprice}></button>
             </div>
-
-           
-    
-            
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" className="btn btn-outline-info mr-2" onClick={ppricedemo}>Fill data</button>
             <button type="submit" className="btn btn-outline-info mr-10" onClick={addproductprice} >Add Product Price</button>
             <Link className="btn btn-outline-info  ml-2 " role="button" to="/getproductprice">View All Product Prices List </Link>
-            <button className="btn btn-outline-info ml-2 " name="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
+           
           </div>
         </form>
         
@@ -303,7 +326,7 @@ function addproductprice(){
         />
             
         </div>  
-          <div class="productiontable" style={{position:"absolute",left:710, top:400 , width:730}}>
+          <div class="productiontable" style={{position:"absolute",left:710, top:500 , width:730}}>
         <div class="productiontable" >
         <MaterialTable style={{backgroundColor:" #f5f5f0"}}
          title={"Promotion Details List" } 

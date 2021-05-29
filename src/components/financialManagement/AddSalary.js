@@ -154,7 +154,7 @@ export default class AddSalary extends Component {
                 placeholder="Ex:10"
                 required
                 pattern="[0-9]{1,3}"
-                title="Amount must be a number"
+                title="leaves must be a number"
                 value={this.state.leave}
                 onChange={this.handleInputChange}
               />
@@ -169,7 +169,7 @@ export default class AddSalary extends Component {
                 placeholder="Ex:25000"
                 required
                 pattern="[0-9]{1,20}"
-                title="Amount must be a number"
+                title="Salary must be a number"
                 value={this.state.sal}
                 onChange={this.handleInputChange}
               />
@@ -179,7 +179,6 @@ export default class AddSalary extends Component {
               className="btn btn-success"
               type="submit"
               style={{ marginTop: "15px" }}
-              onClick={this.onSubmit}
             >
               <i className="far fa-check-square"></i>
               &nbsp; Add

@@ -21,6 +21,7 @@ export default  function AllTransport(){
 
 
     useEffect(() => {
+        // view all Transports
 
         axios.get(HOST + "/ViewT")
             .then((res) => {
@@ -32,6 +33,7 @@ export default  function AllTransport(){
 
     }, []);
 
+    //delete trasport function
     function onDelete() {
         axios.delete(HOST + "/deleteT/" + TransportDelete)
             .then((res) => {
@@ -130,7 +132,7 @@ export default  function AllTransport(){
             </div>
 
 
-
+        
 
 
             <div className="container-fluid">
@@ -175,13 +177,14 @@ export default  function AllTransport(){
                         
                     ]}
                     />
+                    {/* update modal */}
                     <Modal show={StateUpdate}>
                     <Modal.Body>
                         <UpdateTransport data={TransportUpdate} cl={() => setStateUpdate(false)} />
                     </Modal.Body>
                 </Modal>
 
-                
+                {/* delete modal */}
                 <Modal show={StateDelete}>
                     <Modal.Body>
                         <p>You Want to delete this Transpot details ?</p>

@@ -110,8 +110,8 @@ export default function Drivers() {
                     </ul>
                 </nav>
             </div>
-            
-
+           
+            {/* driver details tabe  */}
             <div className="container-fluid mt-3">
                 <MaterialTable  style={{background:"#E3ECFF"}}
                     title=" Driver  Details"
@@ -122,6 +122,8 @@ export default function Drivers() {
                         { title: "Last Name", field: "LastName", type: "string" },
                         { title: "NIC", field: "NIC", type: "string" },
                         { title: "MobileNumber", field: "MobileNumber", type: "string" },
+                        { title: "Emergancy Contact Number", field: "EmergencyContact", type: "string" },
+                        { title: "Years of Experience", field: "YearsOfExperiance", type: "string" },
                         { title: "Age", field: "Age", type: "numeric" },
                     ]}
 
@@ -139,7 +141,7 @@ export default function Drivers() {
 
             </div>
 
-            <div className="container-fluid"><a href="/addVehicle" class="btn-sm btn-primary btn-lg active float-right " role="button" aria-pressed="true"> + Add New Vehicle </a></div>
+            <div className="container-fluid"><a href="/addT" class="btn-sm btn-primary btn-lg active float-right " role="button" aria-pressed="true"> + Add New Transport Details </a></div>
         
 
         {/* </> */}

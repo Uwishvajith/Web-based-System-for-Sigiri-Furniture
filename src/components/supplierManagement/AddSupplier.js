@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function AddSupplier() {
+
+  //inizialize variables
   const [supp_id, setSuppId] = useState("");
   const [supplier_name, setSupplierName] = useState("");
   const [organization, setOrganization] = useState("");
@@ -11,10 +13,10 @@ export default function AddSupplier() {
   const [fax, setFax] = useState("");
   const [credit_limit, setCreditlimit] = useState("");
 
-  function sendData(e) {
-    e.preventDefault();
+  function sendData(e) { //when press the submit button it calls
+    e.preventDefault(); //prevent the normal behaviour of submit button
 
-    const newSupplier = {
+    const newSupplier = { //declare javascript object
       supp_id,
       supplier_name,
       organization,
@@ -140,7 +142,8 @@ export default function AddSupplier() {
                 type="text"
                 className="form-control"
                 id="name"
-                onChange={(e) => {
+                pattern="SM[0-9]{3}"
+                onChange={(e) => { //update input field
                   setSuppId(e.target.value);
                 }}
               />
@@ -188,6 +191,7 @@ export default function AddSupplier() {
                 type="text"
                 className="form-control"
                 id="contact_no2"
+                pattern = "[0-9]{10}"
                 onChange={(e) => {
                   setContactNumber(e.target.value);
                 }}
@@ -233,6 +237,8 @@ export default function AddSupplier() {
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button type="submit" className="btn btn-outline-info mr-4">
+               
+              
                 {" "}
                 Add Supplier Details
               </button>

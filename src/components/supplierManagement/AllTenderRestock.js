@@ -117,13 +117,7 @@ export default function AllTenderRestock() {
                     <td>{Tenders.description}</td>
                     <td>{Tenders.quantity}</td>
 
-                    <Link
-                      class="btn btn-primary"
-                      role="button"
-                      to={`/getTender/${Tenders.tenderid}`}
-                    >
-                      View
-                    </Link>
+                   
                     <Link
                       class="btn btn-warning"
                       role="button"

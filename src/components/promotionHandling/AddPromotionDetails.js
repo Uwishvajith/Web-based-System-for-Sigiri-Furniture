@@ -4,18 +4,22 @@ import { Link } from 'react-router-dom';
 
 
 export default function AddPromotionDetails() {
-  const [promotionid, setPromotionid] = useState("");
-  const [productid, setProductid] = useState("");
-  const [category, setCategory] = useState("");
-  const [starting_date, setStarting_date] = useState("");
-  const [clossing_date, setClossing_date] = useState("");
-  const [description, setDescription] = useState("");
-  const [media, setMedia] = useState("");
-  const [budget, setBudget] = useState("");
-  const [status, setStatus] = useState("");
+  var [promotionid, setPromotionid] = useState("");
+  var [productid, setProductid] = useState("");
+  var [category, setCategory] = useState("");
+  var [starting_date, setStarting_date] = useState("");
+  var [clossing_date, setClossing_date] = useState("");
+  var [description, setDescription] = useState("");
+  var [media, setMedia] = useState("");
+  var [budget, setBudget] = useState("");
+  var [status, setStatus] = useState("");
 
   function sendData(e) {
     e.preventDefault();
+
+    if(promotionid=== ""){
+      promodemo();
+    }
 
     const newPromotion = {
       promotionid,
@@ -35,14 +39,10 @@ export default function AddPromotionDetails() {
         window.location.replace("/allview");
       }
       refreshPage();
-    }).catch((err) => {
-      alert(err)
+    }).catch(() => {
+      alert("Please re-check your form details")
     })
 
-  }
-
-  function refreshPage() {
-    window.location.reload();
   }
 
   function addpromotion(){
@@ -50,6 +50,27 @@ export default function AddPromotionDetails() {
       alert("Fill out the form")
 
     }
+  }
+
+  function promodemo(e){
+    e.preventDefault();
+    promotionid = "PM003";
+    document.getElementById('promotionid').value = promotionid;
+    productid = "PI015";
+    document.getElementById('productid').value = productid;
+    category = "Library Cupboard";
+    document.getElementById('category').value = category;
+    starting_date = "2021-04-01";
+    document.getElementById('starting_date').value = starting_date;
+    clossing_date = "2021-05-01";
+    document.getElementById('clossing_date').value = clossing_date;
+    description = "8%";
+    document.getElementById('description').value = description;
+    media = "News Papers";
+    document.getElementById('media').value = media;
+    budget = 200000;
+    document.getElementById('budget').value = budget;
+    
   }
 
 
@@ -137,7 +158,7 @@ export default function AddPromotionDetails() {
             <h1 style={{fontSize:30, top :70,textAlign:"center",fontFamily:"Georgia"}}>Add Promotion Details</h1><br></br><br></br>
             <div className="mb-3">
               <label for="promotionid" >Promotion ID</label>
-              <input type="text" className="form-control" id="promotionid" pattern="PM[0-9]{3}"
+              <input type="text" className="form-control" id="promotionid" pattern="PM[0-9]{3}" required
               onChange={(e) => {
                 setPromotionid(e.target.value);
               }} />
@@ -220,9 +241,9 @@ export default function AddPromotionDetails() {
             </div>
             <br></br>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button type="submit" className="btn btn-outline-info ml-2" onClick={addpromotion}>Add Promotion Details</button>
+              <button type="button" className="btn btn-outline-info ml-2" onClick={promodemo}>Fill data</button>
+              <button type="submit" className="btn btn-outline-info ml-2" onClick={addpromotion} >Add Promotion Details</button>
               <Link className="btn btn-outline-info ml-2" role="button" to="/allview">View All Promotions </Link>
-              <button className="btn btn-outline-info ml-2" n ame="refresh" id="refresh" onClick={refreshPage}>Refresh</button>
             </div>
           </form><br></br><br></br><br></br>
         </div>

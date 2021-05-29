@@ -61,7 +61,7 @@ export default function AddTransport(){
         const RegNoErr ={};//state
         let isValid =true;//return boolean value, setting flag
 
-
+            //validating Vehicle Registration Number
         if(VehicleRegNo.trim().length >8){
             RegNoErr.InvalidRegNo="Invalid Vehicle registration number";//error
             isValid=false;
@@ -169,6 +169,7 @@ export default function AddTransport(){
                     <div className="mb-3">
                         <label for="Transport ID" className="form-label">Transport ID:</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Transport ID"
+                        pattern="T[0-9]{3}" required
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
                             }}
@@ -188,6 +189,7 @@ export default function AddTransport(){
                     </div>
 
                     {Object.keys(RegNoErr).map((key)=>{
+                        //display error
                         return<div style={{color :"red"}}>{RegNoErr[key]}</div>
                     })}
 

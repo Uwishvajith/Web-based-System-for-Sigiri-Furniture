@@ -132,11 +132,12 @@ export default function UpdatePromotionDetails() {
         </div>
       </div>
       <div className="container" style={{ width: 800, marginTop: 120 }}>
-        <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia" }}>Add Promotion Details</h1><br></br>
-        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#ccccb3" }} >
+        
+        <div className="border border-info" style={{ marginBottom: 60, backgroundColor: "#e7ebe8" }} >
 
 
-          <form onSubmit={onSubmit} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 750 }}>
+          <form onSubmit={onSubmit} style={{ marginTop: 50, marginLeft: 30, marginRight: 30, height: 800 }}>
+          <h1 style={{ fontSize:30, top :70,fontFamily:"Georgia" ,textAlign:"center" }}>Update Promotion Details</h1><br></br>
             <div className="mb-3">
               <label for="promotionid" >Promotion ID</label>
               <input type="text" className="form-control" id="promotionid" value={promotionid} onChange={(e) => {
@@ -147,7 +148,7 @@ export default function UpdatePromotionDetails() {
 
             <div className="mb-3">
               <label for="productid" >Product ID</label>
-              <input type="text" className="form-control" id="productid" pattern="PI[0-9]{3}" value={productid} onChange={(e) => {
+              <input type="text" className="form-control" id="productid" value={productid} onChange={(e) => {
                 setProductid(e.target.value);
               }} />
 

@@ -183,13 +183,14 @@ export default function AddMaintaince() {
 
 
             <div className="container mb-3" style={{ top: "500" }}>
-                <h1>Maintance Details</h1>
+                <h1>Maintenance Details</h1>
                 <form className="mt-5" onSubmit={sendData}>
 
 
                     <div className="mb-3">
                         <label for="Maintenance ID" className="form-label">Maintenance ID :</label>
                         <input type="text" className="form-control" id="regNo" placeholder="Maintenance ID"
+                        pattern="M[0-9]{3}" required
                         
                             onChange={(e) => {
                                 setID(e.target.value); // assign value
@@ -285,7 +286,7 @@ export default function AddMaintaince() {
 
                 <Modal show={StateDelete}>
                     <Modal.Body>
-                        <p>You Want to delete this Transpot details ?</p>
+                        <p>You Want to delete this Maintenace details ?</p>
                         <button type="button" class="btn btn-outline-danger mr-3 pl-3" onClick={onDelete}>Delete</button>
                         <button type="button" class="btn btn-outline-secondary pl-3" onClick={() => setStateDelete(false)}>Cancel</button>
                     </Modal.Body>
