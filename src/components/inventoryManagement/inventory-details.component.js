@@ -207,6 +207,7 @@ export default class InventoryDetails extends Component {
             })}
           </tbody>
         </table>
+        
       </div>
     );
   }
