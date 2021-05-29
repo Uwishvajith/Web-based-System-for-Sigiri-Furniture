@@ -173,6 +173,7 @@ export default function AddTenderRestock() {
                 type="text"
                 className="form-control"
                 id="supp_id"
+                pattern="SM[0-9]{3}"
                 onChange={(e) => {
                   setSuppid(e.target.value);
                 }}

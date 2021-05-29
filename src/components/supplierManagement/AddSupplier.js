@@ -237,6 +237,7 @@ export default function AddSupplier() {
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button type="submit" className="btn btn-outline-info mr-4">
+               
               
                 {" "}
                 Add Supplier Details
