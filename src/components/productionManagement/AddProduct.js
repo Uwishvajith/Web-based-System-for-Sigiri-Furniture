@@ -21,13 +21,13 @@ export default function AddProduct() {
             qty
         }
 
-        axios.post("http://localhost:8060/products/addProduct", newProduct).then(() => {
+        axios.post("http://localhost:8060/products/add", newProduct).then(() => {
             alert("Product Added Successfully")
             e.target.reset();
 
 
         }).catch((err) => {
-            alert("Product ID duplicated")
+            alert("Product ID Duplicated")
         })
 
     }
