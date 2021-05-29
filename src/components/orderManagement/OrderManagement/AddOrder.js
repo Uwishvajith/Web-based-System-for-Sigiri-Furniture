@@ -9,22 +9,22 @@ export default function AddOrder() {
     const [customers, setCustomers] = useState([]);
     let [count, setCount] = useState(0);
 
-    const [orderId, setOrderId] = useState("");
-    const [cNIC, setCnic] = useState("");
-    const [type, setType] = useState("");
-    const [oDate, setOdate] = useState("");
-    const [dAddress, setdAddress] = useState("");
+    var [orderId, setOrderId] = useState("");
+    var [cNIC, setCnic] = useState("");
+    var [type, setType] = useState("");
+    var [oDate, setOdate] = useState("");
+    var [dAddress, setdAddress] = useState("");
     var [additonalCharge, setAdditonalCharge] = useState("");
     var [finalPrice, setFinalPrice] = useState("");
-    const [oStatus, setOstatus] = useState("");
-    const [oEmpId, setOempId] = useState("");
-    const [productId1, setProductId1] = useState("");
+    var [oStatus, setOstatus] = useState("");
+    var [oEmpId, setOempId] = useState("");
+    var [productId1, setProductId1] = useState("");
     const [productId2, setProductId2] = useState("");
     const [productId3, setProductId3] = useState("");
     var [qty1, setQty1] = useState("");
     var [qty2, setQty2] = useState("");
     var [qty3, setQty3] = useState("");
-    const [feature1, setFeature1] = useState("");
+    var [feature1, setFeature1] = useState("");
     const [feature2, setFeature2] = useState("");
     const [feature3, setFeature3] = useState("");
     var [price1, setPrice1] = useState("");
@@ -42,6 +42,11 @@ export default function AddOrder() {
        
         const answer = window.confirm("Are you sure you want to confirm submission?");
         if (answer) {
+
+            if(cNIC == ""){
+                fillOrderdet();
+                fillOrderItemDet();
+            }
 
             const newOrder = {
                 orderId, cNIC, type, oDate, dAddress, additonalCharge, finalPrice, oStatus, oEmpId
@@ -120,8 +125,6 @@ export default function AddOrder() {
             } else if (customers.length !== 0) {
                 alert("Customer Exists you can proceed");
                 document.getElementById("main-hide2").disabled = "true";
-                //document.getElementById("main-hide3").style.display="none";
-                //document.getElementById("main-hide4").style.display="none";
                 document.getElementById("main-hide5").style.display = "none";
                 document.getElementById("main-hide6").style.display = "block";
                 document.getElementById("main-hide7").style.display = "block";
@@ -181,6 +184,64 @@ export default function AddOrder() {
             alert("Please enter a valid price for product 3 ")
         }
       
+    }
+
+    function fillOrderdet(){
+        orderId = "OI010";
+        cNIC ="741258963V";
+        type ="ready-made";
+        oDate ="2021-05-19";
+        dAddress ="No 149/53, Pagoda, Nugegoda";
+        additonalCharge = 2000;
+        finalPrice = 18200;
+        oStatus ="pending";
+        oEmpId ="VM001";
+    }
+
+    function fillOrderItemDet(){
+
+        orderId ="OI010";
+        productId1 ="PI001";
+        qty1 = 1;
+        price1= 16200;
+
+    }
+
+    function demoFills(){
+            document.getElementById("flexCheckIndeterminate").checked=true
+            showDelivery();
+            fillOrderdet();
+            fillOrderItemDet();
+
+            document.getElementById("main-hide2").disabled = "true";
+            document.getElementById("main-hide5").style.display = "none";
+            document.getElementById("main-hide6").style.display = "block";
+            document.getElementById("main-hide7").style.display = "block";
+            document.getElementById("main-hide8").style.display = "block";
+            document.getElementById("main-hide9").style.display = "block";
+            document.getElementById("main-hide10").style.display = "block";
+            document.getElementById("bckBtn").style.display = "block";
+            document.getElementById("nxtBtn").style.display = "none";
+            
+           
+
+            document.getElementById('orderId').value= orderId
+            document.getElementById('oDate').value= oDate
+            document.getElementById('main-hide2').value= cNIC
+            document.getElementById('type').value= type
+            document.getElementById('dAddress').value= dAddress
+            document.getElementById('additionCharge').value= additonalCharge
+            document.getElementById('oEmpId').value= oEmpId
+            document.getElementById('id1').value= productId1
+            document.getElementById('qty1').value= qty1
+            document.getElementById('price1').value= price1
+            document.getElementById('finalPrice').value= finalPrice
+            document.getElementById('oStatus').value= oStatus
+
+            
+                
+            
+
     }
 
 
@@ -278,14 +339,14 @@ export default function AddOrder() {
                             <div class="col-sm" >
                                 <label for="orderId" class="form-label">Order Id</label>
                                 <input type="text" class="form-control"
-                                    name="orderId"
+                                    name="orderId" id="orderId"
                                     placeholder="OI001"
                                     required pattern="OI[0-9]{3}"
                                     onChange={(event) => { setOrderId(event.target.value); }} />
                             </div>
                             <div class="col-sm" >
                                 <label for="oDate" class="form-label">Order placed Date</label>
-                                <input type="date" class="form-control"
+                                <input type="date" class="form-control" id="oDate"
                                     name="oDate" required
                                     onChange={(event) => { setOdate(event.target.value); }} />
                             </div>
@@ -329,7 +390,7 @@ export default function AddOrder() {
                         <div class="col-12" style={{ display: "none" }} id="hide1">
                             <label for="dAddress" class="form-label">Delivery Address</label>
                             <input type="text" class="form-control"
-                                name="dAddress"
+                                name="dAddress" id="dAddress"
                                 placeholder="No 148,StreetWay,Colombo5"
                                 onChange={(event) => { setdAddress(event.target.value); }} />
                         </div>
@@ -338,7 +399,7 @@ export default function AddOrder() {
                         <div class="col-md-6" style={{ display: "none" }} id="hide2">
                             <label for="additionCharge" class="form-label">Additional/Pending Charge</label>
                             <input type="text" class="form-control"
-                                name="additionCharge"
+                                name="additionCharge" id="additionCharge"
                                 placeholder="2000.00"
                                 onChange={(event) => { setAdditonalCharge(event.target.value); }} />
                         </div>
@@ -346,7 +407,7 @@ export default function AddOrder() {
                         <div class="col-md-6" style={{ display: " " }} id="main-hide6" >
                             <label for="oEmpId" class="form-label">Sales Assistant</label>
                             <input type="text" class="form-control"
-                                name="oEmpId"
+                                name="oEmpId" id="oEmpId"
                                 placeholder="VM001" required
                                 pattern="VM[0-9]{3}"
                                 onChange={(event) => { setOempId(event.target.value); }} />
@@ -358,20 +419,20 @@ export default function AddOrder() {
                                 <div class="col-md-4">
                                     <label for="id1">Product Id</label>
                                     <input type="text" class="form-control"
-                                        name="id1"
+                                        name="id1" id="id1"
                                         placeholder="PI001" pattern="PI[0-9]{3}" required
                                         onChange={(event) => { setProductId1(event.target.value); }} />
                                 </div>
                                 <div class="col-md-2">
                                     <label for="qty1">Quantity</label>
-                                    <input type="text" class="form-control"
+                                    <input type="text" class="form-control" id="qty1"
                                         name="qty1" required
                                         placeholder="2" maxLength="2" max="20" min="1"
                                         onChange={(event) => { setQty1(event.target.value); }} />
                                 </div>
                                 <div class="col-md-2">
                                     <label for="price1">Unit Price</label>
-                                    <input type="text" class="form-control" 
+                                    <input type="text" class="form-control" id="price1"
                                     name="price1" required
                                     placeholder="1000"
                                     onChange={(event) => {setPrice1(event.target.value);}} />
@@ -471,6 +532,9 @@ export default function AddOrder() {
                                 <button className="btn btn-primary me-md-2" type="button"
                                     id="nxtBtn"
                                     onClick={nextPage}>NEXT</button>
+                                 <button className="btn btn-danger me-md-2 ml-2" type="button"
+                                    id="demo"
+                                    onClick={demoFills}>DEMO</button>
                             </div>
                         </div>
 

@@ -4,6 +4,7 @@ import MaterialTable from "material-table";
 
 export default function AddTenderRestock() {
 
+  //inizialize variables
   const [item, setItems] = useState([]);
   
   const [tenderid, setTenderid] = useState("");
@@ -14,10 +15,10 @@ export default function AddTenderRestock() {
   const [quantity, setQuantity] = useState("");
 
 
-  function sendData(e) {
-    e.preventDefault();
+  function sendData(e) { //when press the submit button it calls
+    e.preventDefault();  //prevent the normal behaviour of submit button
 
-    const newTender = {
+    const newTender = { //declare javascript object
       tenderid,
       supp_id,
       itemcode,
@@ -41,7 +42,7 @@ export default function AddTenderRestock() {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:8070/item/")
+      .get("http://localhost:8060/inventories/")
       .then((res) => {
         console.log(res.data);
         setItems(res.data);
@@ -159,7 +160,8 @@ export default function AddTenderRestock() {
                 type="text"
                 className="form-control"
                 id="name"
-                onChange={(e) => {
+                pattern="TI[0-9]{3}"
+                onChange={(e) => { //update input field
                   setTenderid(e.target.value);
                 }}
               />
@@ -171,6 +173,7 @@ export default function AddTenderRestock() {
                 type="text"
                 className="form-control"
                 id="supp_id"
+                pattern="SM[0-9]{3}"
                 onChange={(e) => {
                   setSuppid(e.target.value);
                 }}

@@ -134,7 +134,7 @@ export default function UpdateSupplier() {
           style={{
             marginBottom: 60,
             borderRadius: 20,
-            backgroundColor: "#98AFC7",
+            backgroundColor: "#e7ebe8",
           }}
         >
           <form
@@ -164,6 +164,7 @@ export default function UpdateSupplier() {
                 type="text"
                 className="form-control"
                 id="supp_id"
+                pattern="SM[0-9]{3}"
                 value={supp_id}
                 onChange={(e) => {
                   setSupplierid(e.target.value);
@@ -216,6 +217,7 @@ export default function UpdateSupplier() {
                 type="text"
                 className="form-control"
                 id="contact_no"
+                pattern = "[0-9]{10}"
                 value={contact_number}
                 onChange={(e) => {
                   setContactNumber(e.target.value);
@@ -229,6 +231,7 @@ export default function UpdateSupplier() {
                 type="text"
                 className="form-control"
                 id="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -242,6 +245,7 @@ export default function UpdateSupplier() {
                 type="text"
                 className="form-control"
                 id="fax"
+               
                 value={fax}
                 onChange={(e) => {
                   setFax(e.target.value);

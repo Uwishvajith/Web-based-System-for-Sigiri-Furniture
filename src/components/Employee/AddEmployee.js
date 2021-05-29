@@ -8,26 +8,26 @@ export default function Addemployee() {
   //get all employee details to validations
   const [employee, setEmployee] = useState("");
 
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
-  const [email, setEmail] = useState("");
-  const [nic, setNIC] = useState("");
-  const [DOB, setDOB] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [maritalStat, setMaritalStat] = useState("");
-  const [currAdd, setCurrAdd] = useState("");
-  const [permAdd, setPermAdd] = useState("");
-  const [mobileNo, setMobileNo] = useState("");
-  const [landLine, setLandLine] = useState("");
-  const [emgContact, setEmgContact] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [department, setDepartment] = useState("");
-  const [joinedDate, setJoinedDate] = useState("");
-  const [workedCompany, setWorkedCompany] = useState("");
-  const [yearsOfEx, setYearsOfEx] = useState("");
-  const [empPic, setEmpPic] = useState("");
-  const [cv, setCV] = useState("");
+  var [fName, setfName] = useState("");
+  var [lName, setlName] = useState("");
+  var [email, setEmail] = useState("");
+  var [nic, setNIC] = useState("");
+  var [DOB, setDOB] = useState("");
+  var [age, setAge] = useState("");
+  var [gender, setGender] = useState("");
+  var [maritalStat, setMaritalStat] = useState("");
+  var [currAdd, setCurrAdd] = useState("");
+  var [permAdd, setPermAdd] = useState("");
+  var [mobileNo, setMobileNo] = useState("");
+  var [landLine, setLandLine] = useState("");
+  var [emgContact, setEmgContact] = useState("");
+  var [designation, setDesignation] = useState("");
+  var [department, setDepartment] = useState("");
+  var [joinedDate, setJoinedDate] = useState("");
+  var [workedCompany, setWorkedCompany] = useState("");
+  var [yearsOfEx, setYearsOfEx] = useState("");
+  var [empPic, setEmpPic] = useState("");
+  var [cv, setCV] = useState("");
 
   //nic validation
   function validation() {
@@ -42,6 +42,7 @@ export default function Addemployee() {
 
   function sendData(e) {
     e.preventDefault();
+   
 
     const newEmployee = {
       fName,
@@ -77,6 +78,54 @@ export default function Addemployee() {
         window.location.replace("/empList");
       });
     }
+  }
+
+  function employeedemo(e){
+    e.preventDefault();
+
+      fName = "Senal"
+      document.getElementById('fName').value = fName;
+      lName = "Ransara"
+      document.getElementById('lName').value = lName;
+      email = "senal@gmail.com"
+      document.getElementById('email').value = email;
+      nic ="985843795V"
+      document.getElementById('nic').value = nic; 
+      DOB ="1998-12-30"
+      document.getElementById('dob').value = DOB;
+      age = "30"
+      document.getElementById('age').value = age;
+      gender = "male"
+      document.getElementById('gender').value = gender;
+      maritalStat ="Unmarried"
+      document.getElementById('maritalStatus').value = maritalStat;
+      currAdd ="Colombo"
+      document.getElementById('currAdd').value = currAdd;
+      permAdd ="Rathnapura"
+      document.getElementById('permAdd').value = permAdd;
+      mobileNo="0718564532"
+      document.getElementById('mobileNo').value = mobileNo;
+      landLine="0413495643"
+      document.getElementById('landLine').value = landLine;
+      emgContact="4567823434"
+      document.getElementById('emgContact').value = emgContact;
+      designation ="financial Manager"
+      document.getElementById('designation').value = designation;
+      department="financial"
+      document.getElementById('department').value = department;
+      joinedDate="2021-04-29"
+      document.getElementById('joinedDate').value = joinedDate;
+      workedCompany="No"
+      document.getElementById('workedCompany').value = workedCompany;
+      yearsOfEx="6"
+      document.getElementById('yearsOfEx').value = yearsOfEx;
+      empPic=""
+      document.getElementById('empPic').value = empPic;
+      cv=""
+      document.getElementById('cv').value = cv;
+
+      
+    
   }
 
   return (
@@ -213,7 +262,7 @@ export default function Addemployee() {
               <div className="col">
                 <label for="dob">Date of Birth:</label>
                 <input
-                  required
+                  //required
                   id="dob"
                   type="date"
                   className="form-control"
@@ -430,7 +479,7 @@ export default function Addemployee() {
                 <div className="form-group">
                   <label for="cv">CV:</label>
                   <input
-                    required
+                    //required
                     id="cv"
                     type="file"
                     className="form-control-file"
@@ -442,6 +491,11 @@ export default function Addemployee() {
               </div>
             </div>
             <div className="row">
+            <div className="col py-3 text-center">
+            <button type="button" className="btn btn-primary" onClick={employeedemo}>
+                 Fill employee data
+                </button>
+              </div>
               <div className="col py-3 text-center">
                 <button type="submit" className="btn btn-primary">
                   Submit
