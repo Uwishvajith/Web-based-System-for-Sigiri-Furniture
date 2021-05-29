@@ -161,13 +161,13 @@ export default function AllVehicle() {
                         },
                     ]}
                 />
-
+                {/*update modal */}
                 <Modal show={StateUpdate}>
                     <Modal.Body>
                         <UpdateVehicle data={VehicleUpdate} cl={() => setStateUpdate(false)} />
                     </Modal.Body>
                 </Modal>
-
+                    {/* delete modal */}
                 <Modal show={StateDelete}>
                     <Modal.Body>
                         <p>You Want to delete this vehicle details ?</p>

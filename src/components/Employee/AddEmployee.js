@@ -199,7 +199,7 @@ export default function Addemployee() {
         </nav>
       </div>
       <h2 className="text-center">Add New Employee</h2>
-      <div className="border bg-secondary my-5 mx-5">
+      <div className="border my-5 mx-5" style={{ background: "#E3ECFF" }}>
         <div className="my-5 mx-5">
           <form onSubmit={sendData}>
             <div className="row">

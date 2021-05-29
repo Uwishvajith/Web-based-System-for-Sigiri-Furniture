@@ -50,7 +50,7 @@ export default class EmployeeList extends Component {
 
   handleDeleteOnClick(userId) {
     const isApproved = window.confirm(
-      "Do you really want to delete this user?"
+      "Do you really want to delete this record?"
     );
     if (isApproved) {
       deleteEmployee(userId).then((response) => {
