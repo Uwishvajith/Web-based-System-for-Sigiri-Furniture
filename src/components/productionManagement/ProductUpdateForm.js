@@ -24,7 +24,7 @@ export default function ProductUpdateForm({ data, cl }) {
         }, {})
             .then((response) => {
                 alert("Product details updated Successfully !")
-                window.location.href = window.location.href;
+                window.location.reload(true);
             }).catch((err) => {
                 alert("Error occured !")
             })
