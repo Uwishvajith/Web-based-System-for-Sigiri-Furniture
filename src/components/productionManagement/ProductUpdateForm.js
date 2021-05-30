@@ -24,7 +24,7 @@ export default function ProductUpdateForm({ data, cl }) {
         }, {})
             .then((response) => {
                 alert("Product details updated Successfully !")
-                window.location.replace("/view");
+                window.location.reload();
             }).catch((err) => {
                 alert("Error occured !")
             })
