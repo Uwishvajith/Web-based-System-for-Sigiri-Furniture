@@ -13,7 +13,7 @@ export default function LoginUser() {
     function checkUser(e){//function checks the availbilty of the admin within the system
         e.preventDefault();
         //pass the username and password and if exact user exsits will be directed to dashbord else it will display error for unavailable user
-        axios.get(`http://sigiri-furniture-app.herokuapp.com/login/get/${username}/${password}`).then((response) => {
+        axios.get(`https://sigiri-furniture-app.herokuapp.com/login/get/${username}/${password}`).then((response) => {
         console.log(response.data);
         setLogin(response.data.login);
         if(response.data.login === null){

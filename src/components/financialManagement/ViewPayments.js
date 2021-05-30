@@ -10,7 +10,7 @@ import axios from "axios";
 import EditPaymentForm from "./EditPaymentForm";
 
 //create constant for path
-const HOST = "http://sigiri-furniture-app.herokuapp.com";
+const HOST = "https://sigiri-furniture-app.herokuapp.com";
 
 export default function Viewpayments() {
  

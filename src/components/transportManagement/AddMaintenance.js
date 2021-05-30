@@ -4,7 +4,7 @@ import MaterialTable from 'material-table'
 import { Modal } from "react-bootstrap"
 
 
-const HOST = "http://sigiri-furniture-app.herokuapp.com/Maintenance"
+const HOST = "https://sigiri-furniture-app.herokuapp.com/Maintenance"
 
 
 
@@ -40,7 +40,7 @@ export default function AddMaintaince() {
             Cost
         }
 
-        axios.post("http://sigiri-furniture-app.herokuapp.com/Maintenance/addM", newMaintaince)
+        axios.post("https://sigiri-furniture-app.herokuapp.com/Maintenance/addM", newMaintaince)
 
             .then(() => {
                 alert("Maintaince details  added")

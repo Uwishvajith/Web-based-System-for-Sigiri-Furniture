@@ -38,7 +38,7 @@ export default function AddProductPrice(){
         quentity
     }
 
-   axios.post("http://sigiri-furniture-app.herokuapp.com/productprice/addadd" , newProductPrice).then(()=>{
+   axios.post("https://sigiri-furniture-app.herokuapp.com/productprice/addadd" , newProductPrice).then(()=>{
       alert("New Product Price Added");
       function refreshPage(){
         window.location.replace("/getproductprice");
@@ -57,7 +57,7 @@ export default function AddProductPrice(){
 
   useEffect(() => {
     axios
-      .get("http://sigiri-furniture-app.herokuapp.com/products/view")
+      .get("https://sigiri-furniture-app.herokuapp.com/products/view")
       .then((res) => {
         setProducts(res.data);
         console.log("Data has been received");
@@ -66,7 +66,7 @@ export default function AddProductPrice(){
         alert("Error while fetching data");
       });
 
-      axios.get("http://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
+      axios.get("https://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {

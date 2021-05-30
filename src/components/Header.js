@@ -12,7 +12,7 @@ function Header(props) {
             <a class="navbar-brand js-scroll-trigger" href="index.html">
             <img
                 className="ml-3"
-                src="http://i.ibb.co/G5SMQ82/Sigiri-logo.png"
+                src="https://i.ibb.co/G5SMQ82/Sigiri-logo.png"
                 width="100px"
                 height="70px"
               />

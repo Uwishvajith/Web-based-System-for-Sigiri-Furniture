@@ -15,7 +15,7 @@ export default function AllProductPriceDetails() {
 
     } else {
       function getproductpricedetails() {
-        axios.get("http://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
+        axios.get("https://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
           console.log(res.data);
           setProductPrices(res.data);
         }).catch((err) => {
@@ -35,7 +35,7 @@ export default function AllProductPriceDetails() {
 
     if (answer) {
 
-      await axios.delete(`http://sigiri-furniture-app.herokuapp.com/productprice/deletedelete/${salesid}`);
+      await axios.delete(`https://sigiri-furniture-app.herokuapp.com/productprice/deletedelete/${salesid}`);
       alert("Product Price delete Successfully");
       getPromotion();
         
@@ -44,7 +44,7 @@ export default function AllProductPriceDetails() {
 
 
   function getPromotion() {
-    axios.get("http://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
+    axios.get("https://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
       setProductPrices(res.data);
     }).catch((error) => {
       alert(error.message);
@@ -54,7 +54,7 @@ export default function AllProductPriceDetails() {
 
   function searchProductPriceID(e) {
     e.preventDefault();
-    axios.get(`http://sigiri-furniture-app.herokuapp.com/productprice/searchProductByID/${searchsaleid}`).then((res) => {
+    axios.get(`https://sigiri-furniture-app.herokuapp.com/productprice/searchProductByID/${searchsaleid}`).then((res) => {
       console.log(res.data);
       setProductPrices(res.data);
     }).catch((err) => {

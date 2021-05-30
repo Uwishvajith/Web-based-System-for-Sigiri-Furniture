@@ -59,9 +59,9 @@ export default function AddOrder() {
 
 
 
-            axios.post("http://sigiri-furniture-app.herokuapp.com/order/addOrder", newOrder).then(() => {
+            axios.post("https://sigiri-furniture-app.herokuapp.com/order/addOrder", newOrder).then(() => {
                 alert("Order successfully placed");
-                axios.post("http://sigiri-furniture-app.herokuapp.com/orderItem/addOrderItems", newOrderItem).then(() => {
+                axios.post("https://sigiri-furniture-app.herokuapp.com/orderItem/addOrderItems", newOrderItem).then(() => {
                     alert("Order items are successfully added");
 
                     history.push("/displayOrders");
@@ -85,7 +85,7 @@ export default function AddOrder() {
 
     }
     function checkCustomerExistance() {
-        axios.get(`http://sigiri-furniture-app.herokuapp.com/customer/searchCustomer/${cNIC}`).then((res) => {
+        axios.get(`https://sigiri-furniture-app.herokuapp.com/customer/searchCustomer/${cNIC}`).then((res) => {
             setCustomers(res.data);
         }).catch((err) => {
             alert(err.response.data.error);
@@ -141,7 +141,7 @@ export default function AddOrder() {
     useEffect(() => {
         
             loadOrder();
-                    axios.get("http://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
+                    axios.get("https://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
                         console.log(res.data);
                         setProductPrices(res.data);
                     }).catch((error) => {
@@ -151,7 +151,7 @@ export default function AddOrder() {
     }, []);
 
     const loadOrder = async () => {
-        await axios.get(`http://sigiri-furniture-app.herokuapp.com/order/getLatestOrder/`).then((res) => {
+        await axios.get(`https://sigiri-furniture-app.herokuapp.com/order/getLatestOrder/`).then((res) => {
             console.log(res.data);
             setOrderId(res.data.order[0].orderId);
 

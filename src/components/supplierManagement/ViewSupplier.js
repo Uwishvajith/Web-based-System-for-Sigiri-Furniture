@@ -13,7 +13,7 @@ export default function ViewSupplier() {
 
   const loadSupplier = async () => {
     await axios
-      .get(`http://sigiri-furniture-app.herokuapp.com/Supplier/gets/${supp_id}`)
+      .get(`https://sigiri-furniture-app.herokuapp.com/Supplier/gets/${supp_id}`)
       .then((res) => {
         console.log(res.data);
         setSuppliers(res.data.suppliers);

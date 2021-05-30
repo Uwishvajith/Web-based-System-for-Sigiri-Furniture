@@ -18,7 +18,7 @@ function ViewOrder() {
   }, []);
 
   const loadOrder = async () => {
-    await axios.get(`http://sigiri-furniture-app.herokuapp.com/order/getOrder/${oID}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.com/order/getOrder/${oID}`).then((res) => {
       console.log(res.data);
       setOrderDetails(res.data.order)
 
@@ -29,7 +29,7 @@ function ViewOrder() {
   };
 
   const loadOrderItems = async () => {
-    await axios.get(`http://sigiri-furniture-app.herokuapp.com/orderItem/getOrderItem/${oID}`).then((res) => {
+    await axios.get(`https://sigiri-furniture-app.herokuapp.com/orderItem/getOrderItem/${oID}`).then((res) => {
       console.log(res.data);
       setOrderItemsDetails(res.data.orderItem)
 

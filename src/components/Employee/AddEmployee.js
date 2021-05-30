@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { addEmployee } from "../../services/employeeService";
 
-const HOST = "http://sigiri-furniture-app.herokuapp.com";
+const HOST = "https://sigiri-furniture-app.herokuapp.com";
 
 export default function Addemployee() {
   //get all employee details to validations

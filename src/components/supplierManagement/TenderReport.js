@@ -7,7 +7,7 @@ export default function TenderReport() {
 
   useEffect(() => {
     axios
-      .get("http://sigiri-furniture-app.herokuapp.com/Tender/")
+      .get("https://sigiri-furniture-app.herokuapp.com/Tender/")
       .then((res) => {
         console.log(res.data);
         setTenders(res.data);
