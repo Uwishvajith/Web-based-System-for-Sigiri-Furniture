@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 //create contant for path
-const HOST = "https://sigiri-furniture-app.herokuapp.com";
+const HOST = "http://sigiri-furniture-app.herokuapp.com";
 
 export default class AddBillDetails extends Component {
   

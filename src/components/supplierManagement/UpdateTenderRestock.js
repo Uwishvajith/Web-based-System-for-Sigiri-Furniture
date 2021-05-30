@@ -29,7 +29,7 @@ export default function UpdateTenderRestock() {
     };
 
     await axios
-      .put(`https://sigiri-furniture-app.herokuapp.com/Tender/update/${tenderid}`, newTender)
+      .put(`http://sigiri-furniture-app.herokuapp.com/Tender/update/${tenderid}`, newTender)
       .then(() => {
         alert("Tender details update Successfully");
       })
@@ -40,7 +40,7 @@ export default function UpdateTenderRestock() {
 
   const loadTender = async () => {
     await axios
-      .get(`https://sigiri-furniture-app.herokuapp.com/Tender/get/${tenderid}`)
+      .get(`http://sigiri-furniture-app.herokuapp.com/Tender/get/${tenderid}`)
       .then((res) => {
         console.log(res.data);
         setTid(res.data.Tenders.tenderid);

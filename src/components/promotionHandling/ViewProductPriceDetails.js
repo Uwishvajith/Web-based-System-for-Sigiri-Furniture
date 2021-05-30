@@ -13,7 +13,7 @@ export default function ViewProductPriceDetails() {
   }, []);
 
   const loadProductPriceDetails = async () => {
-    await axios.get(`https://sigiri-furniture-app.herokuapp.com/productprice/getget/${salesid}`).then((res) => {
+    await axios.get(`http://sigiri-furniture-app.herokuapp.com/productprice/getget/${salesid}`).then((res) => {
       console.log(res.data);
       setProductPrices(res.data.productprices);
     }).catch((err) => {

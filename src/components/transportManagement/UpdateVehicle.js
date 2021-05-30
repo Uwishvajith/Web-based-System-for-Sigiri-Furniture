@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/vehicle";
+const HOST = "http://sigiri-furniture-app.herokuapp.com/vehicle";
 
 export default function UpdateVehicle({ data, cl }) {
 

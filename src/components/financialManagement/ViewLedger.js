@@ -9,7 +9,7 @@ import MaterialTable from "material-table";
 import axios from "axios";
 
 //create constant for path
-const HOST = "https://sigiri-furniture-app.herokuapp.com";
+const HOST = "http://sigiri-furniture-app.herokuapp.com";
 
 //export default class ViewLedger extends Component
 export default function ViewLedger() {

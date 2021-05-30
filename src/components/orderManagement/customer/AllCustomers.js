@@ -18,7 +18,7 @@ export default function AllCustomers() {
         } else { //normally the fetched customer details are here   
 
             function getCustomers() {
-                axios.get("https://sigiri-furniture-app.herokuapp.com/customer/").then((res) => {
+                axios.get("http://sigiri-furniture-app.herokuapp.com/customer/").then((res) => {
                     setCustomers(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);
@@ -34,14 +34,14 @@ export default function AllCustomers() {
     function searchCustomers(e) {
         e.preventDefault();
         if (!isNaN(search.charAt(0))) {//checking if the value entered at the search box is for NIC or normal name
-            axios.get(`https://sigiri-furniture-app.herokuapp.com/customer/searchCustomer/${search}`).then((res) => {
+            axios.get(`http://sigiri-furniture-app.herokuapp.com/customer/searchCustomer/${search}`).then((res) => {
                 setCustomers(res.data);
             }).catch((error) => {
                 alert(error.message);
             })
         } else {
 
-            axios.get(`https://sigiri-furniture-app.herokuapp.com/customer/searchCustomerByName/${search}`).then((res) => {
+            axios.get(`http://sigiri-furniture-app.herokuapp.com/customer/searchCustomerByName/${search}`).then((res) => {
                 setCustomers(res.data);
             }).catch((error) => {
                 alert(error.message);
@@ -56,11 +56,11 @@ export default function AllCustomers() {
 
         if (answer) {
 
-            await axios.delete(`https://sigiri-furniture-app.herokuapp.com/customer/delete/${NIC}`);
+            await axios.delete(`http://sigiri-furniture-app.herokuapp.com/customer/delete/${NIC}`);
             alert(`Permenantly deleted the customer ${NIC}`);
 
             function getCustomers() {
-                axios.get("https://sigiri-furniture-app.herokuapp.com/customer/").then((res) => {
+                axios.get("http://sigiri-furniture-app.herokuapp.com/customer/").then((res) => {
                     setCustomers(res.data.reverse());
                 }).catch((error) => {
                     alert(error.message);

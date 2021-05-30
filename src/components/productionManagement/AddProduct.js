@@ -25,7 +25,7 @@ export default function AddProduct() {
             qty
         }
 
-        axios.post("https://sigiri-furniture-app.herokuapp.com/products/add", newProduct).then(() => {
+        axios.post("http://sigiri-furniture-app.herokuapp.com/products/add", newProduct).then(() => {
             alert("Product Added Successfully")
             e.target.reset();
 

@@ -17,7 +17,7 @@ export default function AllPromotionDetails() {
     } else { //normally the fetched promotion details are here
 
       function getpromotiondetails() {
-        axios.get("https://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
+        axios.get("http://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
           console.log(res.data);
           setPromotions(res.data);
         }).catch((err) => {
@@ -37,7 +37,7 @@ export default function AllPromotionDetails() {
 
     if (answer) {
 
-      await axios.delete(`https://sigiri-furniture-app.herokuapp.com/promotion/delete/${promotionid}`);
+      await axios.delete(`http://sigiri-furniture-app.herokuapp.com/promotion/delete/${promotionid}`);
     alert("Promotion delete Successfully");
     getPromotion();
         
@@ -46,7 +46,7 @@ export default function AllPromotionDetails() {
 
  
   function getPromotion() {
-    axios.get("https://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
+    axios.get("http://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
       setPromotions(res.data);
     }).catch((error) => {
       alert(error.message);
@@ -56,7 +56,7 @@ export default function AllPromotionDetails() {
 
   function searchPromotionByID(e) {
     e.preventDefault();
-    axios.get(`https://sigiri-furniture-app.herokuapp.com/promotion/searchPromotionByID/${searchproid}`).then((res) => {
+    axios.get(`http://sigiri-furniture-app.herokuapp.com/promotion/searchPromotionByID/${searchproid}`).then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {

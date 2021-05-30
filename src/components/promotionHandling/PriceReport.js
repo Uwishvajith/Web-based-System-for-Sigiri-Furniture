@@ -9,7 +9,7 @@ export default function PriceReport() {
 
   useEffect(() => {
 
-    axios.get("https://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
+    axios.get("http://sigiri-furniture-app.herokuapp.com/productprice/getproductprice").then((res) => {
       console.log(res.data);
       setProductPrices(res.data);
     }).catch((error) => {

@@ -6,7 +6,7 @@ import ProductUpdateForm from "./ProductUpdateForm";
 import { Link } from "react-router-dom";
 
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com/products";
+const HOST = "http://sigiri-furniture-app.herokuapp.com/products";
 
 export default function ViewProducts() {
   const [products, setProducts] = useState([]);

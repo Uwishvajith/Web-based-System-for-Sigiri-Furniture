@@ -13,7 +13,7 @@ export default function ViewTenderRestock() {
 
   const loadTender = async () => {
     await axios
-      .get(`https://sigiri-furniture-app.herokuapp.com/Tender/get/${tenderid}`)
+      .get(`http://sigiri-furniture-app.herokuapp.com/Tender/get/${tenderid}`)
       .then((res) => {
         console.log(res.data);
         setTenders(res.data.Tenders);

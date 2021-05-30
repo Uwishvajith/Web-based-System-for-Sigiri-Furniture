@@ -8,7 +8,7 @@ export default function PromotionReport() {
 
 
   useEffect(() => {
-    axios.get("https://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
+    axios.get("http://sigiri-furniture-app.herokuapp.com/promotion/").then((res) => {
       console.log(res.data);
       setPromotions(res.data);
     }).catch((err) => {

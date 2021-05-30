@@ -48,7 +48,7 @@ export default class AddItem extends Component {
     console.log(items);
 
     axios
-      .post("https://sigiri-furniture-app.herokuapp.com/items/add", items)
+      .post("http://sigiri-furniture-app.herokuapp.com/items/add", items)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
       

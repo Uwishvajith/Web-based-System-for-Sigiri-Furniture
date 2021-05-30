@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HOST = "https://sigiri-furniture-app.herokuapp.com";
+const HOST = "http://sigiri-furniture-app.herokuapp.com";
 
 export const addEmployee = async (employeePayload) => {
   //console.log(employeePayload, "<<<<<<<<<<<<<<<<<<<<<<<<");
